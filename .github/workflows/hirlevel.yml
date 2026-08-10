@@ -1,0 +1,58 @@
+name: Heti menü hírlevél
+
+# Akkor fut, ha a heti menü megváltozott. A tényleges küldésnek több
+# védőkorlátja van (lásd tools/hirlevel-kuldes.mjs): csak a legfrissebb hetet
+# küldi ki, és csak egyszer — ugyanannak a hétnek a javítgatása nem indít
+# újabb levelet.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/_data/menu.json"
+  workflow_dispatch:
+    inputs:
+      proba:
+        description: "Próba mód (nem megy ki levél, csak kiírja, mi menne)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hirlevel
+  cancel-in-progress: false
+
+jobs:
+  kuldes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Hírlevél kiküldése
+        env:
+          MAILERLITE_API_KEY: ${{ secrets.MAILERLITE_API_KEY }}
+          HIRLEVEL_FELADO: ${{ vars.HIRLEVEL_FELADO }}
+          HIRLEVEL_CSOPORT: ${{ vars.HIRLEVEL_CSOPORT }}
+        run: |
+          if [ "${{ github.event.inputs.proba }}" = "true" ]; then
+            node tools/hirlevel-kuldes.mjs --proba
+          else
+            node tools/hirlevel-kuldes.mjs
+          fi
+
+      - name: A kiküldés tényének rögzítése
+        run: |
+          if git diff --quiet -- .hirlevel-allapot.json; then
+            echo "Nem ment ki levél, nincs mit rögzíteni."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .hirlevel-allapot.json
+          # A [skip ci] azért kell, hogy ez a commit ne indítsa újra a folyamatot.
+          git commit -m "chore: heti menü hírlevél kiküldve [skip ci]"
+          git push

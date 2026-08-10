@@ -107,6 +107,46 @@ nem mennek át ezen az optimalizáláson, ezért nagy fájlt ne tölts fel oda.
 - **A vicces „Az utolsó szó jogán” kép** (csirkeláb a levesben) szándékosan nincs
   a galériában — mém, nem étvágygerjesztő fotó. Ha mégis kell, a blogba illik.
 
+---
+
+## Hírlevél (heti menü e-mailben)
+
+A feliratkozó űrlap a főoldalon és a heti menü oldalon jelenik meg — de **csak
+akkor, ha a Beállításokban ki van töltve a hírlevél URL-je.** Amíg üres, a
+szakasz meg sem jelenik, hogy ne legyen a látogató előtt működésképtelen űrlap.
+
+### Egyszeri beállítás (MailerLite)
+
+1. **Fiók**: regisztrálj a mailerlite.com oldalon (ingyenes 1000 feliratkozóig).
+2. **Feladó igazolása**: a MailerLite-ban add hozzá és igazold a feladó e-mail
+   címet (pl. `info@atlaszkifozde.hu`). Enélkül nem megy ki levél.
+3. **Csoport**: hozz létre egy `Heti menü` nevű csoportot (a küldő szkript
+   ezt keresi; ha nincs, létrehozza).
+4. **Feliratkozó űrlap**: készíts egy embedded formot, másold ki a `form action`
+   címét, és írd be a CMS → *Beállítások* → *Hírlevél* → *A feliratkozó űrlap
+   címe* mezőbe. Az *e-mail mező neve* MailerLite-nál: `fields[email]`.
+5. **GitHub titkok és változók** (Settings → Secrets and variables → Actions):
+   - **Secret** `MAILERLITE_API_KEY` — a MailerLite API-kulcs
+   - **Variable** `HIRLEVEL_FELADO` — az igazolt feladó cím
+   - **Variable** `HIRLEVEL_CSOPORT` — opcionális, alapból `Heti menü`
+
+### Hogyan megy ki?
+
+A `.github/workflows/hirlevel.yml` akkor fut, ha a `src/_data/menu.json`
+megváltozik. **Védőkorlátok — ezeket ne vedd ki:**
+
+- csak a **legfrissebben felvett** hetet küldi ki;
+- **egy hetet csak egyszer**: a kiküldött hét dátumát a `.hirlevel-allapot.json`
+  őrzi, tehát ugyanannak a hétnek a javítgatása nem indít újabb levelet;
+- **hiányos hetet** (főétel nélküli nap) nem küld ki;
+- **üres csoportba** nem hoz létre kampányt;
+- API-kulcs nélkül csak kiírja, mi menne, és kilép.
+
+Kézi próba: Actions → *Heti menü hírlevél* → *Run workflow*, a „Próba mód"
+bekapcsolva. Ilyenkor semmi nem megy ki, csak a napló mutatja, mi menne.
+
+Helyben: `node tools/hirlevel-kuldes.mjs --proba`
+
 ## DNS (tárhely.eu)
 
 | Típus | Név | Érték |
