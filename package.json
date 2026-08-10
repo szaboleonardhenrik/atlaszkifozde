@@ -1,15 +1,18 @@
 {
   "name": "atlaszkifozde",
-  "version": "1.0.0",
-  "description": "Az Atlasz Kifőzde (atlaszkifozde.hu) statikus weboldala",
+  "version": "2.0.0",
+  "description": "Az Atlasz Kifőzde (atlaszkifozde.hu) weboldala – Eleventy + Tailwind, GitHub Pages",
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "tailwindcss -i src/input.css -o assets/css/style.css --minify",
-    "watch": "tailwindcss -i src/input.css -o assets/css/style.css --watch",
-    "start": "python -m http.server 8899"
+    "build": "eleventy",
+    "dev": "eleventy --serve",
+    "kepek": "python tools/process-images.py"
   },
   "license": "UNLICENSED",
   "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "@11ty/eleventy-plugin-rss": "^3.0.0",
     "@tailwindcss/cli": "^4.3.3",
     "tailwindcss": "^4.3.3"
   }

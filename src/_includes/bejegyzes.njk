@@ -1,0 +1,61 @@
+---
+layout: base.njk
+ogTipus: article
+---
+
+<article>
+  <header class="bg-pergamen-100 py-12 md:py-16">
+    <div class="szakasz mx-auto max-w-3xl text-center">
+      <p class="cimke">Blog</p>
+      <h1 class="mt-5 font-display text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">{{ cim }}</h1>
+      <p class="mt-5 text-petrol-900/60">
+        <time datetime="{{ page.date | isoDatum }}">{{ page.date | magyarDatum }}</time>
+        {% if szerzo %} · {{ szerzo }}{% endif %}
+      </p>
+    </div>
+  </header>
+
+  {% if borito %}
+    <div class="szakasz -mt-6 md:-mt-10">
+      <img
+        src="/assets/img/{{ borito }}"
+        alt="{{ boritoLeiras | default('') }}"
+        class="mx-auto w-full max-w-4xl rounded-3xl object-cover shadow-lg"
+      />
+    </div>
+  {% endif %}
+
+  <div class="szakasz py-12 md:py-16">
+    <div class="szoveg mx-auto max-w-3xl">
+      {{ content | safe }}
+    </div>
+
+    <div class="mx-auto mt-14 max-w-3xl border-t border-pergamen-300 pt-8">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <a class="font-semibold text-paradicsom-600 hover:underline" href="/blog/">← Vissza a blogra</a>
+        <a class="gomb gomb-elsodleges" href="/heti-menu/">E heti menü</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+{# A cikk-adatok itt, a törzsben szerepelnek: a sablonban `set`-tel beállított
+   változó nem jutna el a szülő elrendezésbe (base.njk), a JSON-LD viszont a
+   dokumentum bármely pontján állhat. #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ cim | dump | safe }},
+  "description": {{ leiras | default("") | dump | safe }},
+  "datePublished": "{{ page.date | isoDatum }}",
+  "image": "{{ beallitasok.url }}/assets/img/{{ borito | default('csirke-bulgur.webp') }}",
+  "author": { "@type": "Organization", "name": {{ beallitasok.nev | dump | safe }} },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ beallitasok.nev | dump | safe }},
+    "logo": { "@type": "ImageObject", "url": "{{ beallitasok.url }}/assets/img/logo.webp" }
+  },
+  "mainEntityOfPage": "{{ page.url | abszolutUrl(beallitasok.url) }}"
+}
+</script>

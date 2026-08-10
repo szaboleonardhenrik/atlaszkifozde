@@ -1,0 +1,5 @@
+{
+  "layout": "bejegyzes.njk",
+  "permalink": "/blog/{{ page.fileSlug }}/",
+  "szerzo": "Atlasz Kifőzde"
+}

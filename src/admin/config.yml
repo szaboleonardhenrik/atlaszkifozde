@@ -1,0 +1,164 @@
+backend:
+  name: github
+  repo: szaboleonardhenrik/atlaszkifozde
+  branch: main
+  commit_messages:
+    create: 'Új {{collection}}: {{slug}} ({{author-login}})'
+    update: 'Frissítés – {{collection}} ({{author-login}})'
+    delete: 'Törlés – {{collection}}: {{slug}} ({{author-login}})'
+    uploadMedia: 'Kép feltöltve: {{path}}'
+    deleteMedia: 'Kép törölve: {{path}}'
+
+# A CMS-ből feltöltött képek helye
+media_folder: src/assets/img
+public_folder: /assets/img
+
+# A szerkesztő felülete angol: a Sveltia CMS nem ismeri a `locale` opciót
+# (figyelmeztetéssel eldobja). A mezőnevek viszont magyarok.
+publish_mode: simple
+
+collections:
+  # ------------------------------------------------------------------ menü ---
+  - name: menu
+    label: Heti menü
+    files:
+      - name: hetek
+        label: Heti menü
+        file: src/_data/menu.json
+        icon: restaurant
+        description: >-
+          A honlap mindig azt a hetet emeli ki, amelyikbe a mai nap beleesik.
+          A mentés után 1-2 perccel frissül az oldal.
+        fields:
+          - name: arak
+            label: Árak
+            widget: object
+            fields:
+              - { name: napi_menu, label: Napi menü ára (Ft), widget: number, value_type: int, min: 0 }
+              - { name: heti_befizetes, label: Heti befizetés esetén (Ft/nap), widget: number, value_type: int, min: 0 }
+              - { name: megjegyzes, label: Megjegyzés az árakhoz, widget: string, required: false }
+          - name: hetek
+            label: Hetek
+            label_singular: hét
+            widget: list
+            summary: '{{fields.kezdes}}'
+            fields:
+              - name: kezdes
+                label: A hét hétfői dátuma
+                widget: datetime
+                date_format: YYYY-MM-DD
+                time_format: false
+                format: YYYY-MM-DD
+                hint: Mindig a hét HÉTFŐJÉT add meg, pl. 2026-08-17.
+              - name: napok
+                label: Napok
+                label_singular: nap
+                widget: list
+                summary: '{{fields.nap}} – {{fields.foetel}}'
+                fields:
+                  - name: nap
+                    label: Nap
+                    widget: select
+                    options: ['Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat', 'Vasárnap']
+                  - { name: leves, label: Leves, widget: string, required: false }
+                  - { name: foetel, label: Főétel, widget: string }
+                  - { name: ar, label: Ár (Ft), widget: number, value_type: int, min: 0, default: 2290 }
+
+  # ------------------------------------------------------------------ blog ---
+  - name: blog
+    label: Blog
+    label_singular: bejegyzés
+    folder: src/blog
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: yaml-frontmatter
+    icon: article
+    summary: '{{cim}}'
+    sortable_fields: ['date', 'cim']
+    fields:
+      - { name: cim, label: Cím, widget: string }
+      - name: leiras
+        label: Rövid leírás
+        widget: text
+        hint: Ez jelenik meg a listában és a Google találati oldalán. 1-2 mondat.
+      - { name: date, label: Dátum, widget: datetime, date_format: YYYY-MM-DD, time_format: false, format: YYYY-MM-DD }
+      - name: borito
+        label: Borítókép
+        widget: image
+        required: false
+        media_library: { config: { multiple: false } }
+        hint: A kép a /assets/img mappába kerül.
+      - { name: boritoLeiras, label: A borítókép leírása (vakok számára), widget: string, required: false }
+      - name: piszkozat
+        label: Piszkozat (nem jelenik meg az oldalon)
+        widget: boolean
+        default: false
+        required: false
+      - { name: body, label: Szöveg, widget: markdown }
+
+  # --------------------------------------------------------------- galéria ---
+  - name: galeria
+    label: Galéria
+    files:
+      - name: kepek
+        label: Galéria képei
+        file: src/_data/galeria.json
+        icon: photo_library
+        description: A galéria oldal képei. A leírás a képaláírás és a kereső számára is fontos.
+        fields:
+          - name: kepek
+            label: Képek
+            label_singular: kép
+            widget: list
+            summary: '{{fields.leiras}}'
+            fields:
+              - name: fajl
+                label: Kép
+                widget: image
+                hint: Csak a fájlnév kell (pl. paella.webp) – feltöltésnél magától kitöltődik.
+              - { name: leiras, label: Leírás, widget: string }
+
+  # ----------------------------------------------------------- beállítások ---
+  - name: beallitasok
+    label: Beállítások
+    files:
+      - name: alap
+        label: Elérhetőség és szövegek
+        file: src/_data/beallitasok.json
+        icon: settings
+        description: Az oldal alapadatai – ezek a fejlécben, láblécben és a Kapcsolat oldalon jelennek meg.
+        fields:
+          - { name: nev, label: A kifőzde neve, widget: string }
+          - { name: szlogen, label: Szlogen, widget: string }
+          - { name: url, label: A weboldal címe, widget: string, hint: Csak akkor változtasd, ha a domain is változik. }
+          - { name: bevezeto, label: Bevezető szöveg a főoldalon, widget: text }
+          - { name: telefon, label: Telefonszám (ahogy látszik), widget: string }
+          - { name: telefon_link, label: Telefonszám tárcsázáshoz, widget: string, hint: 'Szóköz nélkül, pl. +36204269836' }
+          - { name: email, label: E-mail cím, widget: string, required: false }
+          - name: cim
+            label: Cím
+            widget: object
+            fields:
+              - { name: utca, label: Utca, házszám, widget: string }
+              - { name: iranyitoszam, label: Irányítószám, widget: string }
+              - { name: varos, label: Város, widget: string }
+              - { name: kerulet, label: Kerület / városrész, widget: string, required: false }
+              - { name: szelesseg, label: Szélességi fok (térképhez), widget: number, value_type: float }
+              - { name: hosszusag, label: Hosszúsági fok (térképhez), widget: number, value_type: float }
+          - name: nyitvatartas
+            label: Nyitvatartás
+            widget: list
+            summary: '{{fields.nap}}: {{fields.ido}}'
+            fields:
+              - { name: nap, label: Nap(ok), widget: string }
+              - { name: ido, label: Időpont, widget: string }
+          - { name: nyitvatartas_megjegyzes, label: Megjegyzés a nyitvatartáshoz, widget: string, required: false }
+          - { name: facebook, label: Facebook-oldal linkje, widget: string, required: false }
+          - name: velemenyek
+            label: Vendégvélemények
+            widget: list
+            summary: '{{fields.szerzo}}'
+            fields:
+              - { name: szoveg, label: Vélemény, widget: text }
+              - { name: szerzo, label: Ki mondta, widget: string }

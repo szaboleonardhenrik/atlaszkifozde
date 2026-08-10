@@ -1,0 +1,54 @@
+---
+layout: base.njk
+permalink: /galeria/
+cim: Galéria
+leiras: "Fotók az Atlasz Kifőzde ételeiről: házias főételek, sültek, tésztás fogások, frissen sült sütemények és desszertek."
+borito: paella.webp
+---
+
+<section class="bg-pergamen-100 py-12 md:py-16">
+  <div class="szakasz text-center">
+    <p class="cimke">A konyhánkból</p>
+    <h1 class="cim-disz mt-4 font-display text-4xl font-bold sm:text-5xl">Galéria</h1>
+    <p class="mx-auto mt-6 max-w-2xl text-lg text-petrol-900/75">
+      Néhány fogás a mindennapjainkból. Kattintson a képre a nagyításhoz.
+    </p>
+  </div>
+</section>
+
+<section class="szakasz py-12 md:py-16">
+  <div class="columns-2 gap-4 md:columns-3 lg:columns-4 [&>figure]:mb-4">
+    {% for kep in galeria.kepek %}
+      <figure class="break-inside-avoid overflow-hidden rounded-2xl bg-white shadow-sm">
+        <img
+          src="/assets/img/{{ kep.fajl }}"
+          alt="{{ kep.leiras }}"
+          data-nagyit="/assets/img/{{ kep.fajl }}"
+          loading="lazy"
+          class="w-full cursor-zoom-in transition hover:opacity-90"
+        />
+        <figcaption class="px-4 py-3 text-sm text-petrol-900/70">{{ kep.leiras }}</figcaption>
+      </figure>
+    {% endfor %}
+  </div>
+
+  <div class="mt-12 text-center">
+    <a class="gomb gomb-elsodleges" href="/heti-menu/">Mit főzünk a héten?</a>
+  </div>
+</section>
+
+<!-- Nagyító -->
+<dialog id="kep-nagyito" class="max-h-[92vh] max-w-[92vw] rounded-2xl bg-transparent p-0 backdrop:bg-petrol-900/85">
+  <div class="relative">
+    <img src="" alt="" class="max-h-[88vh] w-auto rounded-2xl" />
+    <button
+      type="button" data-zar
+      class="absolute right-3 top-3 rounded-full bg-pergamen-50/90 p-2 text-petrol-800 hover:bg-pergamen-50"
+      aria-label="Bezárás"
+    >
+      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18" />
+      </svg>
+    </button>
+  </div>
+</dialog>

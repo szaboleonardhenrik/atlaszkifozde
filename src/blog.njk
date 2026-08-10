@@ -1,0 +1,52 @@
+---
+layout: base.njk
+permalink: /blog/
+cim: Blog
+leiras: "Hírek, receptek és kulisszatitkok az Atlasz Kifőzde konyhájából: mit főzünk, miből, és mi történik nálunk."
+borito: kacsacomb.webp
+---
+
+<section class="bg-pergamen-100 py-12 md:py-16">
+  <div class="szakasz text-center">
+    <p class="cimke">A konyha háza tája</p>
+    <h1 class="cim-disz mt-4 font-display text-4xl font-bold sm:text-5xl">Blog</h1>
+    <p class="mx-auto mt-6 max-w-2xl text-lg text-petrol-900/75">
+      Hírek, receptek és kulisszatitkok a konyhánkból – hogy ne csak az étel
+      érkezzen meg, hanem a története is.
+    </p>
+  </div>
+</section>
+
+<section class="szakasz py-12 md:py-16">
+  {% if collections.bejegyzesek.length %}
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {% for b in collections.bejegyzesek %}
+        <article class="flex flex-col overflow-hidden rounded-2xl border border-pergamen-300 bg-white shadow-sm">
+          {% if b.data.borito %}
+            <a href="{{ b.url }}" tabindex="-1" aria-hidden="true">
+              <img src="/assets/img/{{ b.data.borito }}" alt="" loading="lazy" class="h-48 w-full object-cover" />
+            </a>
+          {% endif %}
+          <div class="flex flex-1 flex-col p-6">
+            <time class="text-sm text-petrol-900/60" datetime="{{ b.date | isoDatum }}">{{ b.date | magyarDatum }}</time>
+            <h2 class="mt-2 text-xl font-bold">
+              <a class="hover:text-paradicsom-600" href="{{ b.url }}">{{ b.data.cim }}</a>
+            </h2>
+            <p class="mt-3 flex-1 text-petrol-900/75">{{ b.data.leiras }}</p>
+            <a class="mt-5 font-semibold text-paradicsom-600 hover:underline" href="{{ b.url }}">Elolvasom →</a>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    <p class="mt-12 text-center text-petrol-900/60">
+      Az új bejegyzésekről
+      <a class="font-semibold text-paradicsom-600 hover:underline" href="/feed.xml">RSS-en</a>
+      is értesülhet.
+    </p>
+  {% else %}
+    <div class="kartya mx-auto max-w-lg text-center">
+      <p class="text-petrol-900/70">Hamarosan érkeznek az első bejegyzések.</p>
+    </div>
+  {% endif %}
+</section>

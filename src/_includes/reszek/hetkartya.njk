@@ -1,0 +1,30 @@
+{#
+  Egy hét menükártyája.
+  Bemenet:  het   – a hét objektuma (kezdes, napok)
+            cimke – a fejlécben megjelenő felirat
+#}
+<div class="overflow-hidden rounded-2xl border border-pergamen-300 bg-white shadow-sm">
+  <div class="flex flex-wrap items-center justify-between gap-2 bg-petrol-800 px-5 py-4">
+    <h3 class="font-display text-xl font-bold text-pergamen-50">{{ cimke | default("Heti menü") }}</h3>
+    <p class="text-sm text-bronz-300">{{ het.kezdes | hetIdoszak }}</p>
+  </div>
+  <ul>
+    {% for nap in het.napok %}
+      {% set mai = het.kezdes | maE(loop.index0) %}
+      <li class="flex flex-col gap-1 border-b border-pergamen-200 px-5 py-4 last:border-0 sm:flex-row sm:items-center sm:gap-6{% if mai %} bg-bronz-50{% endif %}">
+        <div class="flex w-full items-baseline gap-3 sm:w-44 sm:shrink-0">
+          <span class="font-display text-lg font-bold {% if mai %}text-paradicsom-600{% else %}text-petrol-800{% endif %}">{{ nap.nap }}</span>
+          <span class="text-sm text-petrol-900/50">{{ het.kezdes | napDatuma(loop.index0) }}</span>
+          {% if mai %}<span class="cimke ml-auto sm:ml-0">Ma</span>{% endif %}
+        </div>
+        <div class="min-w-0 flex-1">
+          {% if nap.leves %}<p class="text-petrol-900/70">{{ nap.leves }}</p>{% endif %}
+          <p class="font-semibold text-petrol-900">{{ nap.foetel }}</p>
+        </div>
+        {% if nap.ar %}
+          <div class="shrink-0 font-display text-lg font-bold text-paradicsom-600">{{ nap.ar | forint }}</div>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>

@@ -1,0 +1,29 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+oldalak:
+  - { ut: "/", gyakorisag: weekly, sulyy: "1.0" }
+  - { ut: "/heti-menu/", gyakorisag: weekly, sulyy: "0.9" }
+  - { ut: "/kapcsolat/", gyakorisag: monthly, sulyy: "0.8" }
+  - { ut: "/blog/", gyakorisag: weekly, sulyy: "0.7" }
+  - { ut: "/rolunk/", gyakorisag: monthly, sulyy: "0.6" }
+  - { ut: "/galeria/", gyakorisag: monthly, sulyy: "0.5" }
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for o in oldalak %}
+  <url>
+    <loc>{{ o.ut | abszolutUrl(beallitasok.url) }}</loc>
+    <changefreq>{{ o.gyakorisag }}</changefreq>
+    <priority>{{ o.sulyy }}</priority>
+  </url>
+{%- endfor %}
+{%- for b in collections.bejegyzesek %}
+  <url>
+    <loc>{{ b.url | abszolutUrl(beallitasok.url) }}</loc>
+    <lastmod>{{ b.date | isoDatum }}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+{%- endfor %}
+</urlset>

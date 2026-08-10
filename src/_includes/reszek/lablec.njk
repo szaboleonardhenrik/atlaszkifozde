@@ -1,0 +1,54 @@
+<footer class="mt-auto bg-petrol-800 py-14 text-pergamen-100">
+  <div class="szakasz grid gap-10 md:grid-cols-3">
+    <div>
+      <div class="inline-block rounded-xl bg-pergamen-100 p-3">
+        <img src="/assets/img/logo.webp" alt="{{ beallitasok.nev }}" width="440" height="1022" class="h-32 w-auto" />
+      </div>
+      <p class="mt-5 max-w-xs text-pergamen-200/80">
+        Házias napi menü Óbudán, napi friss alapanyagokból. {{ beallitasok.szlogen }}.
+      </p>
+    </div>
+
+    <div>
+      <h2 class="text-lg font-bold text-pergamen-100">Elérhetőség</h2>
+      <ul class="mt-4 space-y-2 text-pergamen-200/90">
+        <li>{{ beallitasok.cim.iranyitoszam }} {{ beallitasok.cim.varos }}, {{ beallitasok.cim.utca }}</li>
+        <li>
+          <a class="font-semibold text-bronz-300 hover:underline" href="tel:{{ beallitasok.telefon_link }}">{{ beallitasok.telefon }}</a>
+        </li>
+        {% if beallitasok.email %}<li><a class="hover:underline" href="mailto:{{ beallitasok.email }}">{{ beallitasok.email }}</a></li>{% endif %}
+      </ul>
+
+      <h2 class="mt-7 text-lg font-bold text-pergamen-100">Nyitvatartás</h2>
+      <ul class="mt-3 space-y-1 text-pergamen-200/90">
+        {% for ny in beallitasok.nyitvatartas %}
+          <li>{{ ny.nap }}: {{ ny.ido }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="text-lg font-bold text-pergamen-100">Oldalak</h2>
+      <ul class="mt-4 space-y-2 text-pergamen-200/90">
+        <li><a class="hover:text-bronz-300" href="/heti-menu/">Heti menü</a></li>
+        <li><a class="hover:text-bronz-300" href="/rolunk/">Rólunk</a></li>
+        <li><a class="hover:text-bronz-300" href="/galeria/">Galéria</a></li>
+        <li><a class="hover:text-bronz-300" href="/blog/">Blog</a></li>
+        <li><a class="hover:text-bronz-300" href="/kapcsolat/">Kapcsolat</a></li>
+      </ul>
+      {% if beallitasok.facebook %}
+        <a class="mt-6 inline-flex items-center gap-2 text-pergamen-200 hover:text-bronz-300" href="{{ beallitasok.facebook }}" target="_blank" rel="noopener">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M22 12a10 10 0 10-11.6 9.9v-7h-2.5V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z" />
+          </svg>
+          Facebook
+        </a>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="szakasz mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-petrol-600 pt-6 text-sm text-pergamen-200/70">
+    <p>© {{ ev }} {{ beallitasok.nev }}. Minden jog fenntartva.</p>
+    <p>Térkép: OpenStreetMap közreműködők</p>
+  </div>
+</footer>

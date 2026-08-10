@@ -1,0 +1,150 @@
+@import "tailwindcss" source(none);
+
+/* A kész HTML-ből olvassuk ki a ténylegesen használt osztályokat (a build
+   sorrendje: Eleventy → Tailwind), így a Nunjucks-ból generált markup is
+   bekerül, idegen könyvtárak osztálynév-törmeléke viszont nem. */
+@source "../../_site/**/*.html";
+
+/* A Bitter változó betűtípus helyben tárolva (nincs külső CDN-hívás → GDPR-tiszta).
+   A magyar ő/ű a latin-ext tartományban van, ezért mindkét szelet kell. */
+@font-face {
+  font-family: "Bitter";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../fonts/bitter-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Bitter";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../fonts/bitter-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Márkapaletta — a címeres logóból mintavételezve:
+   petróleum #1E4245 · bronz #A8874C · paradicsomvörös #A81818 · pergamen #F3F0DF */
+@theme {
+  --color-petrol-50: #eef4f4;
+  --color-petrol-100: #d6e4e4;
+  --color-petrol-200: #adc8c9;
+  --color-petrol-300: #7ba5a7;
+  --color-petrol-400: #4c7f82;
+  --color-petrol-500: #2e6265;
+  --color-petrol-600: #244f52;
+  --color-petrol-700: #1e4245;
+  --color-petrol-800: #163134;
+  --color-petrol-900: #0f2325;
+
+  --color-bronz-50: #faf5e9;
+  --color-bronz-100: #f4ecd9;
+  --color-bronz-200: #e6d4ae;
+  --color-bronz-300: #d4b97f;
+  --color-bronz-400: #bf9f5e;
+  --color-bronz-500: #a8874c;
+  --color-bronz-600: #8c6f3c;
+  --color-bronz-700: #6d552e;
+
+  --color-paradicsom-100: #f9e2df;
+  --color-paradicsom-300: #e08a80;
+  --color-paradicsom-400: #cf4436;
+  --color-paradicsom-500: #b8291d;
+  --color-paradicsom-600: #a81818;
+  --color-paradicsom-700: #8b1414;
+
+  --color-pergamen-50: #faf8f0;
+  --color-pergamen-100: #f3f0df;
+  --color-pergamen-200: #eae5cd;
+  --color-pergamen-300: #ddd5b4;
+
+  --color-tinta: #14201f;
+
+  --font-display: "Bitter", Georgia, "Times New Roman", serif;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-pergamen-50 text-tinta font-sans antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-petrol-800;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-paradicsom-600;
+  }
+}
+
+@layer components {
+  /* A .gomb önmagában is használható; a változatot mellé kell írni:
+     class="gomb gomb-elsodleges" */
+  .gomb {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3
+      text-base font-semibold transition-colors;
+  }
+  .gomb-elsodleges {
+    @apply bg-paradicsom-600 text-pergamen-50 hover:bg-paradicsom-700;
+  }
+  .gomb-masodlagos {
+    @apply border-2 border-petrol-700 text-petrol-700 hover:bg-petrol-700 hover:text-pergamen-50;
+  }
+  .gomb-vilagos {
+    @apply border-2 border-bronz-300 text-pergamen-50 hover:bg-bronz-300 hover:text-petrol-800;
+  }
+  .szakasz {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+  .cimke {
+    @apply inline-block rounded-full border border-bronz-300 bg-bronz-50 px-3 py-1
+      text-sm font-semibold uppercase tracking-widest text-bronz-700;
+  }
+  .kartya {
+    @apply rounded-2xl border border-pergamen-300 bg-white p-6 shadow-sm;
+  }
+  /* Bronz díszvonal a szakaszcímek alatt */
+  .cim-disz::after {
+    content: "";
+    @apply mx-auto mt-4 block h-px w-24 bg-bronz-400;
+  }
+  /* Blogbejegyzés törzse (a Markdownból jövő nyers HTML-hez) */
+  .szoveg h2 {
+    @apply mt-10 mb-4 text-2xl font-bold sm:text-3xl;
+  }
+  .szoveg h3 {
+    @apply mt-8 mb-3 text-xl font-bold;
+  }
+  .szoveg p {
+    @apply mb-5 text-lg leading-relaxed text-petrol-900/80;
+  }
+  .szoveg ul {
+    @apply mb-5 list-disc space-y-2 pl-6 text-lg text-petrol-900/80;
+  }
+  .szoveg ol {
+    @apply mb-5 list-decimal space-y-2 pl-6 text-lg text-petrol-900/80;
+  }
+  .szoveg a {
+    @apply font-semibold text-paradicsom-600 underline underline-offset-2 hover:text-paradicsom-700;
+  }
+  .szoveg blockquote {
+    @apply my-6 border-l-4 border-bronz-400 bg-bronz-50 py-3 pl-5 pr-4 text-lg italic;
+  }
+  .szoveg img {
+    @apply my-6 w-full rounded-2xl;
+  }
+  .szoveg strong {
+    @apply font-bold text-petrol-800;
+  }
+}

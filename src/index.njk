@@ -1,0 +1,229 @@
+---
+layout: base.njk
+leiras: "Házias napi menü a Szentendrei úton, napi friss alapanyagokból. Heti menü 2290 Ft-tól, elvitelre és helyben fogyasztásra. 1039 Budapest, Szentendrei út 327."
+borito: csirke-bulgur.webp
+eleventyNavigation:
+  key: Főoldal
+---
+
+{% set aktualis = menu.hetek | aktualisHet %}
+
+<!-- Nyitókép -->
+<section class="relative overflow-hidden bg-petrol-800">
+  <img
+    src="/assets/img/csirke-bulgur.webp"
+    alt=""
+    width="1600" height="900"
+    class="absolute inset-0 h-full w-full object-cover opacity-25"
+  />
+  <div class="szakasz relative grid items-center gap-10 py-16 md:py-24 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
+    <div>
+      <p class="inline-block rounded-full border border-bronz-400/60 px-3 py-1 text-sm font-semibold uppercase tracking-widest text-bronz-300">
+        Jó kaják, amiről nem tudsz leállni
+      </p>
+      <h1 class="mt-6 font-display text-4xl font-bold leading-tight text-pergamen-50 sm:text-5xl lg:text-6xl">
+        Atlasz Kifőzde
+      </h1>
+      <p class="mt-4 font-display text-xl text-bronz-300 sm:text-2xl">– {{ beallitasok.szlogen | lower }}</p>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-pergamen-100/85">
+        {{ beallitasok.bevezeto }}
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a class="gomb gomb-elsodleges" href="/heti-menu/">E heti menü</a>
+        <a class="gomb gomb-vilagos" href="/kapcsolat/">Hol találsz minket?</a>
+      </div>
+
+      <dl class="mt-10 flex flex-wrap gap-x-10 gap-y-5">
+        <div>
+          <dt class="text-sm uppercase tracking-widest text-bronz-300/80">Napi menü</dt>
+          <dd class="font-display text-2xl font-bold text-pergamen-50">{{ menu.arak.napi_menu | forint }}</dd>
+        </div>
+        <div>
+          <dt class="text-sm uppercase tracking-widest text-bronz-300/80">Heti befizetéssel</dt>
+          <dd class="font-display text-2xl font-bold text-bronz-300">{{ menu.arak.heti_befizetes | forint }} / nap</dd>
+        </div>
+        <div>
+          <dt class="text-sm uppercase tracking-widest text-bronz-300/80">Nyitva</dt>
+          <dd class="font-display text-2xl font-bold text-pergamen-50">H–P 11–18</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="mx-auto w-full max-w-xs rounded-3xl bg-pergamen-100 p-5 shadow-2xl lg:max-w-sm">
+      <img
+        src="/assets/img/logo-nagy.webp"
+        alt="Az Atlasz Kifőzde címere: Atlasz a vállán egy hatalmas paradicsommal"
+        width="441" height="1024"
+        class="w-full rounded-2xl"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- E heti menü -->
+<section class="szakasz py-16 md:py-20">
+  <div class="text-center">
+    <p class="cimke">Minden hétfőn új</p>
+    <h2 class="cim-disz mt-4 text-3xl font-bold sm:text-4xl">Heti menü</h2>
+    <p class="mx-auto mt-6 max-w-2xl text-lg text-petrol-900/75">
+      A kifőzdénk menüje minden hétfőn frissen indul, változatos, házias fogásokkal.
+      Gyors ebédnek és nyugodt kikapcsolódásnak egyaránt tökéletes.
+    </p>
+  </div>
+
+  <div class="mt-10">
+    {% if aktualis %}
+      {% set het = aktualis %}
+      {% set cimke = "E heti menü" %}
+      {% include "reszek/hetkartya.njk" %}
+      <p class="mt-5 text-center text-petrol-900/70">
+        Napi menü <strong class="text-petrol-800">{{ menu.arak.napi_menu | forint }}</strong> ·
+        egész hetes befizetéssel <strong class="text-paradicsom-600">{{ menu.arak.heti_befizetes | forint }}/nap</strong>
+      </p>
+    {% else %}
+      <div class="kartya text-center">
+        <p class="text-petrol-900/70">A heti menü hamarosan frissül.</p>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="mt-8 text-center">
+    <a class="gomb gomb-masodlagos" href="/heti-menu/">Teljes heti menü</a>
+  </div>
+</section>
+
+<!-- Miért mi -->
+<section class="bg-pergamen-100 py-16 md:py-20">
+  <div class="szakasz">
+    <div class="text-center">
+      <h2 class="cim-disz text-3xl font-bold sm:text-4xl">Amiért visszajárnak hozzánk</h2>
+    </div>
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      <div class="kartya">
+        <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-petrol-700 text-bronz-300">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 20V9m0 0c0-3 2-5 5-5.5.5 3-1 6-5 5.5zm0 0c0-3-2-5-5-5.5-.5 3 1 6 5 5.5z" />
+            <path stroke-linecap="round" d="M6 20h12" />
+          </svg>
+        </div>
+        <h3 class="mt-5 text-xl font-bold">Napi friss beszerzés</h3>
+        <p class="mt-3 text-petrol-900/75">
+          Minden reggel személyesen válogatjuk az alapanyagot – a legszebbet, a
+          legfrissebbet, az adott nap kínálatához igazodva.
+        </p>
+      </div>
+      <div class="kartya">
+        <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-petrol-700 text-bronz-300">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 12h16v1.5A6.5 6.5 0 0113.5 20h-3A6.5 6.5 0 014 13.5V12z" />
+            <path stroke-linecap="round" d="M9 8c0-1 .8-1.4.8-3M13 8c0-1 .8-1.4.8-3" />
+          </svg>
+        </div>
+        <h3 class="mt-5 text-xl font-bold">Házias ízek</h3>
+        <p class="mt-3 text-petrol-900/75">
+          Olyan fogások, amelyekben érezhető a törődés és a frissesség ereje –
+          pont úgy, ahogy otthon készülne, csak neked már készen van.
+        </p>
+      </div>
+      <div class="kartya">
+        <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-petrol-700 text-bronz-300">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 8h14l-1 11a2 2 0 01-2 2H8a2 2 0 01-2-2L5 8zM9 8V6a3 3 0 116 0v2" />
+          </svg>
+        </div>
+        <h3 class="mt-5 text-xl font-bold">Elvitelre is</h3>
+        <p class="mt-3 text-petrol-900/75">
+          A menüt elvitelre és helyben fogyasztásra is kínáljuk, így egy gyors
+          ebédszünetbe is kényelmesen belefér.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Galéria-előnézet -->
+<section class="szakasz py-16 md:py-20">
+  <div class="text-center">
+    <p class="cimke">A konyhánkból</p>
+    <h2 class="cim-disz mt-4 text-3xl font-bold sm:text-4xl">Amit nálunk kaphatsz</h2>
+  </div>
+  <div class="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
+    {% for kep in galeria.kepek | szelet(0, 4) %}
+      <figure class="overflow-hidden rounded-2xl">
+        <img
+          src="/assets/img/{{ kep.fajl }}"
+          alt="{{ kep.leiras }}"
+          loading="lazy"
+          class="h-52 w-full object-cover transition duration-300 hover:scale-105 sm:h-64"
+        />
+      </figure>
+    {% endfor %}
+  </div>
+  <div class="mt-8 text-center">
+    <a class="gomb gomb-masodlagos" href="/galeria/">Tovább a galériába</a>
+  </div>
+</section>
+
+<!-- Vélemények -->
+<section class="bg-petrol-800 py-16 text-pergamen-100 md:py-20">
+  <div class="szakasz">
+    <div class="text-center">
+      <p class="inline-block rounded-full border border-bronz-400/60 px-3 py-1 text-sm font-semibold uppercase tracking-widest text-bronz-300">
+        Rólunk mondták
+      </p>
+      <h2 class="mt-4 text-3xl font-bold text-pergamen-50 sm:text-4xl">Vendégeink szavaival</h2>
+    </div>
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      {% for v in beallitasok.velemenyek %}
+        <figure class="rounded-2xl border border-petrol-600 bg-petrol-700/60 p-6">
+          <div class="flex gap-0.5 text-bronz-300" aria-label="5 csillagos értékelés">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <blockquote class="mt-4 text-pergamen-100/90">„{{ v.szoveg }}”</blockquote>
+          <figcaption class="mt-4 font-semibold text-bronz-300">{{ v.szerzo }}</figcaption>
+        </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Blog-előnézet -->
+{% set friss = collections.bejegyzesek | szelet(0, 3) %}
+{% if friss.length %}
+  <section class="szakasz py-16 md:py-20">
+    <div class="text-center">
+      <p class="cimke">A konyha háza tája</p>
+      <h2 class="cim-disz mt-4 text-3xl font-bold sm:text-4xl">Friss a blogról</h2>
+    </div>
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      {% for b in friss %}
+        <article class="kartya flex flex-col p-0">
+          {% if b.data.borito %}
+            <img src="/assets/img/{{ b.data.borito }}" alt="" loading="lazy" class="h-44 w-full rounded-t-2xl object-cover" />
+          {% endif %}
+          <div class="flex flex-1 flex-col p-6">
+            <time class="text-sm text-petrol-900/60" datetime="{{ b.date | isoDatum }}">{{ b.date | magyarDatum }}</time>
+            <h3 class="mt-2 text-xl font-bold"><a class="hover:text-paradicsom-600" href="{{ b.url }}">{{ b.data.cim }}</a></h3>
+            <p class="mt-3 flex-1 text-petrol-900/75">{{ b.data.leiras }}</p>
+            <a class="mt-4 font-semibold text-paradicsom-600 hover:underline" href="{{ b.url }}">Elolvasom →</a>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}
+
+<!-- Záró hívás -->
+<section class="szakasz pb-20">
+  <div class="rounded-3xl border border-pergamen-300 bg-pergamen-100 p-8 text-center md:p-12">
+    <h2 class="text-3xl font-bold sm:text-4xl">Ma is főzünk – ugorjon be!</h2>
+    <p class="mx-auto mt-4 max-w-2xl text-lg text-petrol-900/75">
+      {{ beallitasok.cim.iranyitoszam }} {{ beallitasok.cim.varos }}, {{ beallitasok.cim.utca }} ·
+      Hétfőtől péntekig 11:00–18:00, szombaton 11:00–15:00.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a class="gomb gomb-elsodleges" href="tel:{{ beallitasok.telefon_link }}">Telefonos rendelés</a>
+      <a class="gomb gomb-masodlagos" href="/kapcsolat/">Útvonal és nyitvatartás</a>
+    </div>
+  </div>
+</section>

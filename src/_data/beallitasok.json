@@ -1,0 +1,38 @@
+{
+  "nev": "Atlasz Kifőzde",
+  "szlogen": "Ahol a világ ízei otthonra találnak",
+  "url": "https://atlaszkifozde.hu",
+  "bevezeto": "Minden reggel személyesen intézzük a beszerzést, mindig az adott nap igényeihez és a legfrissebb alapanyagokhoz igazodva. Házias fogások, napról napra új ízekkel – elvitelre és helyben fogyasztásra.",
+  "telefon": "+36 20 426 9836",
+  "telefon_link": "+36204269836",
+  "email": "",
+  "cim": {
+    "utca": "Szentendrei út 327.",
+    "iranyitoszam": "1039",
+    "varos": "Budapest",
+    "kerulet": "III. kerület, Csillaghegy",
+    "szelesseg": 47.5867,
+    "hosszusag": 19.0458
+  },
+  "nyitvatartas": [
+    { "nap": "Hétfő – Péntek", "ido": "11:00 – 18:00" },
+    { "nap": "Szombat", "ido": "11:00 – 15:00" },
+    { "nap": "Vasárnap", "ido": "zárva" }
+  ],
+  "nyitvatartas_megjegyzes": "Ünnepnapokon eltérő nyitvatartás lehet – kérjük, hívjon minket.",
+  "facebook": "",
+  "velemenyek": [
+    {
+      "szoveg": "Köszönöm a segítőkész hozzáállást, a kedves kiszolgálást és a finom ebédet! Az egész csapat tele pocakkal távozott! Szívből ajánlom mindenkinek!",
+      "szerzo": "Anita Nagyné Horváth"
+    },
+    {
+      "szoveg": "Kedvesek, jól főznek. Tényleg finom ételeket adnak, nagyon korrekt áron. Mind az étel ízéhez, mind a mennyiségéhez mérten. Csak ajánlani tudom.",
+      "szerzo": "Baranyi Panni"
+    },
+    {
+      "szoveg": "Jó kis hely, finom ételekkel és kedves kiszolgálással. Tökéletes választás egy kellemes ebédhez!",
+      "szerzo": "Nagy Bence"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+---
+layout: base.njk
+permalink: /404.html
+cim: Nincs ilyen oldal
+leiras: "A keresett oldal nem található."
+eleventyExcludeFromCollections: true
+---
+
+<section class="szakasz flex flex-col items-center justify-center py-20 text-center md:py-28">
+  <div class="w-40 rounded-2xl bg-pergamen-100 p-3">
+    <img src="/assets/img/logo.webp" alt="{{ beallitasok.nev }}" width="440" height="1022" class="w-full rounded-xl" />
+  </div>
+  <p class="cimke mt-8">404</p>
+  <h1 class="mt-4 font-display text-4xl font-bold sm:text-5xl">Ez a fogás elfogyott</h1>
+  <p class="mt-4 max-w-lg text-lg text-petrol-900/75">
+    A keresett oldal nem található. Nézze meg, mit főzünk a héten, vagy keressen
+    minket telefonon.
+  </p>
+  <div class="mt-8 flex flex-wrap justify-center gap-3">
+    <a class="gomb gomb-elsodleges" href="/">Vissza a főoldalra</a>
+    <a class="gomb gomb-masodlagos" href="/heti-menu/">Heti menü</a>
+  </div>
+  <p class="mt-10 text-petrol-900/60">
+    {{ beallitasok.cim.iranyitoszam }} {{ beallitasok.cim.varos }}, {{ beallitasok.cim.utca }} ·
+    <a class="font-semibold text-paradicsom-600 hover:underline" href="tel:{{ beallitasok.telefon_link }}">{{ beallitasok.telefon }}</a>
+  </p>
+</section>

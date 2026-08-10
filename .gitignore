@@ -1,6 +1,11 @@
 node_modules/
-# A nyers, feldolgozatlan képek (assets/img/_*.jpg|png) nem kellenek a repóba
-assets/img/_*
-_contactsheet.jpg
+_site/
+
+# A nyers, feldolgozatlan fotók (a tools/process-images.py bemenetei)
+src/assets/img/_*
+
+# Fejlesztői melléktermékek
+*-asztali.png
+*-mobil.png
 .DS_Store
 Thumbs.db

@@ -1,43 +1,46 @@
 # Atlasz Kifőzde — atlaszkifozde.hu
 
-Az Atlasz Kifőzde weboldala. Statikus oldal (HTML + Tailwind CSS), a GitHub
-Pages szolgálja ki, a heti menü böngészőből szerkeszthető.
+Az Atlasz Kifőzde weboldala. **Eleventy** statikus generátor + **Tailwind CSS**,
+a GitHub Pages szolgálja ki. A heti menü, a blog, a galéria és az elérhetőségek
+böngészőből szerkeszthetők.
 
 - **Élő oldal:** https://atlaszkifozde.hu
-- **Menü szerkesztése:** https://atlaszkifozde.hu/admin/
-- **Hosting:** GitHub Pages (a `main` ág gyökere) — a push után ~1-2 perccel él
+- **Szerkesztés:** https://atlaszkifozde.hu/admin/
+- **Hosting:** GitHub Pages, a `main` ágra pusholt változás után a GitHub Actions
+  build magától élesíti (~2 perc)
 - **Domain:** a tárhely.eu-nál marad, csak a DNS mutat a GitHubra
 
 ---
 
-## A heti menü frissítése (ehhez nem kell fejlesztő)
+## Szerkesztés böngészőből (ehhez nem kell fejlesztő)
 
-1. Nyisd meg: **https://atlaszkifozde.hu/admin/**
-2. Belépés GitHub-tokennel (lásd lentebb, „Belépés az admin felületre”).
-3. **Heti menü** → a legfelső hét a soron következő. Új hétnél:
-   - a **Hetek** listában „Add hét”, a dátum mindig az adott hét **hétfője**,
-   - napokhoz leves + főétel + ár.
-4. **Save** — a mentés egy commitot készít a repóba, az oldal 1-2 perccel
-   később magától frissül.
+Nyisd meg: **https://atlaszkifozde.hu/admin/** — négy dolgot lehet szerkeszteni:
 
-Az oldal mindig azt a hetet emeli ki, amelyikbe a mai nap beleesik; ha a mai nap
-egyik hétbe sem esik, a legközelebbi jövőbelit mutatja. A lejárt heteket a
-`heti-menu.html` automatikusan elrejti, tehát a régieket nem kötelező törölni.
+| Menüpont | Mit állít |
+|---|---|
+| **Heti menü** | a hetek, napok, leves/főétel, árak |
+| **Blog** | bejegyzések írása, képpel; a „Piszkozat” kapcsolóval el is rejthető |
+| **Galéria** | a galéria oldal képei és képaláírásai |
+| **Beállítások** | telefonszám, cím, nyitvatartás, bevezető szöveg, vendégvélemények |
+
+Mentés után a GitHub Actions újraépíti az oldalt, és **1-2 percen belül élesedik**.
+
+A heti menünél a hét **hétfői dátumát** kell megadni. A honlap mindig azt a hetet
+emeli ki, amelyikbe a mai nap beleesik; a lejárt heteket magától elrejti, tehát
+a régieket nem kötelező törölni.
 
 ### Belépés az admin felületre
 
 A szerkesztő felülete **angol** (a Sveltia CMS-nek nincs magyar nyelve), de a
-mezőnevek magyarok: „Heti menü”, „Hetek”, „Leves”, „Főétel”, „Ár”.
-
-A belépés GitHub-tokennel megy (nem kell hozzá külön szerver) — az admin
-oldalon a **„Sign In Using Access Token”** gomb kell:
+mezőnevek magyarok. A belépés GitHub-tokennel megy — az admin oldalon a
+**„Sign In Using Access Token”** gomb kell:
 
 1. GitHub → *Settings* → *Developer settings* → *Personal access tokens* →
    **Fine-grained tokens** → *Generate new token*
 2. **Repository access:** csak ez az egy repó (`atlaszkifozde`)
 3. **Permissions → Repository permissions → Contents: Read and write**
-4. A kapott tokent az admin felületen a **„Sign In with Token”** gombnál kell
-   beilleszteni. A böngésző megjegyzi, tehát elég egyszer megadni.
+4. A kapott tokent az admin felületen kell beilleszteni. A böngésző megjegyzi,
+   tehát elég egyszer megadni.
 
 > A token olyan, mint egy jelszó — ne küldd tovább, és ha kikerül, a GitHubon
 > azonnal vissza lehet vonni.
@@ -47,72 +50,70 @@ oldalon a **„Sign In Using Access Token”** gomb kell:
 ## Fejlesztés
 
 ```bash
-npm install          # egyszer, a Tailwindhez
-npm run watch        # CSS újrafordítás mentéskor
-npm start            # helyi szerver: http://127.0.0.1:8899
+npm install
+npm run dev      # http://localhost:8080, mentésre újraépít (a CSS-t is)
+npm run build    # egyszeri build a _site mappába
+npm run kepek    # nyers fotókból webes WebP (lásd lentebb)
 ```
 
-**Fontos:** a kiszolgált CSS (`assets/css/style.css`) a repóban van, mert a
-GitHub Pages nem futtat buildet. Ha `src/input.css`-t vagy bármelyik HTML
-osztályait módosítod, **`npm run build` és a `style.css` commitolása kötelező**,
-különben élesben nem látszik a változás.
+A Tailwind az Eleventy build **után** fut (`eleventy.after` esemény), és a kész
+`_site/**/*.html`-ből olvassa ki a használt osztályokat. Így nem kell külön
+figyelő folyamat, és a Nunjucksból generált markup is bekerül.
 
-### Fájlszerkezet
+### Szerkezet
 
 | Útvonal | Mi ez |
 |---|---|
-| `index.html`, `heti-menu.html`, `rolunk.html`, `galeria.html`, `kapcsolat.html` | az öt oldal |
-| `404.html` | hibaoldal (a GitHub Pages automatikusan használja) |
-| `data/menu.json` | **a heti menü adatai** — ezt írja az admin felület |
-| `assets/js/menu.js` | a menüt jeleníti meg a JSON-ből |
-| `assets/js/oldal.js` | mobil menü, évszám, galéria-nagyító |
-| `src/input.css` | a Tailwind forrása (paletta, gombok, kártyák) |
-| `assets/css/style.css` | **lefordított CSS — ezt szolgáljuk ki, commitolni kell** |
-| `admin/` | Sveltia CMS (`config.yml` = a szerkesztő mezői) |
-| `src/process-images.py` | egyszeri kép-előkészítő (nyers fotó → webes WebP) |
-| `src/screenshot.py` | fejlesztői képernyőkép-készítő |
-| `CNAME` | a saját domain a GitHub Pages-nek — **ne töröld** |
-
-A fejléc és a lábléc szándékosan minden oldalon külön szerepel (nincs
-sablonrendszer, mert nincs build-lánc): ha módosítod, **mind az öt oldalon** át
-kell vezetni.
+| `src/index.njk`, `heti-menu.njk`, `rolunk.njk`, `galeria.njk`, `kapcsolat.njk`, `blog.njk` | az oldalak |
+| `src/blog/*.md` | **a blogbejegyzések** (a CMS ide ír) |
+| `src/_data/menu.json` | **a heti menü** |
+| `src/_data/galeria.json` | a galéria képei |
+| `src/_data/beallitasok.json` | telefonszám, cím, nyitvatartás, vélemények |
+| `src/_includes/base.njk` | a közös HTML-váz (meta, JSON-LD) |
+| `src/_includes/reszek/` | fejléc, lábléc, heti menü kártya |
+| `src/css/input.css` | Tailwind-forrás: paletta, gombok, kártyák, cikkszöveg |
+| `src/assets/` | képek, betűtípusok, JS – változatlanul másolódik |
+| `src/admin/` | Sveltia CMS (`config.yml` = a szerkesztő mezői) |
+| `src/CNAME` | a saját domain a GitHub Pages-nek — **ne töröld** |
+| `eleventy.config.js` | build-beállítás, szűrők (dátum, forint, aktuális hét) |
+| `tools/` | kép-előkészítő és képernyőkép-készítő segédszkriptek |
 
 ### Képek
 
-A fotók WebP-ben, ~1000 px szélességben vannak. Új képnél a nyers fájlt tedd az
-`assets/img/` mappába `_` előtaggal (ezeket a `.gitignore` kihagyja), vedd fel a
-`src/process-images.py` listájába, és futtasd:
+A fotók WebP-ben, ~1200–1600 px szélességben vannak. Új képnél:
 
-```bash
-python src/process-images.py
-```
+1. tedd a nyers fájlt `src/assets/img/_nev.jpg` néven (a `_` előtagot a
+   `.gitignore` kihagyja a repóból),
+2. vedd fel a `tools/process-images.py` `FOTOK` listájába,
+3. futtasd: `npm run kepek`.
+
+A CMS-ből feltöltött képek is a `src/assets/img` mappába kerülnek — azok viszont
+nem mennek át ezen az optimalizáláson, ezért nagy fájlt ne tölts fel oda.
 
 ---
 
-## Üzemeltetési tudnivalók
+## Fontos tudnivalók
 
+- **A „mai nap” kiemelése build időben dől el.** Ezért a
+  `.github/workflows/deploy.yml` **naponta lefuttatja a buildet** akkor is, ha
+  nem volt módosítás. Ha ezt az ütemezést kiveszed, a heti menü napi kiemelése
+  beragad az utolsó build napjára.
 - **Sütik:** az oldal egyetlen sütit sem tesz le. A betűtípus helyben van, a
-  térkép OpenStreetMap-beágyazás. Ezért nincs süti-sáv. Ha valaha bekerül
-  Google Analytics / Google Maps / Facebook-pixel, **süti-tájékoztató is kell**.
-- **A menü nem SEO-tartalom:** a heti menü JavaScripttel jelenik meg. Ha fontos
-  lesz, hogy a Google a fogásokat is indexelje, statikus generátorra (Eleventy /
-  Astro) kell váltani, ami build időben HTML-be írja a menüt.
-- **Sveltia CMS:** az `admin/sveltia-cms.js` egy befagyasztott v0.184.0-s
-  másolat, szándékosan nem CDN-ről töltjük. Frissítés = a fájl cseréje egy
-  újabb `dist/sveltia-cms.mjs`-re.
+  térkép OpenStreetMap-beágyazás. Ezért nincs süti-sáv. Ha valaha bekerül Google
+  Analytics / Google Maps / Facebook-pixel, **süti-tájékoztató is kell**.
+- **Sveltia CMS:** az `src/admin/sveltia-cms.js` egy befagyasztott v0.184.0-s
+  másolat, szándékosan nem CDN-ről töltjük. **`type="module"` NÉLKÜL kell
+  betölteni** — modulként némán, hibaüzenet nélkül üres fehér oldalt ad.
+- **A vicces „Az utolsó szó jogán” kép** (csirkeláb a levesben) szándékosan nincs
+  a galériában — mém, nem étvágygerjesztő fotó. Ha mégis kell, a blogba illik.
 
 ## DNS (tárhely.eu)
 
-A domain a tárhely.eu-nál marad, a rekordoknak a GitHub Pages-re kell mutatniuk:
-
 | Típus | Név | Érték |
 |---|---|---|
-| A | `@` | `185.199.108.153` |
-| A | `@` | `185.199.109.153` |
-| A | `@` | `185.199.110.153` |
-| A | `@` | `185.199.111.153` |
+| A | `atlaszkifozde.hu.` | `185.199.108.153` · `.109.153` · `.110.153` · `.111.153` (négy rekord) |
 | CNAME | `www` | `szaboleonardhenrik.github.io.` |
 
-A GitHub oldalán: *Settings* → *Pages* → *Custom domain* = `atlaszkifozde.hu`,
-majd ha a DNS átállt, **Enforce HTTPS** bekapcsolása (a tanúsítvány kiállítása
-pár percet–órát vehet igénybe).
+🔴 A `mail`, `MX`, `SPF`, `DMARC`, `DKIM`, `webmail`, `autodiscover` rekordokhoz
+**nem szabad hozzányúlni**: a levelezés továbbra is a tárhely.eu szerverén fut,
+ezért a tárhelyet nem lehet lemondani.

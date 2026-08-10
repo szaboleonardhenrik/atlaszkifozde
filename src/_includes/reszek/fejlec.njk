@@ -1,0 +1,66 @@
+{% set menupontok = [
+  { url: "/heti-menu/", cim: "Heti menü" },
+  { url: "/rolunk/", cim: "Rólunk" },
+  { url: "/galeria/", cim: "Galéria" },
+  { url: "/blog/", cim: "Blog" },
+  { url: "/kapcsolat/", cim: "Kapcsolat" }
+] %}
+
+<header class="sticky top-0 z-40 border-b border-pergamen-300 bg-pergamen-50/95 backdrop-blur">
+  <div class="szakasz flex items-center justify-between gap-4 py-2.5">
+    <a href="/" class="flex items-center gap-3" aria-label="{{ beallitasok.nev }} – főoldal">
+      <img
+        src="/assets/img/logo.webp"
+        alt=""
+        width="440" height="1022"
+        class="h-12 w-auto rounded-sm sm:h-14"
+      />
+      <span class="font-display text-lg font-bold leading-none text-petrol-800 sm:text-xl">
+        Atlasz<span class="block text-sm font-semibold tracking-[0.3em] text-bronz-600">KIFŐZDE</span>
+      </span>
+    </a>
+
+    <nav class="hidden items-center gap-6 lg:flex" aria-label="Fő menü">
+      {% for m in menupontok %}
+        <a
+          class="font-semibold {% if page.url == m.url %}text-paradicsom-600{% else %}text-petrol-700 hover:text-paradicsom-600{% endif %}"
+          href="{{ m.url }}"
+          {% if page.url == m.url %}aria-current="page"{% endif %}
+          >{{ m.cim }}</a
+        >
+      {% endfor %}
+      <a class="gomb gomb-elsodleges px-5 py-2.5" href="tel:{{ beallitasok.telefon_link }}">
+        <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path d="M2 3.5A1.5 1.5 0 013.5 2h1.6a1.5 1.5 0 011.46 1.14l.6 2.4a1.5 1.5 0 01-.4 1.45l-1 1a12 12 0 005.25 5.25l1-1a1.5 1.5 0 011.45-.4l2.4.6A1.5 1.5 0 0118 14.9v1.6a1.5 1.5 0 01-1.5 1.5A14.5 14.5 0 012 3.5z" />
+        </svg>
+        {{ beallitasok.telefon }}
+      </a>
+    </nav>
+
+    <button
+      type="button"
+      id="menu-gomb"
+      class="rounded-lg border border-pergamen-300 p-2 text-petrol-700 lg:hidden"
+      aria-expanded="false"
+      aria-controls="mobil-menu"
+      aria-label="Menü megnyitása"
+    >
+      <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
+      </svg>
+    </button>
+  </div>
+
+  <nav id="mobil-menu" class="hidden border-t border-pergamen-300 bg-pergamen-50 lg:hidden" aria-label="Mobil menü">
+    <div class="szakasz flex flex-col py-3">
+      {% for m in menupontok %}
+        <a
+          class="border-b border-pergamen-200 py-3 font-semibold {% if page.url == m.url %}text-paradicsom-600{% else %}text-petrol-700{% endif %}"
+          href="{{ m.url }}"
+          >{{ m.cim }}</a
+        >
+      {% endfor %}
+      <a class="gomb gomb-elsodleges mt-4" href="tel:{{ beallitasok.telefon_link }}">{{ beallitasok.telefon }}</a>
+    </div>
+  </nav>
+</header>

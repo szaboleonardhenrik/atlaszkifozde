@@ -1,0 +1,26 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ beallitasok.nev }} – blog</title>
+  <subtitle>Hírek és kulisszatitkok a kifőzde konyhájából</subtitle>
+  <link href="{{ '/feed.xml' | abszolutUrl(beallitasok.url) }}" rel="self" />
+  <link href="{{ beallitasok.url }}/" />
+  <updated>{{ collections.bejegyzesek | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+  <id>{{ beallitasok.url }}/</id>
+  <author>
+    <name>{{ beallitasok.nev }}</name>
+  </author>
+  {%- for b in collections.bejegyzesek %}
+  <entry>
+    <title>{{ b.data.cim }}</title>
+    <link href="{{ b.url | abszolutUrl(beallitasok.url) }}" />
+    <updated>{{ b.date | dateToRfc3339 }}</updated>
+    <id>{{ b.url | abszolutUrl(beallitasok.url) }}</id>
+    <summary>{{ b.data.leiras }}</summary>
+    <content type="html">{{ b.content | htmlToAbsoluteUrls(b.url | abszolutUrl(beallitasok.url)) }}</content>
+  </entry>
+  {%- endfor %}
+</feed>

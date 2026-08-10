@@ -1,0 +1,52 @@
+name: Build és élesítés
+
+on:
+  push:
+    branches: [main]
+  # A heti menü „mai nap” kiemelése build időben dől el, ezért naponta
+  # újraépítjük az oldalt akkor is, ha nem volt módosítás.
+  schedule:
+    - cron: "17 2 * * *" # minden nap 02:17 UTC (nyáron 04:17, télen 03:17 magyar idő)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Ellenőrzés – a lényeges oldalak elkészültek-e
+        run: |
+          for f in index.html heti-menu/index.html rolunk/index.html \
+                   galeria/index.html kapcsolat/index.html blog/index.html \
+                   404.html sitemap.xml feed.xml assets/css/style.css CNAME; do
+            if [ ! -s "_site/$f" ]; then echo "HIÁNYZIK vagy ÜRES: _site/$f"; exit 1; fi
+          done
+          echo "Minden kimeneti fájl megvan."
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
