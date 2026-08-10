@@ -58,6 +58,10 @@
   --color-paradicsom-600: #a81818;
   --color-paradicsom-700: #8b1414;
 
+  /* A címer papírja – a logó szélső pixeleinek leggyakoribb színe, hogy a kép
+     észrevétlenül beleolvadjon a háttérbe. */
+  --color-papir: #f8f4e8;
+
   --color-pergamen-50: #faf8f0;
   --color-pergamen-100: #f3f0df;
   --color-pergamen-200: #eae5cd;
@@ -95,8 +99,12 @@
     @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3
       text-base font-semibold transition-colors;
   }
+  /* Az elsődleges gomb krém alapú, bronz kerettel — a vörös a címerből jövő
+     ACCENT szín (árak, „Ma” jelölés), nem felületszín. A keret azért kell,
+     hogy a világos pergamen háttéren is gombnak látsszon; sötét szakaszon
+     pedig magától kiemelkedik. */
   .gomb-elsodleges {
-    @apply bg-paradicsom-600 text-pergamen-50 hover:bg-paradicsom-700;
+    @apply border border-bronz-400 bg-bronz-100 text-petrol-800 hover:bg-bronz-200;
   }
   .gomb-masodlagos {
     @apply border-2 border-petrol-700 text-petrol-700 hover:bg-petrol-700 hover:text-pergamen-50;

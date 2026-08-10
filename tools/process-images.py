@@ -37,16 +37,23 @@ def save_webp(im, name, max_w, quality=80):
 
 def logo():
     """A logó pergamen háttere megmarad (textúrás, nem vágható ki tisztán),
-    ezért az oldalon mindig krém alapra kerül."""
+    ezért az oldalon mindig ugyanolyan papírszínű (#F6F1E4) alapra kerül."""
     im = Image.open(os.path.join(IMG, "_logo-uj.jpg")).convert("RGB")
     save_webp(im, "logo.webp", 440, quality=88)
     save_webp(im, "logo-nagy.webp", 900, quality=88)
-    # négyzetes favicon a felső címer-részből
-    w, h = im.size
-    cimer = im.crop((0, 0, w, w))
+
+    # Böngésző-ikon: a PARADICSOMOS rész kivágva. A teljes címer 16 pixelen
+    # olvashatatlan péppé esik szét, a piros gömb viszont ott is felismerhető.
+    # A paradicsom mért helye a 441x1024-es képen: x 62–378, y 220–456. A négyzet
+    # ezért lefelé bővül (a felirat felé nem), különben a betűk alja belelógna.
+    cimer = im.crop((62, 220, 378, 536))
     cimer.resize((180, 180), Image.LANCZOS).save(os.path.join(IMG, "favicon.png"))
     cimer.resize((32, 32), Image.LANCZOS).save(os.path.join(IMG, "favicon-32.png"))
-    print("  favicon.png + favicon-32.png kész")
+    cimer.save(
+        os.path.join(IMG, "favicon.ico"),
+        sizes=[(16, 16), (32, 32), (48, 48)],
+    )
+    print("  favicon.png + favicon-32.png + favicon.ico kész")
 
 
 def main():

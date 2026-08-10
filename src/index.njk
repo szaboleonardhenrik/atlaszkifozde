@@ -8,53 +8,58 @@ eleventyNavigation:
 
 {% set aktualis = menu.hetek | aktualisHet %}
 
-<!-- Nyitókép -->
-<section class="relative overflow-hidden bg-petrol-800">
-  <img
-    src="/assets/img/csirke-bulgur.webp"
-    alt=""
-    width="1600" height="900"
-    class="absolute inset-0 h-full w-full object-cover opacity-25"
-  />
-  <div class="szakasz relative grid items-center gap-10 py-16 md:py-24 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
+<!-- Nyitókép: fotó nélkül, a címer a saját papírszínű alapján ül, hogy
+     keret és kilógó kártya nélkül olvadjon bele a háttérbe. -->
+<section class="border-b border-bronz-200 bg-papir">
+  <div class="szakasz grid items-center gap-12 py-14 md:py-20 lg:grid-cols-[1fr_300px] lg:gap-20">
     <div>
-      <p class="inline-block rounded-full border border-bronz-400/60 px-3 py-1 text-sm font-semibold uppercase tracking-widest text-bronz-300">
-        Jó kaják, amiről nem tudsz leállni
+      <p class="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.25em] text-bronz-700">
+        <span class="h-px w-8 bg-bronz-400"></span>
+        {{ beallitasok.alapitas_eve }} óta Óbudán
       </p>
-      <h1 class="mt-6 font-display text-4xl font-bold leading-tight text-pergamen-50 sm:text-5xl lg:text-6xl">
+
+      <h1 class="mt-5 font-display text-4xl font-bold leading-[1.08] text-petrol-800 sm:text-6xl lg:text-7xl">
         Atlasz Kifőzde
       </h1>
-      <p class="mt-4 font-display text-xl text-bronz-300 sm:text-2xl">– {{ beallitasok.szlogen | lower }}</p>
-      <p class="mt-6 max-w-xl text-lg leading-relaxed text-pergamen-100/85">
+      <p class="mt-4 font-display text-xl text-bronz-700 sm:text-2xl">
+        {{ beallitasok.szlogen }}
+      </p>
+
+      <span class="mt-8 block h-px w-20 bg-bronz-400"></span>
+
+      <p class="mt-8 max-w-xl text-lg leading-relaxed text-petrol-900/75">
         {{ beallitasok.bevezeto }}
       </p>
-      <div class="mt-8 flex flex-wrap gap-3">
+
+      <div class="mt-9 flex flex-wrap gap-3">
         <a class="gomb gomb-elsodleges" href="/heti-menu/">E heti menü</a>
-        <a class="gomb gomb-vilagos" href="/kapcsolat/">Hol találsz minket?</a>
+        <a class="gomb gomb-masodlagos" href="/kapcsolat/">Hol találsz minket?</a>
       </div>
 
-      <dl class="mt-10 flex flex-wrap gap-x-10 gap-y-5">
+      <dl class="mt-12 flex flex-wrap gap-x-12 gap-y-6 border-t border-bronz-200 pt-8">
         <div>
-          <dt class="text-sm uppercase tracking-widest text-bronz-300/80">Napi menü</dt>
-          <dd class="font-display text-2xl font-bold text-pergamen-50">{{ menu.arak.napi_menu | forint }}</dd>
+          <dt class="text-xs uppercase tracking-[0.18em] text-petrol-900/50">Napi menü</dt>
+          <dd class="mt-1 font-display text-2xl font-bold text-petrol-800">{{ menu.arak.napi_menu | forint }}</dd>
         </div>
         <div>
-          <dt class="text-sm uppercase tracking-widest text-bronz-300/80">Heti befizetéssel</dt>
-          <dd class="font-display text-2xl font-bold text-bronz-300">{{ menu.arak.heti_befizetes | forint }} / nap</dd>
+          <dt class="text-xs uppercase tracking-[0.18em] text-petrol-900/50">Heti befizetéssel</dt>
+          <dd class="mt-1 font-display text-2xl font-bold text-petrol-800">{{ menu.arak.heti_befizetes | forint }} / nap</dd>
         </div>
         <div>
-          <dt class="text-sm uppercase tracking-widest text-bronz-300/80">Nyitva</dt>
-          <dd class="font-display text-2xl font-bold text-pergamen-50">H–P 11–18</dd>
+          <dt class="text-xs uppercase tracking-[0.18em] text-petrol-900/50">Nyitva</dt>
+          <dd class="mt-1 font-display text-2xl font-bold text-petrol-800">H–P 11–18</dd>
         </div>
       </dl>
     </div>
 
-    <div class="mx-auto w-full max-w-xs rounded-3xl bg-pergamen-100 p-5 shadow-2xl lg:max-w-sm">
+    {# Telefonon szándékosan kicsi: teljes méretben a címer letolná a nevet és a
+       gombokat a képernyőről, és görgetni kellene a lényegért. #}
+    <div class="order-first mx-auto w-32 sm:w-48 lg:order-none lg:w-[300px]">
       <img
         src="/assets/img/logo-nagy.webp"
-        alt="Az Atlasz Kifőzde címere: Atlasz a vállán egy hatalmas paradicsommal"
+        alt="Az Atlasz Kifőzde címere: Atlasz a vállán egy hatalmas paradicsommal, körülötte konyhai eszközök"
         width="441" height="1024"
-        class="w-full rounded-2xl"
+        class="w-full"
       />
     </div>
   </div>
@@ -163,6 +168,8 @@ eleventyNavigation:
     <a class="gomb gomb-masodlagos" href="/galeria/">Tovább a galériába</a>
   </div>
 </section>
+
+{% include "reszek/hirlevel.njk" %}
 
 <!-- Vélemények -->
 <section class="bg-petrol-800 py-16 text-pergamen-100 md:py-20">

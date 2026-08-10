@@ -155,6 +155,19 @@ collections:
               - { name: ido, label: Időpont, widget: string }
           - { name: nyitvatartas_megjegyzes, label: Megjegyzés a nyitvatartáshoz, widget: string, required: false }
           - { name: facebook, label: Facebook-oldal linkje, widget: string, required: false }
+          - name: hirlevel
+            label: Hírlevél (heti menü e-mailben)
+            widget: object
+            fields:
+              - name: url
+                label: A feliratkozó űrlap címe
+                widget: string
+                required: false
+                hint: >-
+                  A hírlevél-szolgáltatótól kapott űrlap-cím (form action). Amíg
+                  üres, a hírlevél-szakasz meg sem jelenik az oldalon.
+              - { name: mezo, label: Az e-mail mező neve, widget: string, default: email, hint: 'A szolgáltató dokumentációja mondja meg; általában: email' }
+              - { name: leiras, label: Bevezető szöveg a feliratkozáshoz, widget: text }
           - name: velemenyek
             label: Vendégvélemények
             widget: list

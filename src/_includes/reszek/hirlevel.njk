@@ -1,0 +1,71 @@
+{#
+  Hírlevél-feliratkozás.
+
+  A statikus oldal önmagában nem tud e-mail címet tárolni és levelet küldeni,
+  ezért az űrlap közvetlenül a hírlevél-szolgáltató végpontjára POST-ol. A
+  végpontot a Beállításokban lehet megadni (`hirlevel.url`) — amíg üres, a
+  szakasz meg sem jelenik, hogy ne legyen a látogató előtt működésképtelen űrlap.
+
+  Szándékosan sima HTML-űrlap, nem a szolgáltató beágyazott szkriptje: így az
+  oldal továbbra sem tesz le sütit, és nem kell süti-tájékoztató sáv.
+#}
+{% if beallitasok.hirlevel.url %}
+  <section class="bg-petrol-800 py-16 text-pergamen-100 md:py-20" id="hirlevel">
+    <div class="szakasz grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+      <div>
+        <p class="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.25em] text-bronz-300">
+          <span class="h-px w-8 bg-bronz-400"></span>
+          Heti menü e-mailben
+        </p>
+        <h2 class="mt-5 text-3xl font-bold text-pergamen-50 sm:text-4xl">
+          Ne kelljen keresgélned, mi az ebéd
+        </h2>
+        <p class="mt-5 text-lg leading-relaxed text-pergamen-100/85">
+          {{ beallitasok.hirlevel.leiras }}
+        </p>
+      </div>
+
+      <form
+        class="rounded-2xl border border-petrol-600 bg-petrol-700/60 p-6 sm:p-8"
+        action="{{ beallitasok.hirlevel.url }}"
+        method="post"
+        target="_blank"
+        rel="noopener"
+      >
+        <label class="block text-sm font-semibold uppercase tracking-widest text-bronz-300" for="hirlevel-email">
+          E-mail cím
+        </label>
+        <input
+          id="hirlevel-email"
+          type="email"
+          name="{{ beallitasok.hirlevel.mezo | default('email') }}"
+          required
+          autocomplete="email"
+          placeholder="pelda@email.hu"
+          class="mt-3 w-full rounded-xl border border-petrol-500 bg-pergamen-50 px-4 py-3 text-base text-tinta placeholder:text-petrol-900/40"
+        />
+
+        <label class="mt-5 flex items-start gap-3 text-sm text-pergamen-100/85">
+          <input
+            type="checkbox"
+            name="hozzajarulas"
+            required
+            value="igen"
+            class="mt-1 h-5 w-5 shrink-0 rounded border-petrol-400"
+          />
+          <span>
+            Hozzájárulok, hogy a megadott címre elküldjétek a heti menüt.
+            Bármikor leiratkozhatok a levelek alján lévő linkkel.
+          </span>
+        </label>
+
+        <button type="submit" class="gomb gomb-elsodleges mt-6 w-full">Kérem a heti menüt</button>
+
+        <p class="mt-4 text-sm text-pergamen-100/60">
+          Hetente egy levél, hétfőnként. Reklámot nem küldünk, és a címedet nem
+          adjuk tovább senkinek.
+        </p>
+      </form>
+    </div>
+  </section>
+{% endif %}
