@@ -154,6 +154,22 @@ collections:
               - { name: nap, label: Nap(ok), widget: string }
               - { name: ido, label: Időpont, widget: string }
           - { name: nyitvatartas_megjegyzes, label: Megjegyzés a nyitvatartáshoz, widget: string, required: false }
+          - name: nyitvatartas_gepi
+            label: Nyitvatartás a keresőknek
+            widget: list
+            summary: '{{fields.nyit}}–{{fields.zar}}'
+            hint: >-
+              EZT OLVASSA A GOOGLE. Ha a fenti nyitvatartást módosítod, ezt is
+              módosítsd ugyanúgy, különben a Google mást fog mutatni, mint az
+              oldal. Csak a NYITVA tartó napokat kell felsorolni.
+            fields:
+              - name: napok
+                label: Napok
+                widget: select
+                multiple: true
+                options: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+              - { name: nyit, label: Nyitás (ó:pp), widget: string, default: '11:00' }
+              - { name: zar, label: Zárás (ó:pp), widget: string, default: '18:00' }
           - { name: facebook, label: Facebook-oldal linkje, widget: string, required: false }
           - name: hirlevel
             label: Hírlevél (heti menü e-mailben)
