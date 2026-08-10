@@ -1,0 +1,16 @@
+{
+  "name": "atlaszkifozde",
+  "version": "1.0.0",
+  "description": "Az Atlasz Kifőzde (atlaszkifozde.hu) statikus weboldala",
+  "private": true,
+  "scripts": {
+    "build": "tailwindcss -i src/input.css -o assets/css/style.css --minify",
+    "watch": "tailwindcss -i src/input.css -o assets/css/style.css --watch",
+    "start": "python -m http.server 8899"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}

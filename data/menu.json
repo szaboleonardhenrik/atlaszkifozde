@@ -1,0 +1,29 @@
+{
+  "arak": {
+    "napi_menu": 2290,
+    "heti_befizetes": 2100,
+    "megjegyzes": "Az árak forintban értendők, elvitelre és helyben fogyasztásra egyaránt."
+  },
+  "hetek": [
+    {
+      "kezdes": "2026-08-10",
+      "napok": [
+        { "nap": "Hétfő", "leves": "Gulyásleves", "foetel": "Túrógombóc", "ar": 2290 },
+        { "nap": "Kedd", "leves": "Zöldborsóleves", "foetel": "Csirkemell sajtmártással, rizs", "ar": 2290 },
+        { "nap": "Szerda", "leves": "Hideg gyümölcsleves", "foetel": "Pásztortarhonya", "ar": 2290 },
+        { "nap": "Csütörtök", "leves": "Korhelyleves", "foetel": "Rakott zöldbab", "ar": 2290 },
+        { "nap": "Péntek", "leves": "Marhahúsleves", "foetel": "Burgonyafőzelék, fasírt", "ar": 2290 }
+      ]
+    },
+    {
+      "kezdes": "2026-08-03",
+      "napok": [
+        { "nap": "Hétfő", "leves": "Tárkonyos raguleves", "foetel": "Grízestészta", "ar": 2290 },
+        { "nap": "Kedd", "leves": "Zöldbableves", "foetel": "Mexikói csirkecomb, rizs, polenta", "ar": 2290 },
+        { "nap": "Szerda", "leves": "Zöldségleves", "foetel": "Paradicsomos húsgombóc, petrezselymes burgonya", "ar": 2290 },
+        { "nap": "Csütörtök", "leves": "Sárgaborsó krémleves", "foetel": "Csirkemell Budapest módra, rizs", "ar": 2290 },
+        { "nap": "Péntek", "leves": "Gombaleves", "foetel": "Sertéspaprikás, galuska", "ar": 2290 }
+      ]
+    }
+  ]
+}

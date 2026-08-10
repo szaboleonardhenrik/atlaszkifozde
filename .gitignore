@@ -1,0 +1,6 @@
+node_modules/
+# A nyers, feldolgozatlan képek (assets/img/_*.jpg|png) nem kellenek a repóba
+assets/img/_*
+_contactsheet.jpg
+.DS_Store
+Thumbs.db

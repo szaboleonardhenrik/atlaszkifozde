@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Atlasz Kifőzde – házias napi menü Óbudán</title>
+    <meta
+      name="description"
+      content="Napi friss alapanyagokból főzött házias menü a Szentendrei úton. Heti menü elvitelre és helyben fogyasztásra, 2290 Ft-tól."
+    />
+    <link rel="canonical" href="https://atlaszkifozde.hu/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Atlasz Kifőzde" />
+    <meta property="og:title" content="Atlasz Kifőzde – házias napi menü Óbudán" />
+    <meta
+      property="og:description"
+      content="Napi friss alapanyagokból főzött házias menü a Szentendrei úton. Heti menü elvitelre és helyben fogyasztásra."
+    />
+    <meta property="og:url" content="https://atlaszkifozde.hu/" />
+    <meta property="og:image" content="https://atlaszkifozde.hu/assets/img/grillcsirke.webp" />
+    <meta property="og:locale" content="hu_HU" />
+    <meta name="theme-color" content="#b33d23" />
+    <link rel="icon" href="assets/img/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/img/logo-ikon.png" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <a
+      href="#tartalom"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-terrakotta-500 focus:px-5 focus:py-3 focus:text-white"
+      >Ugrás a tartalomra</a
+    >
+
+    <!-- Fejléc -->
+    <header class="sticky top-0 z-40 border-b border-krem-300 bg-krem-50/95 backdrop-blur">
+      <div class="szakasz flex items-center justify-between gap-4 py-3">
+        <a href="index.html" class="flex items-center gap-3" aria-label="Atlasz Kifőzde – főoldal">
+          <img src="assets/img/logo-ikon.png" alt="" width="180" height="90" class="h-9 w-auto" />
+          <span class="font-display text-lg font-bold leading-tight text-barna-700 sm:text-xl">
+            Atlasz <span class="text-terrakotta-500">Kifőzde</span>
+          </span>
+        </a>
+
+        <nav class="hidden items-center gap-7 lg:flex" aria-label="Fő menü">
+          <a class="font-semibold text-barna-600 hover:text-terrakotta-600" href="heti-menu.html">Heti menü</a>
+          <a class="font-semibold text-barna-600 hover:text-terrakotta-600" href="rolunk.html">Rólunk</a>
+          <a class="font-semibold text-barna-600 hover:text-terrakotta-600" href="galeria.html">Galéria</a>
+          <a class="font-semibold text-barna-600 hover:text-terrakotta-600" href="kapcsolat.html">Kapcsolat</a>
+          <a class="gomb gomb-elsodleges px-5 py-2.5" href="tel:+36204269836">
+            <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path d="M2 3.5A1.5 1.5 0 013.5 2h1.6a1.5 1.5 0 011.46 1.14l.6 2.4a1.5 1.5 0 01-.4 1.45l-1 1a12 12 0 005.25 5.25l1-1a1.5 1.5 0 011.45-.4l2.4.6A1.5 1.5 0 0118 14.9v1.6a1.5 1.5 0 01-1.5 1.5A14.5 14.5 0 012 3.5z" />
+            </svg>
+            +36 20 426 9836
+          </a>
+        </nav>
+
+        <button
+          type="button"
+          id="menu-gomb"
+          class="rounded-lg border border-krem-300 p-2 text-barna-700 lg:hidden"
+          aria-expanded="false"
+          aria-controls="mobil-menu"
+          aria-label="Menü megnyitása"
+        >
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+      </div>
+
+      <nav id="mobil-menu" class="hidden border-t border-krem-300 bg-krem-50 lg:hidden" aria-label="Mobil menü">
+        <div class="szakasz flex flex-col py-3">
+          <a class="border-b border-krem-200 py-3 font-semibold text-barna-700" href="heti-menu.html">Heti menü</a>
+          <a class="border-b border-krem-200 py-3 font-semibold text-barna-700" href="rolunk.html">Rólunk</a>
+          <a class="border-b border-krem-200 py-3 font-semibold text-barna-700" href="galeria.html">Galéria</a>
+          <a class="border-b border-krem-200 py-3 font-semibold text-barna-700" href="kapcsolat.html">Kapcsolat</a>
+          <a class="gomb gomb-elsodleges mt-4" href="tel:+36204269836">+36 20 426 9836</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="tartalom">
+      <!-- Nyitókép -->
+      <section class="relative overflow-hidden bg-krem-100">
+        <div class="szakasz grid items-center gap-10 py-14 md:py-20 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <p class="cimke">Jó kaják, amiről nem tudsz leállni</p>
+            <h1 class="mt-5 font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+              Atlasz Kifőzde
+            </h1>
+            <p class="mt-3 font-display text-xl text-terrakotta-600 sm:text-2xl">
+              – ahol a világ ízei otthonra találnak
+            </p>
+            <p class="mt-6 max-w-xl text-lg leading-relaxed text-barna-500">
+              Minden reggel személyesen intézzük a beszerzést, mindig az adott nap
+              igényeihez és a legfrissebb alapanyagokhoz igazodva. Házias fogások,
+              napról napra új ízekkel – elvitelre és helyben fogyasztásra.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a class="gomb gomb-elsodleges" href="heti-menu.html">E heti menü</a>
+              <a class="gomb gomb-masodlagos" href="kapcsolat.html">Hol találsz minket?</a>
+            </div>
+            <dl class="mt-10 flex flex-wrap gap-x-10 gap-y-4">
+              <div>
+                <dt class="text-sm uppercase tracking-wide text-barna-400">Napi menü</dt>
+                <dd class="font-display text-2xl font-bold text-barna-700">2290 Ft</dd>
+              </div>
+              <div>
+                <dt class="text-sm uppercase tracking-wide text-barna-400">Heti befizetéssel</dt>
+                <dd class="font-display text-2xl font-bold text-terrakotta-600">2100 Ft / nap</dd>
+              </div>
+              <div>
+                <dt class="text-sm uppercase tracking-wide text-barna-400">Nyitva</dt>
+                <dd class="font-display text-2xl font-bold text-barna-700">H–P 11–18</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <img
+              src="assets/img/grillcsirke.webp"
+              alt="Grillezett csirkemell tálon, frissen a konyhánkból"
+              width="1000" height="1343" loading="eager"
+              class="col-span-1 h-full w-full rounded-3xl object-cover shadow-lg"
+            />
+            <div class="flex flex-col gap-4">
+              <img
+                src="assets/img/ragu.webp"
+                alt="Zöldbabos csirkeragu tejszínes mártásban"
+                width="1000" height="1333" loading="eager"
+                class="h-48 w-full rounded-3xl object-cover shadow-lg sm:h-60"
+              />
+              <img
+                src="assets/img/kakaos-csiga.webp"
+                alt="Frissen sült kakaós csigák tepsiben"
+                width="640" height="1422" loading="lazy"
+                class="h-48 w-full rounded-3xl object-cover shadow-lg sm:h-60"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Aktuális heti menü -->
+      <section class="szakasz py-16 md:py-20">
+        <div class="text-center">
+          <p class="cimke">Minden hétfőn új</p>
+          <h2 class="cim-disz mt-4 text-3xl font-bold sm:text-4xl">Heti menü</h2>
+          <p class="mx-auto mt-6 max-w-2xl text-lg text-barna-500">
+            A kifőzdénk menüje minden hétfőn frissen indul, változatos, házias
+            fogásokkal. Gyors ebédnek és nyugodt kikapcsolódásnak egyaránt tökéletes.
+          </p>
+        </div>
+
+        <div class="mt-10" data-menu="aktualis">
+          <div class="rounded-2xl border border-krem-300 bg-white p-10 text-center text-barna-400">
+            Heti menü betöltése…
+          </div>
+        </div>
+
+        <div class="mt-8 text-center">
+          <a class="gomb gomb-masodlagos" href="heti-menu.html">Teljes heti menü</a>
+        </div>
+      </section>
+
+      <!-- Miért mi -->
+      <section class="bg-krem-100 py-16 md:py-20">
+        <div class="szakasz">
+          <div class="text-center">
+            <h2 class="cim-disz text-3xl font-bold sm:text-4xl">Amiért visszajárnak hozzánk</h2>
+          </div>
+          <div class="mt-12 grid gap-6 md:grid-cols-3">
+            <div class="kartya">
+              <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-terrakotta-100 text-terrakotta-600">
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18M5 8c0 3 3 4 7 4M19 8c0 3-3 4-7 4" />
+                </svg>
+              </div>
+              <h3 class="mt-5 text-xl font-bold">Napi friss beszerzés</h3>
+              <p class="mt-3 text-barna-500">
+                Minden reggel személyesen válogatjuk az alapanyagot – a legszebbet,
+                a legfrissebbet, az adott nap kínálatához igazodva.
+              </p>
+            </div>
+            <div class="kartya">
+              <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-terrakotta-100 text-terrakotta-600">
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 11h16v2a6 6 0 01-6 6h-4a6 6 0 01-6-6v-2zM8 7c0-1 1-1.5 1-3M12 7c0-1 1-1.5 1-3M16 7c0-1 1-1.5 1-3" />
+                </svg>
+              </div>
+              <h3 class="mt-5 text-xl font-bold">Házias ízek</h3>
+              <p class="mt-3 text-barna-500">
+                Olyan fogások, amelyekben érezhető a törődés és a frissesség ereje –
+                pont úgy, ahogy otthon készülne, csak neked már készen van.
+              </p>
+            </div>
+            <div class="kartya">
+              <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-terrakotta-100 text-terrakotta-600">
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 8h14l-1 11a2 2 0 01-2 2H8a2 2 0 01-2-2L5 8zM9 8V6a3 3 0 116 0v2" />
+                </svg>
+              </div>
+              <h3 class="mt-5 text-xl font-bold">Elvitelre is</h3>
+              <p class="mt-3 text-barna-500">
+                A menüt elvitelre és helyben fogyasztásra is kínáljuk, így egy
+                gyors ebédszünetbe is kényelmesen belefér.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Galéria-előnézet -->
+      <section class="szakasz py-16 md:py-20">
+        <div class="text-center">
+          <p class="cimke">A konyhánkból</p>
+          <h2 class="cim-disz mt-4 text-3xl font-bold sm:text-4xl">Amit nálunk kaphatsz</h2>
+        </div>
+        <div class="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
+          <img src="assets/img/toltott-hus.webp" alt="Tejszínes mártásban sült töltött hústekercsek" width="1000" height="1343" loading="lazy" class="h-52 w-full rounded-2xl object-cover shadow-sm sm:h-64" />
+          <img src="assets/img/grizes.webp" alt="Frissen sült grízes tészta tepsiben" width="1000" height="1333" loading="lazy" class="h-52 w-full rounded-2xl object-cover shadow-sm sm:h-64" />
+          <img src="assets/img/tiramisu.webp" alt="Házi tiramisu torta" width="720" height="960" loading="lazy" class="h-52 w-full rounded-2xl object-cover shadow-sm sm:h-64" />
+          <img src="assets/img/jegeskave.webp" alt="Jegeskávé tejszínhabbal" width="1000" height="1343" loading="lazy" class="h-52 w-full rounded-2xl object-cover shadow-sm sm:h-64" />
+        </div>
+        <div class="mt-8 text-center">
+          <a class="gomb gomb-masodlagos" href="galeria.html">Tovább a galériába</a>
+        </div>
+      </section>
+
+      <!-- Vélemények -->
+      <section class="bg-barna-700 py-16 text-krem-100 md:py-20">
+        <div class="szakasz">
+          <div class="text-center">
+            <p class="cimke">Rólunk mondták</p>
+            <h2 class="mt-4 text-3xl font-bold text-krem-100 sm:text-4xl">Vendégeink szavaival</h2>
+          </div>
+          <div class="mt-12 grid gap-6 md:grid-cols-3">
+            <figure class="rounded-2xl bg-barna-600/60 p-6">
+              <div class="flex gap-0.5 text-terrakotta-300" aria-label="5 csillagos értékelés">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <blockquote class="mt-4 text-krem-100/90">
+                „Köszönöm a segítőkész hozzáállást, a kedves kiszolgálást és a finom
+                ebédet! Az egész csapat tele pocakkal távozott! Szívből ajánlom mindenkinek!”
+              </blockquote>
+              <figcaption class="mt-4 font-semibold text-krem-200">Anita Nagyné Horváth</figcaption>
+            </figure>
+            <figure class="rounded-2xl bg-barna-600/60 p-6">
+              <div class="flex gap-0.5 text-terrakotta-300" aria-label="5 csillagos értékelés">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <blockquote class="mt-4 text-krem-100/90">
+                „Kedvesek, jól főznek. Tényleg finom ételeket adnak, nagyon korrekt áron.
+                Mind az étel ízéhez, mind a mennyiségéhez mérten. Csak ajánlani tudom.”
+              </blockquote>
+              <figcaption class="mt-4 font-semibold text-krem-200">Baranyi Panni</figcaption>
+            </figure>
+            <figure class="rounded-2xl bg-barna-600/60 p-6">
+              <div class="flex gap-0.5 text-terrakotta-300" aria-label="5 csillagos értékelés">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <blockquote class="mt-4 text-krem-100/90">
+                „Jó kis hely, finom ételekkel és kedves kiszolgálással. Tökéletes
+                választás egy kellemes ebédhez!”
+              </blockquote>
+              <figcaption class="mt-4 font-semibold text-krem-200">Nagy Bence</figcaption>
+            </figure>
+          </div>
+          <p class="mt-10 text-center text-krem-200">
+            Értékeljen minket Ön is a Google felületén!
+          </p>
+        </div>
+      </section>
+
+      <!-- Záró hívás -->
+      <section class="szakasz py-16 md:py-20">
+        <div class="rounded-3xl bg-krem-100 p-8 text-center md:p-12">
+          <h2 class="text-3xl font-bold sm:text-4xl">Ma is főzünk – ugorjon be!</h2>
+          <p class="mx-auto mt-4 max-w-2xl text-lg text-barna-500">
+            1039 Budapest, Szentendrei út 327. · Hétfőtől péntekig 11:00–18:00,
+            szombaton 11:00–15:00.
+          </p>
+          <div class="mt-8 flex flex-wrap justify-center gap-3">
+            <a class="gomb gomb-elsodleges" href="tel:+36204269836">Telefonos rendelés</a>
+            <a class="gomb gomb-masodlagos" href="kapcsolat.html">Útvonal és nyitvatartás</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Lábléc -->
+    <footer class="border-t border-krem-300 bg-krem-100 py-12">
+      <div class="szakasz grid gap-10 md:grid-cols-3">
+        <div>
+          <img src="assets/img/logo.png" alt="Atlasz Kifőzde" width="480" height="443" class="h-24 w-auto" />
+          <p class="mt-4 max-w-xs text-barna-500">
+            Házias napi menü Óbudán, napi friss alapanyagokból.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold">Elérhetőség</h3>
+          <ul class="mt-4 space-y-2 text-barna-500">
+            <li>1039 Budapest, Szentendrei út 327.</li>
+            <li>
+              <a class="font-semibold text-terrakotta-600 hover:underline" href="tel:+36204269836">+36 20 426 9836</a>
+            </li>
+          </ul>
+          <h3 class="mt-6 text-lg font-bold">Nyitvatartás</h3>
+          <ul class="mt-3 space-y-1 text-barna-500">
+            <li>Hétfő–Péntek: 11:00–18:00</li>
+            <li>Szombat: 11:00–15:00</li>
+            <li>Vasárnap: zárva</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold">Oldalak</h3>
+          <ul class="mt-4 space-y-2 text-barna-500">
+            <li><a class="hover:text-terrakotta-600" href="heti-menu.html">Heti menü</a></li>
+            <li><a class="hover:text-terrakotta-600" href="rolunk.html">Rólunk</a></li>
+            <li><a class="hover:text-terrakotta-600" href="galeria.html">Galéria</a></li>
+            <li><a class="hover:text-terrakotta-600" href="kapcsolat.html">Kapcsolat</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="szakasz mt-10 border-t border-krem-300 pt-6 text-sm text-barna-400">
+        © <span data-ev></span> Atlasz Kifőzde. Minden jog fenntartva.
+      </div>
+    </footer>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Atlasz Kifőzde",
+        "url": "https://atlaszkifozde.hu/",
+        "image": "https://atlaszkifozde.hu/assets/img/grillcsirke.webp",
+        "servesCuisine": "Magyar, házias",
+        "priceRange": "$",
+        "telephone": "+36 20 426 9836",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Szentendrei út 327.",
+          "addressLocality": "Budapest",
+          "postalCode": "1039",
+          "addressCountry": "HU"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "11:00",
+            "closes": "18:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "11:00",
+            "closes": "15:00"
+          }
+        ]
+      }
+    </script>
+    <script src="assets/js/oldal.js" defer></script>
+    <script src="assets/js/menu.js" defer></script>
+  </body>
+</html>
