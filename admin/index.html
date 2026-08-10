@@ -15,7 +15,12 @@
          A könyvtár helyben van (v0.184.0, jsDelivr-ről mentve), nem CDN-ről
          töltjük: így a szerkesztő akkor is működik, ha a CDN elérhetetlen, és
          egy távoli verzióváltás sem tudja váratlanul eltörni.
-         Frissítés: cseréld a fájlt egy újabb dist/sveltia-cms.mjs-re. -->
-    <script src="sveltia-cms.js" type="module"></script>
+         Frissítés: cseréld a fájlt egy újabb dist/sveltia-cms.js-re.
+
+         FIGYELEM: type="module" NÉLKÜL kell betölteni. A dist/sveltia-cms.js az
+         önindító, beágyazható build; modulként betöltve némán nem csinál semmit
+         (üres fehér oldal, konzolhiba nélkül). A dist/sveltia-cms.mjs pedig a
+         könyvtár-változat, az sem indítja el magát — ne azt tedd ide. -->
+    <script src="sveltia-cms.js"></script>
   </body>
 </html>

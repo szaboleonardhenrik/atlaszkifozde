@@ -26,7 +26,11 @@ egyik hétbe sem esik, a legközelebbi jövőbelit mutatja. A lejárt heteket a
 
 ### Belépés az admin felületre
 
-A szerkesztő GitHub-tokennel azonosít (nem kell hozzá külön szerver):
+A szerkesztő felülete **angol** (a Sveltia CMS-nek nincs magyar nyelve), de a
+mezőnevek magyarok: „Heti menü”, „Hetek”, „Leves”, „Főétel”, „Ár”.
+
+A belépés GitHub-tokennel megy (nem kell hozzá külön szerver) — az admin
+oldalon a **„Sign In Using Access Token”** gomb kell:
 
 1. GitHub → *Settings* → *Developer settings* → *Personal access tokens* →
    **Fine-grained tokens** → *Generate new token*

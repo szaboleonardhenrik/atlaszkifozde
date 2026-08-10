@@ -9,7 +9,8 @@ backend:
 media_folder: assets/img
 public_folder: /assets/img
 
-locale: hu
+# A szerkesztő felülete angol: a Sveltia CMS nem ismeri a `locale` opciót
+# (figyelmeztetéssel eldobja). A mezőnevek viszont magyarok — lásd lentebb.
 publish_mode: simple
 
 collections:
