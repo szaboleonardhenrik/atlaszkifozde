@@ -59,7 +59,11 @@
         "currenciesAccepted": "HUF",
         "paymentAccepted": "Készpénz, bankkártya",
         "hasMenu": "{{ beallitasok.url }}/heti-menu/",
-        {% if beallitasok.wolt %}"sameAs": ["{{ beallitasok.wolt }}"],{% endif %}
+        {%- set profilok = [] %}
+        {%- if beallitasok.wolt %}{% set profilok = (profilok.push(beallitasok.wolt), profilok) %}{% endif %}
+        {%- if beallitasok.facebook %}{% set profilok = (profilok.push(beallitasok.facebook), profilok) %}{% endif %}
+        {%- if beallitasok.google.url %}{% set profilok = (profilok.push(beallitasok.google.url), profilok) %}{% endif %}
+        {%- if profilok.length %}"sameAs": {{ profilok | dump | safe }},{% endif %}
         "telephone": "{{ beallitasok.telefon }}",
         "address": {
           "@type": "PostalAddress",

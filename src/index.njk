@@ -202,6 +202,27 @@ eleventyNavigation:
         Rólunk mondták
       </p>
       <h2 class="mt-4 text-3xl font-bold text-pergamen-50 sm:text-4xl">Vendégeink szavaival</h2>
+
+      {#
+        Google-értékelés. Szándékosan CSAK látható elemként, a strukturált
+        adatba NEM tesszük bele: a saját magáról közölt értékelés-jelölést a
+        Google önérdekűnek tekinti. A szám a CMS-ből frissíthető, és a link
+        mellette bárki számára ellenőrizhető.
+      #}
+      {% if beallitasok.google.url and beallitasok.google.ertekeles %}
+        <a
+          class="mt-8 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1 rounded-full border border-bronz-400/60 bg-petrol-700/60 px-5 py-3 text-pergamen-100 transition hover:border-bronz-300 hover:bg-petrol-700"
+          href="{{ beallitasok.google.url }}" target="_blank" rel="noopener"
+        >
+          <span class="font-semibold">Google-értékelés</span>
+          <span class="font-display text-xl font-bold text-bronz-300">{{ beallitasok.google.ertekeles }}</span>
+          <span class="text-bronz-300" aria-hidden="true">★★★★★</span>
+          {% if beallitasok.google.velemenyek %}
+            <span class="text-pergamen-100/75">{{ beallitasok.google.velemenyek }} vélemény alapján</span>
+          {% endif %}
+          <span class="text-bronz-300 underline">Megnézem →</span>
+        </a>
+      {% endif %}
     </div>
     <div class="mt-12 grid gap-6 md:grid-cols-3">
       {% for v in beallitasok.velemenyek %}

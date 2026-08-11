@@ -198,6 +198,14 @@ collections:
             hint: >-
               Rövid megnevezések, pl. „Desszertek”. Amíg üres, a szakasz nem
               jelenik meg.
+          - name: google
+            label: Google cégprofil és értékelés
+            widget: object
+            collapsed: true
+            fields:
+              - { name: url, label: A Google-profil linkje, widget: string, required: false, hint: 'Amíg üres, az értékelés-jelvény nem jelenik meg.' }
+              - { name: ertekeles, label: Átlagos értékelés, widget: string, required: false, hint: 'Pl. 4,6 – a Google-profilon látható szám.' }
+              - { name: velemenyek, label: Vélemények száma, widget: number, value_type: int, required: false, min: 0 }
           - name: wolt
             label: Wolt-oldal linkje
             widget: string

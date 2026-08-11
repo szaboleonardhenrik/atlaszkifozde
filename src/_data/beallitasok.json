@@ -41,6 +41,11 @@
     "Desszertek"
   ],
   "wolt": "https://wolt.com/hu/hun/budapest/restaurant/atlasz-kifzde",
+  "google": {
+    "url": "https://www.google.com/maps/search/?api=1&query=Atlasz+Kif%C5%91zde+Szentendrei+%C3%BAt+327",
+    "ertekeles": "4,6",
+    "velemenyek": 187
+  },
   "velemenyek": [
     {
       "szoveg": "Köszönöm a segítőkész hozzáállást, a kedves kiszolgálást és a finom ebédet! Az egész csapat tele pocakkal távozott! Szívből ajánlom mindenkinek!",
