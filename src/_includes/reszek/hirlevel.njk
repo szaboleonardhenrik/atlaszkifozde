@@ -29,8 +29,7 @@
         class="rounded-2xl border border-petrol-600 bg-petrol-700/60 p-6 sm:p-8"
         action="{{ beallitasok.hirlevel.url }}"
         method="post"
-        target="_blank"
-        rel="noopener"
+        data-hirlevel
       >
         <label class="block text-sm font-semibold uppercase tracking-widest text-bronz-300" for="hirlevel-email">
           E-mail cím
@@ -60,6 +59,8 @@
         </label>
 
         <button type="submit" class="gomb gomb-elsodleges mt-6 w-full">Kérem a heti menüt</button>
+
+        <p data-uzenet aria-live="polite"></p>
 
         <p class="mt-4 text-sm text-pergamen-100/60">
           Hetente egy levél, hétfőnként. Reklámot nem küldünk, és a címedet nem

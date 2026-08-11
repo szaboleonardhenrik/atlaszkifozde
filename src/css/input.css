@@ -5,6 +5,11 @@
    bekerül, idegen könyvtárak osztálynév-törmeléke viszont nem. */
 @source "../../_site/**/*.html";
 
+/* A hírlevél-űrlap visszajelzését JS állítja be (oldal.js), a Tailwind viszont
+   csak a HTML-t szkenneli — e nélkül a sor nélkül ezek az osztályok csak addig
+   léteznének, amíg véletlenül egy HTML-elem is használja őket. */
+@source inline("bg-bronz-100 bg-paradicsom-100 text-petrol-800 text-paradicsom-700 rounded-xl mt-4 px-4 py-3 font-semibold");
+
 /* A Bitter változó betűtípus helyben tárolva (nincs külső CDN-hívás → GDPR-tiszta).
    A magyar ő/ű a latin-ext tartományban van, ezért mindkét szelet kell. */
 @font-face {

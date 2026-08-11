@@ -61,8 +61,8 @@
     }
   ],
   "hirlevel": {
-    "url": "",
-    "mezo": "email",
+    "url": "https://assets.mailerlite.com/jsonp/2569013/forms/195512594881054190/subscribe",
+    "mezo": "fields[email]",
     "leiras": "Minden hétfőn reggel elküldjük a heti menüt e-mailben, hogy már a munkába úton tudd, mi lesz az ebéd. Egy levél hetente, semmi több."
   },
   "gyik": [
