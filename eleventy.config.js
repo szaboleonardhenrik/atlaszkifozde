@@ -258,6 +258,21 @@ export default function (eleventyConfig) {
     return `${d.getMonth() + 1}. ${d.getDate()}.`;
   });
 
+  /**
+   * A hét MAI napjának menüje (vagy null, ha ma nincs — hétvége).
+   *
+   * Build-időben dől el, mint minden „ma”-logika itt: a napi ütemezett
+   * GitHub Actions futás lépteti (lásd deploy.yml) — CMS-mentés nem elég.
+   */
+  eleventyConfig.addFilter("maiNap", (het) => {
+    const k = het && datumbol(het.kezdes);
+    if (!k) return null;
+    const ma = new Date();
+    ma.setHours(0, 0, 0, 0);
+    const eltolas = Math.round((ma - k) / 86400000);
+    return (het.napok || [])[eltolas] || null; // hétvégén az index kifut → null
+  });
+
   /** Ma van-e ez a nap? (0 = hétfő) */
   eleventyConfig.addFilter("maE", (kezdes, eltolas) => {
     const k = datumbol(kezdes);
