@@ -104,5 +104,5 @@ Ha Óbudán keresel napi ebédet, és fontos, hogy **házias, gyors és kiszám�
 árú** legyen, a kifőzde a legjobb arány. Az otthonról hozott doboz olcsóbb, de
 időbe kerül; az étterem kényelmesebb, de drágább és lassabb.
 
-Minket a Szentendrei út 327. alatt találsz, hétfőtől péntekig 11 és 18 óra
+Minket a Szentendrei út 327. alatt találsz, hétfőtől péntekig 11:30 és 17:00
 között. Ha kérdésed van, [hívj minket](/kapcsolat/) nyugodtan.

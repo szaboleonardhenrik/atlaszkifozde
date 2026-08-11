@@ -17,7 +17,7 @@ városrészben, Békásmegyer és Óbuda között félúton.
 
 Nyitvatartás:
 
-- **Hétfő–Péntek:** 11:00 – 18:00
+- **Hétfő–Péntek:** 11:30 – 17:00
 - **Szombat – Vasárnap:** zárva
 
 ## Hogyan érsz ide?

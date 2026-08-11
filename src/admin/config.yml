@@ -175,8 +175,8 @@ collections:
                 widget: select
                 multiple: true
                 options: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-              - { name: nyit, label: Nyitás (ó:pp), widget: string, default: '11:00' }
-              - { name: zar, label: Zárás (ó:pp), widget: string, default: '18:00' }
+              - { name: nyit, label: Nyitás (ó:pp), widget: string, default: '11:30' }
+              - { name: zar, label: Zárás (ó:pp), widget: string, default: '17:00' }
           - { name: facebook, label: Facebook-oldal linkje, widget: string, required: false }
           - name: ceg
             label: Cégadatok (az impresszumhoz)

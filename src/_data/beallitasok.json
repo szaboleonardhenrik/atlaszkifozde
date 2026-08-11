@@ -19,7 +19,7 @@
   "nyitvatartas": [
     {
       "nap": "Hétfő – Péntek",
-      "ido": "11:00 – 18:00"
+      "ido": "11:30 – 17:00"
     },
     {
       "nap": "Szombat – Vasárnap",
@@ -68,7 +68,7 @@
   "gyik": [
     {
       "kerdes": "Mikor vannak nyitva?",
-      "valasz": "Hétfőtől péntekig 11:00 és 18:00 között várjuk. Hétvégén zárva vagyunk. Ünnepnapokon eltérhet a nyitvatartás – ilyenkor érdemes telefonon rákérdezni."
+      "valasz": "Hétfőtől péntekig 11:30 és 17:00 között várjuk. Hétvégén zárva vagyunk. Ünnepnapokon eltérhet a nyitvatartás – ilyenkor érdemes telefonon rákérdezni."
     },
     {
       "kerdes": "Hol találják meg a kifőzdét?",
@@ -128,8 +128,8 @@
         "Thursday",
         "Friday"
       ],
-      "nyit": "11:00",
-      "zar": "18:00"
+      "nyit": "11:30",
+      "zar": "17:00"
     }
   ]
 }
