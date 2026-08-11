@@ -27,7 +27,19 @@
     }
   ],
   "nyitvatartas_megjegyzes": "Ünnepnapokon eltérő nyitvatartás lehet – kérjük, hívjon minket.",
-  "facebook": "",
+  "facebook": "https://www.facebook.com/Atlaszkifozde/",
+  "ceg": {
+    "nev": "",
+    "szekhely": "",
+    "adoszam": "",
+    "nyilvantartas": "",
+    "kepviselo": ""
+  },
+  "extrak": [
+    "Köretek és mártások",
+    "Saláták, savanyúságok",
+    "Desszertek"
+  ],
   "wolt": "https://wolt.com/hu/hun/budapest/restaurant/atlasz-kifzde",
   "velemenyek": [
     {

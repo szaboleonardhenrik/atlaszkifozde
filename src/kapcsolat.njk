@@ -65,9 +65,11 @@ borito: pult.webp
           {% if beallitasok.wolt %}
             <a class="gomb gomb-masodlagos" href="{{ beallitasok.wolt }}" target="_blank" rel="noopener">Kérem házhoz – Wolt</a>
           {% endif %}
+          {# A legtöbben Google Térképet használnak útvonaltervezésre, ezért az
+             van elöl; az OpenStreetMap-link a beágyazott térkép mellett marad. #}
           <a
             class="gomb gomb-masodlagos"
-            href="https://www.openstreetmap.org/?mlat={{ beallitasok.cim.szelesseg }}&amp;mlon={{ beallitasok.cim.hosszusag }}#map=18/{{ beallitasok.cim.szelesseg }}/{{ beallitasok.cim.hosszusag }}"
+            href="https://www.google.com/maps/dir/?api=1&amp;destination={{ (beallitasok.cim.iranyitoszam + ' ' + beallitasok.cim.varos + ', ' + beallitasok.cim.utca) | urlencode }}"
             target="_blank" rel="noopener"
             >Útvonaltervezés</a
           >

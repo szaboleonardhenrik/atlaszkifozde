@@ -19,6 +19,15 @@ oldalak:
     <priority>{{ o.sulyy }}</priority>
   </url>
 {%- endfor %}
+{%- if beallitasok.ceg.adoszam %}
+  {%- for ut in ["/impresszum/", "/adatkezeles/"] %}
+  <url>
+    <loc>{{ ut | abszolutUrl(beallitasok.url) }}</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  {%- endfor %}
+{%- endif %}
 {%- for b in collections.bejegyzesek %}
   <url>
     <loc>{{ b.url | abszolutUrl(beallitasok.url) }}</loc>

@@ -1,0 +1,105 @@
+---
+celUtvonal: /impresszum/
+cim: Impresszum
+leiras: "Az Atlasz Kifőzde üzemeltetőjének adatai: szolgáltató neve, székhelye, adószáma és elérhetőségei."
+---
+
+{% set c = beallitasok.ceg %}
+
+<section class="relative overflow-hidden bg-pergamen-100 py-14 md:py-20">
+  {% include "reszek/fejdisz.njk" %}
+  <div class="szakasz relative text-center">
+    <p class="cimke">Kötelező adatok</p>
+    <h1 class="cim-disz mt-4 font-display text-4xl font-bold sm:text-5xl">Impresszum</h1>
+  </div>
+</section>
+
+<section class="szakasz py-12 md:py-16">
+  <div class="mx-auto max-w-3xl space-y-6">
+    <div class="kartya">
+      <h2 class="text-2xl font-bold">A szolgáltató</h2>
+      <dl class="mt-5 space-y-4">
+        <div>
+          <dt class="text-sm uppercase tracking-widest text-petrol-900/50">Név</dt>
+          <dd class="text-lg font-semibold text-petrol-800">{{ c.nev }}</dd>
+        </div>
+        <div>
+          <dt class="text-sm uppercase tracking-widest text-petrol-900/50">Székhely</dt>
+          <dd class="text-lg">{{ c.szekhely }}</dd>
+        </div>
+        <div>
+          <dt class="text-sm uppercase tracking-widest text-petrol-900/50">Adószám</dt>
+          <dd class="text-lg">{{ c.adoszam }}</dd>
+        </div>
+        {% if c.nyilvantartas %}
+          <div>
+            <dt class="text-sm uppercase tracking-widest text-petrol-900/50">Nyilvántartási szám</dt>
+            <dd class="text-lg">{{ c.nyilvantartas }}</dd>
+          </div>
+        {% endif %}
+        {% if c.kepviselo %}
+          <div>
+            <dt class="text-sm uppercase tracking-widest text-petrol-900/50">Képviselő</dt>
+            <dd class="text-lg">{{ c.kepviselo }}</dd>
+          </div>
+        {% endif %}
+      </dl>
+    </div>
+
+    <div class="kartya">
+      <h2 class="text-2xl font-bold">Elérhetőség</h2>
+      <dl class="mt-5 space-y-4">
+        <div>
+          <dt class="text-sm uppercase tracking-widest text-petrol-900/50">Üzlet</dt>
+          <dd class="text-lg">{{ beallitasok.cim.iranyitoszam }} {{ beallitasok.cim.varos }}, {{ beallitasok.cim.utca }}</dd>
+        </div>
+        <div>
+          <dt class="text-sm uppercase tracking-widest text-petrol-900/50">Telefon</dt>
+          <dd class="text-lg">
+            <a class="font-semibold text-paradicsom-600 hover:underline" href="tel:{{ beallitasok.telefon_link }}">{{ beallitasok.telefon }}</a>
+          </dd>
+        </div>
+        {% if beallitasok.email %}
+          <div>
+            <dt class="text-sm uppercase tracking-widest text-petrol-900/50">E-mail</dt>
+            <dd class="text-lg">
+              <a class="font-semibold text-paradicsom-600 hover:underline" href="mailto:{{ beallitasok.email }}">{{ beallitasok.email }}</a>
+            </dd>
+          </div>
+        {% endif %}
+      </dl>
+    </div>
+
+    <div class="kartya">
+      <h2 class="text-2xl font-bold">Tárhelyszolgáltató</h2>
+      <p class="mt-3 text-petrol-900/75">
+        GitHub, Inc. (GitHub Pages)<br />
+        88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, Amerikai Egyesült Államok<br />
+        <a class="font-semibold text-paradicsom-600 hover:underline" href="https://support.github.com" target="_blank" rel="noopener">support.github.com</a>
+      </p>
+    </div>
+
+    <div class="kartya">
+      <h2 class="text-2xl font-bold">Panasz, jogorvoslat</h2>
+      <p class="mt-3 text-petrol-900/75">
+        Panasszal elsőként hozzánk érdemes fordulni a fenti elérhetőségeken –
+        a legtöbb dolgot egy telefonhívással meg tudjuk oldani.
+      </p>
+      <p class="mt-4 text-petrol-900/75">
+        Ha ez nem vezet eredményre, fogyasztóként a lakóhelye szerint illetékes
+        <strong class="text-petrol-800">békéltető testülethez</strong> fordulhat.
+        Székhelyünk szerint illetékes: Budapesti Békéltető Testület,
+        1016 Budapest, Krisztina krt. 99. – <span class="whitespace-nowrap">bekelteto.bkik.hu</span>
+      </p>
+      <p class="mt-4 text-petrol-900/75">
+        Fogyasztóvédelmi eljárást a lakóhely szerint illetékes
+        kormányhivatalnál lehet kezdeményezni.
+      </p>
+    </div>
+
+    <p class="text-center text-sm text-petrol-900/60">
+      Az adatkezelésről külön tájékoztató szól:
+      <a class="font-semibold text-paradicsom-600 hover:underline" href="/adatkezeles/">Adatkezelési tájékoztató</a>
+    </p>
+  </div>
+</section>

@@ -1,0 +1,106 @@
+---
+celUtvonal: /adatkezeles/
+cim: Adatkezelési tájékoztató
+leiras: "Milyen adatot kezelünk a weboldalon keresztül, meddig, és milyen jogai vannak Önnek. Sütiket nem használunk, látogatásmérőt nem futtatunk."
+---
+
+{% set c = beallitasok.ceg %}
+
+<section class="relative overflow-hidden bg-pergamen-100 py-14 md:py-20">
+  {% include "reszek/fejdisz.njk" %}
+  <div class="szakasz relative text-center">
+    <p class="cimke">Az Ön adatai</p>
+    <h1 class="cim-disz mt-4 font-display text-4xl font-bold sm:text-5xl">Adatkezelési tájékoztató</h1>
+    <p class="mx-auto mt-6 max-w-2xl text-lg text-petrol-900/75">
+      Röviden: a weboldal nem használ sütiket, nem futtat látogatásmérőt, és
+      egyetlen adatot kér, azt is csak akkor, ha Ön kifejezetten megadja – az
+      e-mail címét a heti menü hírlevélhez.
+    </p>
+  </div>
+</section>
+
+<section class="szakasz py-12 md:py-16">
+  <div class="szoveg mx-auto max-w-3xl">
+    <p>
+      Ez a tájékoztató a <strong>{{ beallitasok.url }}</strong> weboldalon keresztül
+      történő adatkezelésre vonatkozik.
+    </p>
+
+    <h2>1. Ki kezeli az adatokat?</h2>
+    <p>
+      <strong>{{ c.nev }}</strong><br />
+      Székhely: {{ c.szekhely }}<br />
+      Adószám: {{ c.adoszam }}<br />
+      Telefon: {{ beallitasok.telefon }}{% if beallitasok.email %}<br />E-mail: {{ beallitasok.email }}{% endif %}
+    </p>
+    <p>
+      A szolgáltató további adatai az <a href="/impresszum/">impresszumban</a>
+      találhatók.
+    </p>
+
+    <h2>2. Milyen adatot kezelünk, és miért?</h2>
+    <p>
+      <strong>Hírlevél-feliratkozás.</strong> Ha feliratkozik a heti menüre, az
+      <strong>e-mail címét</strong> kezeljük, valamint a hozzájárulás tényét és
+      időpontját. Célja kizárólag az, hogy hetente egyszer elküldjük a heti
+      menüt. Reklámot nem küldünk, és a címét nem adjuk át harmadik félnek
+      marketing célra.
+    </p>
+    <ul>
+      <li><strong>Jogalap:</strong> az Ön hozzájárulása (GDPR 6. cikk (1) bekezdés a) pont).</li>
+      <li><strong>Időtartam:</strong> a leiratkozásig, illetve a hozzájárulás visszavonásáig.</li>
+      <li><strong>Leiratkozás:</strong> minden levél alján egy kattintással, indoklás nélkül.</li>
+    </ul>
+    <p>
+      <strong>Szervernaplók.</strong> A weboldalt kiszolgáló tárhelyszolgáltató –
+      minden webszerverhez hasonlóan – technikai naplót vezet a lekérésekről
+      (például IP-cím, időpont). Ezek a naplók a szolgáltatónál keletkeznek, mi
+      nem férünk hozzájuk és nem használjuk fel őket.
+    </p>
+
+    <h2>3. Sütik és látogatásmérés</h2>
+    <p>
+      <strong>Ez a weboldal nem helyez el sütiket</strong> az Ön eszközén, és nem
+      futtat látogatásmérő vagy hirdetési szolgáltatást. A Kapcsolat oldalon
+      beágyazott térkép az OpenStreetMap szolgáltatása, amely szintén nem tesz
+      le sütit. Ezért nem is találkozik nálunk süti-elfogadó sávval.
+    </p>
+
+    <h2>4. Kinek adjuk tovább?</h2>
+    <p>Az adatokat nem adjuk el és nem tesszük közzé. Két adatfeldolgozót veszünk igénybe:</p>
+    <ul>
+      <li>
+        <strong>Hírlevél kiküldése:</strong> UAB „MailerLite” (Litvánia, Európai Unió) –
+        a feliratkozók e-mail címét tárolja és a leveleket kiküldi.
+      </li>
+      <li>
+        <strong>Tárhely:</strong> GitHub, Inc. (Amerikai Egyesült Államok) – a weboldal
+        fájljainak kiszolgálása. Ide adatot nem küldünk, csak a fenti technikai
+        naplók keletkeznek.
+      </li>
+    </ul>
+
+    <h2>5. Milyen jogai vannak?</h2>
+    <p>Bármikor kérheti tőlünk, hogy</p>
+    <ul>
+      <li>tájékoztassuk arról, milyen adatát kezeljük (hozzáférés);</li>
+      <li>javítsuk a pontatlan adatot (helyesbítés);</li>
+      <li>töröljük az adatát (törlés);</li>
+      <li>korlátozzuk az adatkezelést, vagy tiltakozzon ellene;</li>
+      <li>adja ki az adatait hordozható formában (adathordozhatóság);</li>
+      <li>visszavonja a hozzájárulását – ez nem érinti a visszavonás előtti adatkezelés jogszerűségét.</li>
+    </ul>
+    <p>
+      Elég egy telefon vagy egy levél a fenti elérhetőségeken. A kérésre
+      legkésőbb egy hónapon belül válaszolunk.
+    </p>
+
+    <h2>6. Hová fordulhat, ha nem ért egyet velünk?</h2>
+    <p>
+      Panasszal a Nemzeti Adatvédelmi és Információszabadság Hatósághoz fordulhat
+      (1055 Budapest, Falk Miksa utca 9–11., <span class="whitespace-nowrap">naih.hu</span>),
+      illetve bírósághoz. Kérjük, előbb minket keressen meg – jó eséllyel
+      gyorsabban megoldjuk.
+    </p>
+  </div>
+</section>

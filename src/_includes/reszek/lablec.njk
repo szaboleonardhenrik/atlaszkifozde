@@ -62,6 +62,14 @@
 
   <div class="szakasz mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-petrol-600 pt-6 text-sm text-pergamen-200/70">
     <p>© {{ ev }} {{ beallitasok.nev }}. Minden jog fenntartva.</p>
+    {# A jogi oldalak csak akkor léteznek, ha a cégadatok ki vannak töltve —
+       lásd src/jogi/jogi.11tydata.js. Link se mutasson rájuk addig. #}
+    {% if beallitasok.ceg.adoszam %}
+      <p class="flex flex-wrap gap-4">
+        <a class="hover:text-bronz-300" href="/impresszum/">Impresszum</a>
+        <a class="hover:text-bronz-300" href="/adatkezeles/">Adatkezelés</a>
+      </p>
+    {% endif %}
     <p>Térkép: OpenStreetMap közreműködők</p>
   </div>
 </footer>

@@ -63,7 +63,10 @@
 
         <p class="mt-4 text-sm text-pergamen-100/60">
           Hetente egy levél, hétfőnként. Reklámot nem küldünk, és a címedet nem
-          adjuk tovább senkinek.
+          adjuk tovább senkinek.{% if beallitasok.ceg.adoszam %}
+            Részletek az
+            <a class="underline hover:text-bronz-300" href="/adatkezeles/">adatkezelési tájékoztatóban</a>.
+          {% endif %}
         </p>
       </form>
     </div>

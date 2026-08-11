@@ -178,6 +178,26 @@ collections:
               - { name: nyit, label: Nyitás (ó:pp), widget: string, default: '11:00' }
               - { name: zar, label: Zárás (ó:pp), widget: string, default: '18:00' }
           - { name: facebook, label: Facebook-oldal linkje, widget: string, required: false }
+          - name: ceg
+            label: Cégadatok (az impresszumhoz)
+            widget: object
+            collapsed: true
+            hint: >-
+              Amíg az adószám üres, az Impresszum és az Adatkezelési tájékoztató
+              oldal NEM jön létre, és a láblécben sem jelenik meg rájuk link.
+            fields:
+              - { name: nev, label: A szolgáltató neve, widget: string, required: false }
+              - { name: szekhely, label: Székhely, widget: string, required: false }
+              - { name: adoszam, label: Adószám, widget: string, required: false }
+              - { name: nyilvantartas, label: Cégjegyzék- vagy nyilvántartási szám, widget: string, required: false }
+              - { name: kepviselo, label: Képviselő neve, widget: string, required: false }
+          - name: extrak
+            label: A napi menü mellett kapható (heti menü oldal)
+            widget: list
+            required: false
+            hint: >-
+              Rövid megnevezések, pl. „Desszertek”. Amíg üres, a szakasz nem
+              jelenik meg.
           - name: wolt
             label: Wolt-oldal linkje
             widget: string
