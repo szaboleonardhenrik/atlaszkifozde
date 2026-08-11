@@ -84,3 +84,38 @@ borito: pult.webp
 </section>
 
 {% include "reszek/hirlevel.njk" %}
+
+{# A heti menü étlapként a keresőknek. Egy tétel = egy nap teljes menüje
+   (leves + főétel), mert az az ár, amit a vendég fizet — a leves külön nem
+   kapható, így külön MenuItem-ként félrevezető ár kerülne rá. #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Menu",
+  "name": "Heti menü – {{ beallitasok.nev }}",
+  "url": "{{ '/heti-menu/' | abszolutUrl(beallitasok.url) }}",
+  "inLanguage": "hu-HU",
+  "hasMenuSection": [
+    {%- for h in lathatoHetek %}
+    {
+      "@type": "MenuSection",
+      "name": {{ (h.kezdes | hetIdoszak) | dump | safe }},
+      "hasMenuItem": [
+        {%- for n in h.napok %}
+        {
+          "@type": "MenuItem",
+          "name": {{ (n.nap + ": " + n.foetel) | dump | safe }},
+          {% if n.leves %}"description": {{ ("Leves: " + n.leves) | dump | safe }},{% endif %}
+          "offers": {
+            "@type": "Offer",
+            "price": {{ n.ar | default(menu.arak.napi_menu) }},
+            "priceCurrency": "HUF"
+          }
+        }{{ "," if not loop.last }}
+        {%- endfor %}
+      ]
+    }{{ "," if not loop.last }}
+    {%- endfor %}
+  ]
+}
+</script>

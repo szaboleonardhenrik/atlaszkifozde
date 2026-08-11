@@ -191,3 +191,15 @@ collections:
             fields:
               - { name: szoveg, label: Vélemény, widget: text }
               - { name: szerzo, label: Ki mondta, widget: string }
+          - name: gyik
+            label: Gyakori kérdések (a /gyik/ oldalon)
+            widget: list
+            summary: '{{fields.kerdes}}'
+            fields:
+              - { name: kerdes, label: Kérdés, widget: string }
+              - name: valasz
+                label: Válasz
+                widget: text
+                hint: >-
+                  Az árakat ne írd be számmal: a {napi} és a {heti} jelölés
+                  helyére a rendszer a heti menünél megadott aktuális árat teszi.

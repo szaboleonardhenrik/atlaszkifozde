@@ -46,6 +46,48 @@
     "mezo": "email",
     "leiras": "Minden hétfőn reggel elküldjük a heti menüt e-mailben, hogy már a munkába úton tudd, mi lesz az ebéd. Egy levél hetente, semmi több."
   },
+  "gyik": [
+    {
+      "kerdes": "Mikor vannak nyitva?",
+      "valasz": "Hétfőtől péntekig 11:00 és 18:00 között várjuk. Hétvégén zárva vagyunk. Ünnepnapokon eltérhet a nyitvatartás – ilyenkor érdemes telefonon rákérdezni."
+    },
+    {
+      "kerdes": "Hol találják meg a kifőzdét?",
+      "valasz": "1039 Budapest, Szentendrei út 327. – Óbudán, Csillaghegyen, a Szentendrei út mentén. A Kapcsolat oldalon térkép is segít a tájékozódásban."
+    },
+    {
+      "kerdes": "Mennyibe kerül a napi menü?",
+      "valasz": "A napi menü {napi}, és ebben a levest és a főételt is megkapja. Ha az egész hetet előre rendezi, {heti} a napi ár."
+    },
+    {
+      "kerdes": "Mit tartalmaz a napi menü?",
+      "valasz": "Egy leves és egy főétel, egy adagban – minden hétköznap más. Az aktuális hét fogásait a Heti menü oldalon nézheti meg."
+    },
+    {
+      "kerdes": "Hogyan működik a heti befizetés?",
+      "valasz": "Ha az egész hetet egyben rendezi, a napi ár {napi} helyett {heti}. Így hetente nagyjából egy menü árát megtakarítja, és nem kell minden nap fizetéssel bajlódnia."
+    },
+    {
+      "kerdes": "Elvitelre is kérhető az ebéd?",
+      "valasz": "Igen, a menüt dobozban is elviheti, és helyben is elfogyaszthatja. Ha telefonon előre szól, időre elkészítjük, hogy ne kelljen várakoznia."
+    },
+    {
+      "kerdes": "Kell előre rendelni?",
+      "valasz": "Nem kötelező, be lehet ugrani bejelentkezés nélkül is. Nagyobb mennyiségnél vagy ha pontos időre kéri az ebédet, jobb telefonon egyeztetni."
+    },
+    {
+      "kerdes": "Vállalnak céges vagy irodai ebédet?",
+      "valasz": "Igen. Több adagot és rendszeres, heti irodai ebédet is vállalunk. Hívjon minket, és megbeszéljük a részleteket."
+    },
+    {
+      "kerdes": "Mikor frissül a heti menü?",
+      "valasz": "Minden hétfőn új menü indul, és az oldalon mindig az aktuális hét fogásai látszanak."
+    },
+    {
+      "kerdes": "Mi a helyzet az ételérzékenységgel?",
+      "valasz": "A napi menü adott, de szívesen megmondjuk, mi van egy fogásban. Ha van érzékenysége vagy kérése, hívjon minket – amiben tudunk, segítünk."
+    }
+  ],
   "nyitvatartas_gepi": [
     {
       "napok": [
