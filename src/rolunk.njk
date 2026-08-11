@@ -6,8 +6,9 @@ leiras: "Harmadik generációs vendéglátós család vagyunk: a nagyszülők é
 borito: csapat.webp
 ---
 
-<section class="bg-pergamen-100 py-12 md:py-16">
-  <div class="szakasz text-center">
+<section class="relative overflow-hidden bg-pergamen-100 py-14 md:py-20">
+  {% include "reszek/fejdisz.njk" %}
+  <div class="szakasz relative text-center">
     <p class="cimke">Rólunk</p>
     <h1 class="cim-disz mt-4 font-display text-4xl font-bold sm:text-5xl">
       Éttermekben nőttünk fel, mégis kifőzdét nyitottunk
@@ -20,7 +21,7 @@ borito: csapat.webp
 
   {# Négy szám a bemutatkozás helyett: gyorsabban olvasható, mint egy bekezdés,
      és mind a négy tény, nem marketingfogás. #}
-  <dl class="szakasz mt-12 grid grid-cols-2 gap-6 md:grid-cols-4">
+  <dl class="szakasz relative mt-12 grid grid-cols-2 gap-6 md:grid-cols-4">
     <div class="kartya text-center">
       <dt class="text-sm uppercase tracking-[0.18em] text-petrol-900/50">Ekkor nyitottunk</dt>
       <dd class="mt-2 font-display text-4xl font-bold text-petrol-800">{{ beallitasok.alapitas_eve }}</dd>
