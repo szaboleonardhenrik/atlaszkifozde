@@ -133,6 +133,13 @@ collections:
           - { name: szlogen, label: Szlogen, widget: string, hint: 'A lábléc mondatának a végére is bekerül, ezért a záró írásjelet (pont) írd bele te.' }
           - { name: url, label: A weboldal címe, widget: string, hint: Csak akkor változtasd, ha a domain is változik. }
           - { name: bevezeto, label: Bevezető szöveg a főoldalon, widget: text }
+          - name: fejkep
+            label: A főoldal fejlécképe
+            widget: image
+            required: false
+            hint: >-
+              Fekvő, széles fotó a legjobb (legalább 1600 képpont széles). Sötét
+              réteg kerül rá, hogy a szöveg olvasható maradjon rajta.
           - { name: telefon, label: Telefonszám (ahogy látszik), widget: string }
           - { name: telefon_link, label: Telefonszám tárcsázáshoz, widget: string, hint: 'Szóköz nélkül, pl. +36204269836' }
           - { name: email, label: E-mail cím, widget: string, required: false }

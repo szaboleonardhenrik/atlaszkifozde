@@ -67,6 +67,31 @@ def logo():
     print("  favicon.png + favicon-32.png + favicon.ico kész")
 
 
+def fejkep(forras="_pult.jpg", nev="fejkep.webp", szel=1800, arany=16 / 9):
+    """Széles vágat a főoldal fejlécképéhez.
+
+    A meglévő fotók állóak vagy 1400 pont szélesek; a fejléc viszont teljes
+    képernyő széles, ott egy 1072 pontos kép felnagyítva lágy lenne. Ezért a
+    nyers fájlból készül egy 16:9-es, középre igazított vágat.
+    """
+    ut = os.path.join(IMG, forras)
+    if not os.path.exists(ut):
+        print(f"  ! hiányzik a nyers fájl: {ut}")
+        return
+    im = Image.open(ut).convert("RGB")
+    cel_ma = round(im.width / arany)
+    if cel_ma <= im.height:  # álló kép: fentről-lentről vágunk
+        felso = (im.height - cel_ma) // 2
+        im = im.crop((0, felso, im.width, felso + cel_ma))
+    else:  # túl széles: oldalt vágunk
+        cel_sz = round(im.height * arany)
+        bal = (im.width - cel_sz) // 2
+        im = im.crop((bal, 0, bal + cel_sz, im.height))
+    # Sötét réteg kerül rá, ezért a 72-es minőség is bőven elég — a fejléckép
+    # egyben az oldal legelső letöltött képe (LCP), ott minden kilobájt számít.
+    save_webp(im, nev, szel, quality=72)
+
+
 def bélyegkepek():
     """Minden fotóhoz `-sm.webp` változat a kártyákhoz és a galéria-rácshoz.
 
@@ -99,6 +124,8 @@ def main():
             print(f"  ! hiányzik: {f}")
             continue
         save_webp(Image.open(f), f"{nev}.webp", szel)
+    print("Fejléckép:")
+    fejkep()
     print("Bélyegképek:")
     bélyegkepek()
 
