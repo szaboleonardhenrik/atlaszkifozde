@@ -2,7 +2,7 @@
 layout: base.njk
 permalink: /rolunk/
 cim: Rólunk
-leiras: "Kis családias kifőzde a Szentendrei úton: napi friss beszerzés, házias fogások, kedves kiszolgálás. Ismerje meg a konyhánkat."
+leiras: "Harmadik generációs vendéglátós család vagyunk: a nagyszülők és a szülők éttermeket vezettek, mi 2010 óta kifőzdét viszünk a Szentendrei úton. Ez a történetünk."
 borito: csapat.webp
 ---
 
@@ -10,9 +10,34 @@ borito: csapat.webp
   <div class="szakasz text-center">
     <p class="cimke">Rólunk</p>
     <h1 class="cim-disz mt-4 font-display text-4xl font-bold sm:text-5xl">
-      Ahol a világ ízei otthonra találnak
+      Éttermekben nőttünk fel, mégis kifőzdét nyitottunk
     </h1>
+    <p class="mx-auto mt-6 max-w-2xl text-lg text-petrol-900/75">
+      Nem tévedésből. Nagyon is szándékosan – és a lenti négy szám nagyjából
+      mindent elmond rólunk.
+    </p>
   </div>
+
+  {# Négy szám a bemutatkozás helyett: gyorsabban olvasható, mint egy bekezdés,
+     és mind a négy tény, nem marketingfogás. #}
+  <dl class="szakasz mt-12 grid grid-cols-2 gap-6 md:grid-cols-4">
+    <div class="kartya text-center">
+      <dt class="text-sm uppercase tracking-[0.18em] text-petrol-900/50">Ekkor nyitottunk</dt>
+      <dd class="mt-2 font-display text-4xl font-bold text-petrol-800">{{ beallitasok.alapitas_eve }}</dd>
+    </div>
+    <div class="kartya text-center">
+      <dt class="text-sm uppercase tracking-[0.18em] text-petrol-900/50">Generáció a szakmában</dt>
+      <dd class="mt-2 font-display text-4xl font-bold text-petrol-800">3</dd>
+    </div>
+    <div class="kartya text-center">
+      <dt class="text-sm uppercase tracking-[0.18em] text-petrol-900/50">Nap egy héten</dt>
+      <dd class="mt-2 font-display text-4xl font-bold text-petrol-800">5</dd>
+    </div>
+    <div class="kartya text-center">
+      <dt class="text-sm uppercase tracking-[0.18em] text-petrol-900/50">Fogás minden nap</dt>
+      <dd class="mt-2 font-display text-4xl font-bold text-paradicsom-600">2</dd>
+    </div>
+  </dl>
 </section>
 
 <section class="szakasz py-14 md:py-20">
@@ -30,23 +55,23 @@ borito: csapat.webp
       </p>
       <h2 class="mt-5 text-3xl font-bold sm:text-4xl">Három generáció a konyhában</h2>
       <p class="mt-6 text-lg leading-relaxed text-petrol-900/80">
-        Az Atlasz Kifőzde {{ beallitasok.alapitas_eve }}-ben nyitotta meg a kapuit
-        a Szentendrei úton. <strong>Harmadik generációs vendéglátós család vagyunk:</strong>
-        a nagyszülők és a szülők éttermeket alapítottak és vezettek, mi pedig
-        ebben nőttünk fel. Ma mégsem a nagy éttermi gépezet érdekel minket, hanem
-        a családias hangulat és a házias ízek – ezért lett ebből kifőzde.
+        <strong>Harmadik generációs vendéglátós család vagyunk:</strong> a
+        nagyszülők és a szülők éttermeket alapítottak és vezettek, mi pedig
+        ebben nőttünk fel – foglalási könyv, esti műszak, hosszú étlap. Aztán
+        {{ beallitasok.alapitas_eve }}-ben mégsem éttermet nyitottunk a
+        Szentendrei úton, hanem kifőzdét.
       </p>
       <p class="mt-4 text-lg leading-relaxed text-petrol-900/80">
-        Minden reggel személyesen intézzük a beszerzést, mindig az adott nap
-        igényeihez és a legszebb, legfrissebb alapanyagokhoz igazodva. Ennek
-        köszönhetően tudjuk garantálni, hogy ételeink nemcsak ízletesek, hanem
-        egészségesek és változatosak is.
+        Azt vittük tovább, ami abból a legjobb volt: a konyhát. Egy kifőzdében
+        nincs harminc tételes étlap, amiből tíz csak papíron létezik. Van egy
+        leves, egy főétel, és az aznap készül el. Cserébe <strong>mindenre tudjuk
+        a választ</strong>: mi van benne, mikor főtt, honnan van az alapanyag.
       </p>
       <p class="mt-4 text-lg leading-relaxed text-petrol-900/80">
-        A gondosan válogatott hozzávalókból minden nap olyan fogásokat készítünk,
-        amelyekben érezhető a házias odafigyelés és a frissesség ereje. Nálunk a
-        vendégek valóban azt kapják, amit szeretünk: minőséget, törődést és nap
-        mint nap új ízélményeket.
+        A beszerzést minden reggel személyesen intézzük. Nem listával indulunk,
+        hanem nyitott szemmel: ami aznap a legszebb, abból lesz az ebéd. Ezért
+        nincs állandó étlapunk – és ezért nem tudjuk hónapokkal előre megmondani,
+        mi kerül a tányérra jövő szerdán.
       </p>
       <div class="mt-8 flex flex-wrap gap-3">
         <a class="gomb gomb-elsodleges" href="/heti-menu/">E heti menü</a>
@@ -81,6 +106,19 @@ borito: csapat.webp
       </p>
     </div>
   </div>
+</section>
+
+{# Kiemelt mondat a saját hangunkon. Szándékosan NINCS név alatta: a szöveget a
+   kifőzde írja magáról, nem egy konkrét személytől idézünk. #}
+<section class="szakasz py-14 md:py-20">
+  <figure class="mx-auto max-w-3xl text-center">
+    <p class="cimke">Amiben hiszünk</p>
+    <blockquote class="mt-6 font-display text-2xl leading-relaxed text-petrol-800 sm:text-3xl">
+      „Nem akartunk nagy éttermet. Azt akartuk, hogy valaki bejöjjön délben,
+      jóllakjon, és holnap is visszajöjjön.”
+    </blockquote>
+    <span class="mx-auto mt-8 block h-px w-20 bg-bronz-400"></span>
+  </figure>
 </section>
 
 <section class="bg-pergamen-100 py-14 md:py-20">
@@ -119,13 +157,14 @@ borito: csapat.webp
 
 <section class="szakasz py-16 md:py-20">
   <div class="rounded-3xl border border-pergamen-300 bg-pergamen-100 p-8 text-center md:p-12">
-    <h2 class="text-3xl font-bold sm:text-4xl">Kóstolja meg Ön is</h2>
+    <h2 class="text-3xl font-bold sm:text-4xl">A többit már a tányér mondja el</h2>
     <p class="mx-auto mt-4 max-w-2xl text-lg text-petrol-900/75">
       {{ beallitasok.cim.iranyitoszam }} {{ beallitasok.cim.varos }}, {{ beallitasok.cim.utca }} ·
       Hétfőtől péntekig 11:00–18:00
     </p>
     <div class="mt-8 flex flex-wrap justify-center gap-3">
       <a class="gomb gomb-elsodleges" href="tel:{{ beallitasok.telefon_link }}">{{ beallitasok.telefon }}</a>
+      <a class="gomb gomb-masodlagos" href="/heti-menu/">E heti menü</a>
       <a class="gomb gomb-masodlagos" href="/galeria/">Galéria</a>
     </div>
   </div>
