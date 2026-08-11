@@ -130,7 +130,7 @@ collections:
         description: Az oldal alapadatai – ezek a fejlécben, láblécben és a Kapcsolat oldalon jelennek meg.
         fields:
           - { name: nev, label: A kifőzde neve, widget: string }
-          - { name: szlogen, label: Szlogen, widget: string }
+          - { name: szlogen, label: Szlogen, widget: string, hint: 'A lábléc mondatának a végére is bekerül, ezért a záró írásjelet (pont) írd bele te.' }
           - { name: url, label: A weboldal címe, widget: string, hint: Csak akkor változtasd, ha a domain is változik. }
           - { name: bevezeto, label: Bevezető szöveg a főoldalon, widget: text }
           - { name: telefon, label: Telefonszám (ahogy látszik), widget: string }

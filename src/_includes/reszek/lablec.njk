@@ -5,7 +5,9 @@
         <img src="/assets/img/logo-kicsi.webp" alt="{{ beallitasok.nev }}" width="200" height="464" loading="lazy" class="h-32 w-auto" />
       </div>
       <p class="mt-5 max-w-xs text-pergamen-200/80">
-        Házias napi menü Óbudán, napi friss alapanyagokból. {{ beallitasok.szlogen }}.
+        {# A szlogen záró írásjelét NEM egészítjük ki: ha pontra végződik (mint
+           most), a hozzáragasztott pont dupla pontot adna. #}
+        Házias napi menü Óbudán, napi friss alapanyagokból. {{ beallitasok.szlogen }}
       </p>
     </div>
 
