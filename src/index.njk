@@ -95,20 +95,22 @@ eleventyNavigation:
    szerinti accent: pontosan a „Ma” kiemelése. #}
 {% set mai = aktualis | maiNap %}
 {% if mai %}
-  <section class="bg-paradicsom-600 text-white">
+  {# Világos sáv, a vörös csak a „Ma” jelölésen és az áron — a márka-szabály
+     szerint a vörös accent, nem felületszín. #}
+  <section class="border-b border-pergamen-300 bg-pergamen-100">
     <div class="szakasz flex flex-wrap items-center justify-center gap-x-6 gap-y-2 py-4 text-center">
-      <p class="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.22em] text-paradicsom-100">
+      <p class="flex items-center gap-2 rounded-full bg-paradicsom-600 px-3 py-1 text-sm font-semibold uppercase tracking-[0.18em] text-white">
         <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
           <path d="M7 12c0-2 1.5-2.5 1.5-4.5M11.5 12c0-2 1.5-2.5 1.5-4.5M16 12c0-2 1.5-2.5 1.5-4.5" />
           <path d="M5 15h14v1a5 5 0 0 1-5 5h-4a5 5 0 0 1-5-5z" />
         </svg>
         Ma a pultban
       </p>
-      <p class="font-display text-lg font-bold sm:text-xl">
+      <p class="font-display text-lg font-bold text-petrol-800 sm:text-xl">
         {{ mai.leves }}{% if mai.leves and mai.foetel %} · {% endif %}{{ mai.foetel }}
       </p>
-      <p class="font-semibold text-paradicsom-100">{{ (mai.ar or menu.arak.napi_menu) | forint }}</p>
-      <a class="font-semibold underline underline-offset-4 hover:text-paradicsom-100" href="/heti-menu/">Teljes heti menü →</a>
+      <p class="font-display text-lg font-bold text-paradicsom-600">{{ (mai.ar or menu.arak.napi_menu) | forint }}</p>
+      <a class="font-semibold text-petrol-700 underline underline-offset-4 hover:text-paradicsom-600" href="/heti-menu/">Teljes heti menü →</a>
     </div>
   </section>
 {% endif %}
