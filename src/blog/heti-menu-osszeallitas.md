@@ -38,7 +38,7 @@ A hét eleje és vége máshogy működik:
 
 | Nap | Jellemző igény |
 |---|---|
-| Hétfő | laktató, „újrakezdős" fogás – gulyás, rakott étel |
+| Hétfő | laktató, „újrakezdős” fogás – gulyás, rakott étel |
 | Kedd–szerda | vegyes, közepes nehézségű |
 | Csütörtök | könnyebb, sok zöldség |
 | Péntek | kényeztetés – sültek, rántott fogás, kedvenc |

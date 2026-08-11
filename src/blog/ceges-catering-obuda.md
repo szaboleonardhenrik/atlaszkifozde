@@ -57,7 +57,7 @@ mert nagyobb mennyiséghez a beszerzést is hozzá kell igazítani.
 
 ## A leggyakoribb buktatók
 
-- **„Majd szólunk, ha odaérünk."** Ez a legrosszabb: ilyenkor vagy vár az étel,
+- **„Majd szólunk, ha odaérünk.”** Ez a legrosszabb: ilyenkor vagy vár az étel,
   vagy vár a kolléga. Adjatok fix időpontot.
 - **Csak e-mailben egyeztetni.** Egy telefon gyorsabb és félreérthetetlen.
 - **Elfelejteni szólni, ha kevesebben lesznek.** Ha valaki beteg vagy elutazik,

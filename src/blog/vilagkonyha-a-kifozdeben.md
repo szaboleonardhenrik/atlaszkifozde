@@ -14,7 +14,7 @@ annak természetes folytatása.
 
 A magyar konyha maga is átvett konyha. A **paprika** Amerikából érkezett, a
 **tarhonya** és a **töltött káposzta** a török hódoltság idején honosodott meg,
-a **rétes** a Balkánon és Bécsen át jutott ide. Amit ma „ősi magyarnak" érzünk,
+a **rétes** a Balkánon és Bécsen át jutott ide. Amit ma „ősi magyarnak” érzünk,
 az valójában több évszázados átvételek eredménye.
 
 Ha ezt komolyan vesszük, akkor egy paella nem idegen test a menüben, hanem
@@ -40,7 +40,7 @@ kerül a menübe.
 
 Ha egy fogást el kell magyarázni ahhoz, hogy valaki merjen kérni belőle, akkor
 rossz helyen van. A jó menütétel neve önmagáért beszél:
-*„fűszeres csirke bulgurral"* mindenkinek mond valamit.
+*„fűszeres csirke bulgurral”* mindenkinek mond valamit.
 
 ## Mi működik a legjobban?
 

@@ -21,7 +21,7 @@ A klasszikus alap: hús és zöldség hosszan, gyöngyözve főzve.
 A jó húsleves titka nem a fűszer, hanem az **idő és a hőfok**: ha felforr és
 rotyog, zavaros lesz. Csak gyöngyözni szabad.
 
-## 2. Betétes, „gulyás típusú" levesek
+## 2. Betétes, „gulyás típusú” levesek
 
 Ezek egyszerre levesek és laktató fogások.
 
@@ -44,14 +44,14 @@ Ezek a levesek nyáron is működnek, ha nem terheljük túl tejszínnel.
 A magyar konyha egyik legjellegzetesebb csoportja.
 
 - **Korhelyleves** – savanyú káposztából, kolbásszal. Hagyományosan ünnepek
-  utáni „helyrehozó" fogás.
+  utáni „helyrehozó” fogás.
 - **Palócleves** – bárány vagy sertés, zöldbab, tejföl, kapor.
 - **Tárkonyos raguleves** – tárkonnyal, tejföllel; ma az egyik legkedveltebb.
 
 ## 5. Főzelék-jellegű és zöldséglevesek
 
 - **Zöldségleves**, **zöldbableves**, **karalábéleves**, **zöldborsóleves**
-- Ezek adják a heti menü „könnyebb" napjait, jellemzően a nehezebb főételek
+- Ezek adják a heti menü „könnyebb” napjait, jellemzően a nehezebb főételek
   mellé.
 
 ## 6. Gyümölcslevesek

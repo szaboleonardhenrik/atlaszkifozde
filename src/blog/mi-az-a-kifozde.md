@@ -6,7 +6,7 @@ borito: toltott-paprika.webp
 boritoLeiras: "Töltött paprika és húsgombóc paradicsomszószban"
 ---
 
-A „kifőzde" szó sokaknak a nagymama korából köszön vissza, pedig ma is pontosan
+A „kifőzde” szó sokaknak a nagymama korából köszön vissza, pedig ma is pontosan
 azt jelenti, amit régen: **kis konyha, néhány fogás, aznap főzve, korrekt áron.**
 Nézzük meg, mi a különbség a hasonló műfajok között, és mikor melyik éri meg.
 
@@ -44,7 +44,7 @@ minőség titka: kevés fogást lehet tényleg jól, frissen megcsinálni.
 - **Tempó:** lassabb, hiszen minden rendelésre készül.
 - **Miért jó:** vacsorára, alkalomra, hosszabb együtt töltött időre.
 
-## Akkor a kifőzde „olcsó étterem"?
+## Akkor a kifőzde „olcsó étterem”?
 
 Nem. Más műfaj, más logikával:
 

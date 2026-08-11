@@ -37,7 +37,7 @@ gyors. Nálunk például a napi menü 2290 forint, egész hetes befizetéssel pe
 
 ## Mire érdemes figyelni menüválasztásnál?
 
-Nem minden „napi menü" egyforma. Néhány kérdés, ami elárulja a lényeget:
+Nem minden „napi menü” egyforma. Néhány kérdés, ami elárulja a lényeget:
 
 - **Változik-e a kínálat hetente?** Ha hónapok óta ugyanaz a hat fogás forog,
   az nem friss főzésre utal.

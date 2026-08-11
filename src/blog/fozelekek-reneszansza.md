@@ -6,7 +6,7 @@ borito: tepsis-pizza.webp
 boritoLeiras: "Tepsis, sajttal sült házi fogás, frissen a sütőből"
 ---
 
-A főzelék sokáig a „szegény ember ételének" számított, ma viszont pont azt tudja,
+A főzelék sokáig a „szegény ember ételének” számított, ma viszont pont azt tudja,
 amit keresünk: **zöldségalapú, laktató, olcsó és gyorsan elkészül.** Nem véletlen,
 hogy visszatért a menükre – nálunk is rendszeres vendég.
 

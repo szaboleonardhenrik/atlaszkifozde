@@ -13,7 +13,7 @@ félreértés itt komoly következménnyel járhat.
 ## Először a fontos különbség
 
 - **Allergia**: az immunrendszer reakciója. Már nyomnyi mennyiség is súlyos,
-  akár életveszélyes tünetet okozhat. Itt nincs „egy kicsi belefér".
+  akár életveszélyes tünetet okozhat. Itt nincs „egy kicsi belefér”.
 - **Intolerancia / érzékenység**: emésztési probléma (pl. laktózintolerancia).
   Kellemetlen, de általában mennyiségfüggő.
 - **Cöliákia**: autoimmun betegség, nem allergia és nem intolerancia. A glutén
@@ -46,16 +46,16 @@ kockáztass.
 
 ## Hogyan kérdezz, hogy használható választ kapj?
 
-Rossz kérdés: *„Ez gluténmentes?"* — Erre sok helyen reflexből mondanak igent
+Rossz kérdés: *„Ez gluténmentes?”* — Erre sok helyen reflexből mondanak igent
 vagy nemet.
 
 Jó kérdések:
 
-1. **„Mi van benne pontosan?"** – erre konkrét listát kapsz.
-2. **„Van benne tej / tejszín / tejföl?"**
-3. **„A mártás liszttel van sűrítve?"**
-4. **„A panír miből készül?"**
-5. **„Ki lehet kérni a mártást külön?"**
+1. **„Mi van benne pontosan?”** – erre konkrét listát kapsz.
+2. **„Van benne tej / tejszín / tejföl?”**
+3. **„A mártás liszttel van sűrítve?”**
+4. **„A panír miből készül?”**
+5. **„Ki lehet kérni a mártást külön?”**
 
 Minél konkrétabb a kérdés, annál megbízhatóbb a válasz.
 

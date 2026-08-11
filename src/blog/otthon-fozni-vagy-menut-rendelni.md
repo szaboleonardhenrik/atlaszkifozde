@@ -6,7 +6,7 @@ borito: csirkeragu.webp
 boritoLeiras: "Zöldbabos csirkeragu tejszínes mártásban"
 ---
 
-„Otthon sokkal olcsóbb" – ezt szinte mindenki így tudja. De ha tisztességesen
+„Otthon sokkal olcsóbb” – ezt szinte mindenki így tudja. De ha tisztességesen
 végigszámoljuk, a kép árnyaltabb. Nézzük meg egy hétköznapi ebéd példáján.
 
 ## Mit számolunk bele?
@@ -18,7 +18,7 @@ Egy tisztességes összehasonlításban nem elég az alapanyag ára. Ide tartozi
 - **maradék és romlás**: amit megveszünk, de nem használunk fel;
 - **idő**: bevásárlás, előkészítés, főzés, mosogatás.
 
-A legtöbb „olcsóbb otthon" számításból az utolsó három kimarad.
+A legtöbb „olcsóbb otthon” számításból az utolsó három kimarad.
 
 ## Példa: csirkeragu köretes, négy adag
 
@@ -45,7 +45,7 @@ igaz, és nem is akarjuk szépíteni.
 ## Az idő ára
 
 Ha az idődet akár csak 2500 Ft/órával számolod, akkor a fenti 45 perc **több
-mint 1800 forint**. Ezzel együtt az „otthoni" adag már 2800–2900 forint körül
+mint 1800 forint**. Ezzel együtt az „otthoni” adag már 2800–2900 forint körül
 van, vagyis **drágább, mint a napi menü** – ami nálunk 2290 forint, egész hetes
 befizetéssel pedig 2100 forint naponta, és leves is jár hozzá.
 
@@ -56,7 +56,7 @@ Nem mindig a menü nyer. Egyértelműen jobban jársz otthon, ha:
 - **Nagy adagban főzöl** (6–8 adag), és fagyasztasz. Ilyenkor az egy adagra jutó
   idő drasztikusan csökken.
 - **Egyszerű, olcsó fogást** csinálsz: főzelék, tésztaétel, lencse, bab.
-- **Amúgy is otthon vagy** főzési időben, tehát nem „elveszett" idő.
+- **Amúgy is otthon vagy** főzési időben, tehát nem „elveszett” idő.
 - **Speciális étrendet** követsz, amit másra nehéz rábízni.
 
 ## Mikor éri meg a menü?

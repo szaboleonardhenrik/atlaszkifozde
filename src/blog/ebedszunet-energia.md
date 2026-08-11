@@ -18,7 +18,7 @@ Két dolog egyszerre:
    önmagában is van egy energiamélypont – akkor is, ha nem ettél.
 2. **Az emésztés.** Nagy, zsíros vagy sok gyors szénhidrátot tartalmazó étel
    után a vércukorszint gyorsan felszalad, majd leesik – ez az igazi
-   „ebédkóma".
+   „ebédkóma”.
 
 Az elsőn nem tudsz változtatni. A másodikon igen.
 
@@ -48,7 +48,7 @@ Ha délután még dolgoznod kell, ez a felállás működik a legjobban:
 4. **Víz vagy cukrozatlan ital.**
 5. **Desszert inkább 3-4 óra körül**, uzsonnaként, ne közvetlenül az ebéd után.
 
-## Az „ebédszünet" nem csak evés
+## Az „ebédszünet” nem csak evés
 
 Néhány dolog, ami többet segít, mint gondolnád:
 
@@ -61,7 +61,7 @@ Néhány dolog, ami többet segít, mint gondolnád:
 
 ## Mit jelent ez a heti menünkben?
 
-Igyekszünk úgy összeállítani a hetet, hogy **ne legyen minden nap „nehéz" nap**:
+Igyekszünk úgy összeállítani a hetet, hogy **ne legyen minden nap „nehéz” nap**:
 a laktatóbb fogások mellé könnyebb leves kerül, és hetente van legalább egy
 zöldségalapú vagy főzelékes nap. Erről bővebben a
 [heti menü összeállításáról szóló bejegyzésben](/blog/heti-menu-osszeallitas/)

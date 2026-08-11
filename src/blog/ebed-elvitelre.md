@@ -66,10 +66,10 @@ ehető hőmérsékleten az ételt. Ezt meg lehet hosszabbítani:
 
 Ha elvitelre rendelsz, ezek a kérések teljesen normálisak, nyugodtan mondd:
 
-1. **„Kérem külön a szószt."**
-2. **„Kérem külön a levest."**
-3. **„Fél óra múlva érek ide" – így időzítve készítjük.**
-4. **„Több adagot vinnék" – ilyenkor érdemes előre telefonálni**, hogy biztosan
+1. **„Kérem külön a szószt.”**
+2. **„Kérem külön a levest.”**
+3. **„Fél óra múlva érek ide” – így időzítve készítjük.**
+4. **„Több adagot vinnék” – ilyenkor érdemes előre telefonálni**, hogy biztosan
    legyen elég abból a fogásból.
 
 ## Saját edény: jó ötlet?
