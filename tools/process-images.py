@@ -35,12 +35,23 @@ def save_webp(im, name, max_w, quality=80):
     print(f"  {name:26s} {im.width}x{im.height}  {os.path.getsize(path) // 1024} kB")
 
 
+# A kártyákon és a galéria-rácsban megjelenő bélyegképek maximális szélessége.
+# A legszélesebb ilyen hely a blogkártya mobilon (~390 CSS px), ezt kétszeres
+# képpontsűrűségen is kiszolgálja. A teljes méretű kép csak a bejegyzés
+# borítóján és a galéria nagyítójában kell.
+KICSI_SZELESSEG = 720
+KICSI_MAGASSAG = 900
+
+
 def logo():
     """A logó pergamen háttere megmarad (textúrás, nem vágható ki tisztán),
     ezért az oldalon mindig ugyanolyan papírszínű (#F6F1E4) alapra kerül."""
     im = Image.open(os.path.join(IMG, "_logo-uj.jpg")).convert("RGB")
     save_webp(im, "logo.webp", 440, quality=88)
     save_webp(im, "logo-nagy.webp", 900, quality=88)
+    # A fejlécben ~24, a láblécben ~55 képpont széles a címer – oda a 440 pontos
+    # változat (100 kB) minden látogatónak felesleges súly.
+    save_webp(im, "logo-kicsi.webp", 200, quality=86)
 
     # Böngésző-ikon: a PARADICSOMOS rész kivágva. A teljes címer 16 pixelen
     # olvashatatlan péppé esik szét, a piros gömb viszont ott is felismerhető.
@@ -56,6 +67,28 @@ def logo():
     print("  favicon.png + favicon-32.png + favicon.ico kész")
 
 
+def bélyegkepek():
+    """Minden fotóhoz `-sm.webp` változat a kártyákhoz és a galéria-rácshoz.
+
+    Forrásnak a kész WebP-t használjuk, nem a nyers JPG-t: több fotóhoz (régebbi
+    képek) már nincs meg a nyers fájl, és egy kicsinyítésnyi újrakódolás ezen a
+    méreten nem látszik.
+    """
+    for f in sorted(os.listdir(IMG)):
+        if not f.endswith(".webp") or f.startswith("logo") or f.endswith("-sm.webp"):
+            continue
+        im = Image.open(os.path.join(IMG, f))
+        # Az álló képeknél a szélesség-korlát önmagában keveset fog (egy 640×1422
+        # kép így is 139 kB), ezért a magasságot is maximáljuk.
+        if im.height > KICSI_MAGASSAG:
+            uj_szel = round(im.width * KICSI_MAGASSAG / im.height)
+            im = im.convert("RGB").resize((uj_szel, KICSI_MAGASSAG), Image.LANCZOS)
+        # A 80-as minőség a nagy nézethez kell; bélyegképen a 70 nem látszik meg,
+        # a fájlméret viszont a harmadával kisebb. A már 720-nál keskenyebb
+        # képeknél is megéri: azoknál csak az újrakódolás nyer súlyt.
+        save_webp(im, f.replace(".webp", "-sm.webp"), KICSI_SZELESSEG, quality=70)
+
+
 def main():
     print("Logó:")
     logo()
@@ -66,6 +99,8 @@ def main():
             print(f"  ! hiányzik: {f}")
             continue
         save_webp(Image.open(f), f"{nev}.webp", szel)
+    print("Bélyegképek:")
+    bélyegkepek()
 
 
 if __name__ == "__main__":

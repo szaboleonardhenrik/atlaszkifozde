@@ -9,3 +9,6 @@ src/assets/img/_*
 *-mobil.png
 .DS_Store
 Thumbs.db
+
+# Python melléktermék
+__pycache__/

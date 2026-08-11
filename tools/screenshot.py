@@ -17,6 +17,7 @@ OLDALAK = [
     ("galeria", "/galeria/"),
     ("kapcsolat", "/kapcsolat/"),
     ("blog", "/blog/"),
+    ("gyik", "/gyik/"),
     ("bejegyzes", "/blog/uj-cimer-atlasz/"),
     ("404", "/404.html"),
 ]

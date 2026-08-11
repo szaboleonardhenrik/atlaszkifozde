@@ -24,7 +24,7 @@ borito: kacsacomb.webp
         <article class="flex flex-col overflow-hidden rounded-2xl border border-pergamen-300 bg-white shadow-sm">
           {% if b.data.borito %}
             <a href="{{ b.url }}" tabindex="-1" aria-hidden="true">
-              <img src="/assets/img/{{ b.data.borito }}" alt="" loading="lazy" class="h-48 w-full object-cover" />
+              <img src="/assets/img/{{ b.data.borito | kicsi }}" alt="" loading="lazy" class="h-48 w-full object-cover" />
             </a>
           {% endif %}
           <div class="flex flex-1 flex-col p-6">
