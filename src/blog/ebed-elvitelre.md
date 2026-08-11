@@ -87,3 +87,7 @@ szószt és használsz hőtartó táskát.
 Nálunk a heti menü minden fogása kérhető elvitelre. Az aktuális kínálatot a
 [heti menü oldalon](/heti-menu/) találod, előrendeléshez pedig elég egy
 [telefon](/kapcsolat/).
+
+Ha pedig nem tudsz eljönni érte, **a Wolton keresztül házhoz is kérheted** – a
+fenti tanácsok nagy része (külön szósz, ropogós elemek előre) ilyenkor is
+ugyanúgy érvényes, csak a doboz útját nem te intézed.

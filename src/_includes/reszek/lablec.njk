@@ -37,6 +37,16 @@
         <li><a class="hover:text-bronz-300" href="/gyik/">Gyakori kérdések</a></li>
         <li><a class="hover:text-bronz-300" href="/kapcsolat/">Kapcsolat</a></li>
       </ul>
+      {% if beallitasok.wolt %}
+        <a class="mt-6 inline-flex items-center gap-2 font-semibold text-bronz-300 hover:text-bronz-200" href="{{ beallitasok.wolt }}" target="_blank" rel="noopener">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 7h11v8H3zM14 10h4l3 3v2h-7z" />
+            <circle cx="7" cy="17.5" r="1.8" />
+            <circle cx="17" cy="17.5" r="1.8" />
+          </svg>
+          Rendelés házhoz – Wolt
+        </a>
+      {% endif %}
       {% if beallitasok.facebook %}
         <a class="mt-6 inline-flex items-center gap-2 text-pergamen-200 hover:text-bronz-300" href="{{ beallitasok.facebook }}" target="_blank" rel="noopener">
           <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

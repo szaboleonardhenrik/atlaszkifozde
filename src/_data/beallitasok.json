@@ -27,6 +27,7 @@
   ],
   "nyitvatartas_megjegyzes": "Ünnepnapokon eltérő nyitvatartás lehet – kérjük, hívjon minket.",
   "facebook": "",
+  "wolt": "https://wolt.com/hu/hun/budapest/restaurant/atlasz-kifzde",
   "velemenyek": [
     {
       "szoveg": "Köszönöm a segítőkész hozzáállást, a kedves kiszolgálást és a finom ebédet! Az egész csapat tele pocakkal távozott! Szívből ajánlom mindenkinek!",
@@ -82,6 +83,18 @@
     {
       "kerdes": "Mikor frissül a heti menü?",
       "valasz": "Minden hétfőn új menü indul, és az oldalon mindig az aktuális hét fogásai látszanak."
+    },
+    {
+      "kerdes": "Lehet bankkártyával fizetni?",
+      "valasz": "Igen, bankkártyás fizetésre is van lehetőség, nem csak készpénzzel."
+    },
+    {
+      "kerdes": "Hol lehet parkolni?",
+      "valasz": "A hely előtti parkolóhelyeken meg lehet állni. A környéken emellett utcai parkolás is lehetséges, a mellékutcákban jellemzően könnyebben."
+    },
+    {
+      "kerdes": "Házhoz is szállítanak?",
+      "valasz": "Igen, a Wolton keresztül kérheti házhoz az ebédet. Ha személyesen jön el érte vagy elvitelre kéri, azt közvetlenül nálunk is intézheti."
     },
     {
       "kerdes": "Mi a helyzet az ételérzékenységgel?",

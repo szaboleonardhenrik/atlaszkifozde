@@ -24,9 +24,10 @@ Nyitvatartás:
 
 ### Autóval
 
-A Szentendrei úton haladva a 327-es szám a csillaghegyi szakaszon van. A
-környéken utcai parkolás lehetséges, a mellékutcákban jellemzően könnyebben
-találsz helyet, mint közvetlenül a főúton.
+A Szentendrei úton haladva a 327-es szám a csillaghegyi szakaszon van.
+**A hely előtti parkolóhelyeken meg tudsz állni**, így a legtöbbször nem kell
+köröznöd. Ha épp tele van, a környéken utcai parkolás is lehetséges: a
+mellékutcákban jellemzően könnyebben találsz helyet, mint közvetlenül a főúton.
 
 ### HÉV-vel
 

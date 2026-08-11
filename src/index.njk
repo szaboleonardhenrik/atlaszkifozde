@@ -232,6 +232,9 @@ eleventyNavigation:
     </p>
     <div class="mt-8 flex flex-wrap justify-center gap-3">
       <a class="gomb gomb-elsodleges" href="tel:{{ beallitasok.telefon_link }}">Telefonos rendelés</a>
+      {% if beallitasok.wolt %}
+        <a class="gomb gomb-masodlagos" href="{{ beallitasok.wolt }}" target="_blank" rel="noopener">Kérem házhoz – Wolt</a>
+      {% endif %}
       <a class="gomb gomb-masodlagos" href="/kapcsolat/">Útvonal és nyitvatartás</a>
     </div>
   </div>

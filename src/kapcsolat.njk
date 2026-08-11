@@ -61,6 +61,9 @@ borito: pult.webp
 
         <div class="mt-8 flex flex-wrap gap-3">
           <a class="gomb gomb-elsodleges" href="tel:{{ beallitasok.telefon_link }}">Telefonálok</a>
+          {% if beallitasok.wolt %}
+            <a class="gomb gomb-masodlagos" href="{{ beallitasok.wolt }}" target="_blank" rel="noopener">Kérem házhoz – Wolt</a>
+          {% endif %}
           <a
             class="gomb gomb-masodlagos"
             href="https://www.openstreetmap.org/?mlat={{ beallitasok.cim.szelesseg }}&amp;mlon={{ beallitasok.cim.hosszusag }}#map=18/{{ beallitasok.cim.szelesseg }}/{{ beallitasok.cim.hosszusag }}"
@@ -85,6 +88,20 @@ borito: pult.webp
         {% if beallitasok.nyitvatartas_megjegyzes %}
           <p class="mt-4 text-sm text-petrol-900/60">{{ beallitasok.nyitvatartas_megjegyzes }}</p>
         {% endif %}
+      </div>
+
+      <div class="kartya mt-6">
+        <h2 class="text-2xl font-bold">Jó tudni</h2>
+        <ul class="mt-4 space-y-3 text-petrol-900/75">
+          <li><strong class="text-petrol-800">Parkolás:</strong> a hely előtti parkolóhelyeken meg lehet állni, a mellékutcákban pedig utcai parkolás is van.</li>
+          <li><strong class="text-petrol-800">Fizetés:</strong> készpénzzel és bankkártyával egyaránt.</li>
+          {% if beallitasok.wolt %}
+            <li>
+              <strong class="text-petrol-800">Házhozszállítás:</strong>
+              <a class="font-semibold text-paradicsom-600 hover:underline" href="{{ beallitasok.wolt }}" target="_blank" rel="noopener">a Wolton keresztül</a>.
+            </li>
+          {% endif %}
+        </ul>
       </div>
 
       <div class="kartya mt-6">

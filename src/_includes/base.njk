@@ -57,7 +57,9 @@
         "servesCuisine": ["Magyar", "Házias", "Nemzetközi"],
         "priceRange": "$",
         "currenciesAccepted": "HUF",
+        "paymentAccepted": "Készpénz, bankkártya",
         "hasMenu": "{{ beallitasok.url }}/heti-menu/",
+        {% if beallitasok.wolt %}"sameAs": ["{{ beallitasok.wolt }}"],{% endif %}
         "telephone": "{{ beallitasok.telefon }}",
         "address": {
           "@type": "PostalAddress",

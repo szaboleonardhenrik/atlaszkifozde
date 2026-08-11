@@ -71,6 +71,11 @@ Aki érte jön, elég ha beszólja a nevet – nem kell újra végigvenni a rend
 Ha kanál, szalvéta vagy több szatyor kell hozzá, mondd meg a hívásnál, és
 odakészítjük.
 
+Kisebb, néhány adagos rendelésnél van egy másik út is: **a Wolton keresztül
+házhoz (vagy irodába) is kérhető** az ebéd. Nagyobb, tíz fő fölötti csapatnál
+viszont továbbra is a telefonos egyeztetés a járható út – ott a mennyiség és az
+időzítés miatt jobb, ha előre tudunk róla.
+
 ## Amit érdemes előre tisztázni
 
 Kettőt mondunk ki őszintén, hogy ne érjen csalódás:

@@ -171,6 +171,12 @@ collections:
               - { name: nyit, label: Nyitás (ó:pp), widget: string, default: '11:00' }
               - { name: zar, label: Zárás (ó:pp), widget: string, default: '18:00' }
           - { name: facebook, label: Facebook-oldal linkje, widget: string, required: false }
+          - name: wolt
+            label: Wolt-oldal linkje
+            widget: string
+            required: false
+            hint: >-
+              Amíg üres, a „Rendelés Wolton” gombok nem jelennek meg az oldalon.
           - name: hirlevel
             label: Hírlevél (heti menü e-mailben)
             widget: object
