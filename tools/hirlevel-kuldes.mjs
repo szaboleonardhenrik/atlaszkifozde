@@ -85,7 +85,7 @@ function levelHtml(het, arak, be) {
         <div style="font-size:16px;color:#14201f;margin-top:2px;"><strong>${esc(n.foetel)}</strong></div>
       </td>
       <td style="padding:12px 0;border-bottom:1px solid #e6d4ae;text-align:right;vertical-align:top;white-space:nowrap;">
-        <span style="font-family:Georgia,serif;font-size:16px;font-weight:bold;color:#a81818;">${forint(n.ar)}</span>
+        <span style="font-family:Georgia,serif;font-size:16px;font-weight:bold;color:#8c6f3c;">${forint(n.ar)}</span>
       </td>
     </tr>`).join("");
 
@@ -107,7 +107,7 @@ function levelHtml(het, arak, be) {
       </td></tr>
       <tr><td style="padding:20px 28px;text-align:center;font-size:15px;color:#4c7f82;">
         Napi menü <strong style="color:#1e4245;">${forint(arak.napi_menu)}</strong> ·
-        egész hetes befizetéssel <strong style="color:#a81818;">${forint(arak.heti_befizetes)}/nap</strong>
+        egész hetes befizetéssel <strong style="color:#8c6f3c;">${forint(arak.heti_befizetes)}/nap</strong>
       </td></tr>
       <tr><td style="padding:0 28px 28px 28px;text-align:center;">
         <a href="${be.url}/heti-menu/" style="display:inline-block;background-color:#f4ecd9;border:1px solid #bf9f5e;color:#1e4245;text-decoration:none;font-weight:bold;padding:12px 24px;border-radius:999px;">Teljes heti menü</a>
