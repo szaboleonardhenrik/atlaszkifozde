@@ -33,6 +33,8 @@ borito: pult.webp
         <input type="hidden" name="_template" value="table" />
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_next" value="{{ beallitasok.url }}/ajanlatkeres/koszonjuk/" />
+        {# A tulajdonos a gmailjét olvassa; a Zoho ingyenes csomagja nem továbbít. #}
+        <input type="hidden" name="_cc" value="szabo.terra@gmail.com" />
         {# Spam-csapda: ember nem látja, a robot kitölti, a FormSubmit eldobja. #}
         <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
