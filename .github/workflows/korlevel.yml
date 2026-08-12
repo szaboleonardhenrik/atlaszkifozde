@@ -1,0 +1,50 @@
+name: Körlevél
+
+# Kézzel indítható egyszeri levél a hírlevél-feliratkozóknak
+# (Actions → Körlevél → Run workflow). Alapból PRÓBA módban fut: a naplóban
+# látszik, mi menne ki — éles küldéshez futtasd újra kikapcsolt próba móddal.
+on:
+  workflow_dispatch:
+    inputs:
+      targy:
+        description: "A levél tárgya"
+        required: true
+        type: string
+      szoveg:
+        description: "A levél szövege (sortörés = új bekezdés)"
+        required: true
+        type: string
+      proba:
+        description: "Próba mód (nem megy ki levél, csak kiírja, mi menne)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: korlevel
+  cancel-in-progress: false
+
+jobs:
+  kuldes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Körlevél kiküldése
+        env:
+          MAILERLITE_API_KEY: ${{ secrets.MAILERLITE_API_KEY }}
+          HIRLEVEL_FELADO: ${{ vars.HIRLEVEL_FELADO }}
+          HIRLEVEL_CSOPORT: ${{ vars.HIRLEVEL_CSOPORT }}
+          KORLEVEL_TARGY: ${{ inputs.targy }}
+          KORLEVEL_SZOVEG: ${{ inputs.szoveg }}
+        run: |
+          if [ "${{ inputs.proba }}" = "true" ]; then
+            node tools/korlevel-kuldes.mjs --proba
+          else
+            node tools/korlevel-kuldes.mjs
+          fi

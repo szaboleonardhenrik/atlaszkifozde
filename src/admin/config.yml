@@ -212,6 +212,13 @@ collections:
             required: false
             hint: >-
               Amíg üres, a „Rendelés Wolton” gombok nem jelennek meg az oldalon.
+          - name: akcio
+            label: Akció-sáv (minden oldal tetején)
+            widget: string
+            required: false
+            hint: >-
+              Rövid akció-szöveg, pl. kuponkódos ajánlat. Amíg üres, a sáv nem
+              jelenik meg az oldalon.
           - name: hirlevel
             label: Hírlevél (heti menü e-mailben)
             widget: object

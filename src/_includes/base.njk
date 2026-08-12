@@ -40,6 +40,17 @@
 
     {% include "reszek/fejlec.njk" %}
 
+    {# Akció-sáv: a Beállítások „akcio” mezőjéből jön; amíg a mező üres, a sáv
+       el sem készül. A vörös a márka-szabály szerint csak accent — itt a jelvény. #}
+    {% if beallitasok.akcio %}
+      <aside class="border-b border-pergamen-300 bg-pergamen-100">
+        <div class="szakasz flex flex-wrap items-center justify-center gap-x-4 gap-y-2 py-3 text-center">
+          <p class="rounded-full bg-paradicsom-600 px-3 py-1 text-sm font-semibold uppercase tracking-[0.18em] text-white">Akció</p>
+          <p class="font-display text-lg font-bold text-petrol-800">{{ beallitasok.akcio }}</p>
+        </div>
+      </aside>
+    {% endif %}
+
     <main id="tartalom" class="flex-1">{{ content | safe }}</main>
 
     {% include "reszek/lablec.njk" %}
