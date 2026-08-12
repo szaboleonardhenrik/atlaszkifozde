@@ -1,0 +1,171 @@
+---
+layout: base.njk
+permalink: /ajanlatkeres/
+cim: Ajánlatkérés
+leiras: "Kérjen ajánlatot bejglire, hidegtálra vagy menüre céges és családi eseményre. Írja meg a dátumot és a létszámot, egy munkanapon belül válaszolunk."
+borito: pult.webp
+---
+
+<section class="relative overflow-hidden bg-pergamen-100 py-14 md:py-20">
+  {% include "reszek/fejdisz.njk" %}
+  <div class="szakasz relative text-center">
+    <p class="cimke">Rendezvényre, ünnepre, irodába</p>
+    <h1 class="cim-disz mt-4 font-display text-4xl font-bold sm:text-5xl">Ajánlatkérés</h1>
+    <p class="mx-auto mt-6 max-w-2xl text-lg text-petrol-900/75">
+      Bejgli, hidegtál vagy menü nagyobb alkalomra? Írja meg, mire és hány főre
+      lenne szüksége, és hamarosan jelentkezünk egy személyre szabott ajánlattal.
+    </p>
+  </div>
+</section>
+
+<section class="szakasz py-12 md:py-16">
+  <div class="grid gap-10 lg:grid-cols-[1fr_340px]">
+    {#
+      A statikus oldal önmagában nem tud levelet küldeni, ezért az űrlap a
+      FormSubmit.co végpontjára POST-ol, az pedig e-mailben továbbítja a
+      kitöltött mezőket a kifőzde címére. Sütit nem tesz le, JS nem kell hozzá.
+      Az ELSŐ beküldés után a FormSubmit aktiváló levelet küld a címre — amíg
+      azt nem hagyják jóvá, a beküldések nem érkeznek meg.
+    #}
+    {% if beallitasok.email %}
+      <form class="kartya" action="https://formsubmit.co/{{ beallitasok.email }}" method="post">
+        <input type="hidden" name="_subject" value="Ajánlatkérés a weboldalról" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="{{ beallitasok.url }}/ajanlatkeres/koszonjuk/" />
+        {# Spam-csapda: ember nem látja, a robot kitölti, a FormSubmit eldobja. #}
+        <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <h2 class="text-2xl font-bold">Elérhetőségei</h2>
+        <div class="mt-5 grid gap-5 sm:grid-cols-2">
+          <div>
+            <label class="block text-sm font-semibold uppercase tracking-widest text-petrol-900/60" for="aj-nev">Név *</label>
+            <input id="aj-nev" type="text" name="Név" required autocomplete="name"
+              class="mt-2 w-full rounded-xl border border-pergamen-300 bg-pergamen-50 px-4 py-3 text-base text-tinta placeholder:text-petrol-900/40" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold uppercase tracking-widest text-petrol-900/60" for="aj-email">E-mail cím *</label>
+            <input id="aj-email" type="email" name="email" required autocomplete="email" placeholder="pelda@email.hu"
+              class="mt-2 w-full rounded-xl border border-pergamen-300 bg-pergamen-50 px-4 py-3 text-base text-tinta placeholder:text-petrol-900/40" />
+          </div>
+          <div class="sm:col-span-2">
+            <label class="block text-sm font-semibold uppercase tracking-widest text-petrol-900/60" for="aj-telefon">Telefonszám</label>
+            <input id="aj-telefon" type="tel" name="Telefonszám" autocomplete="tel" placeholder="+36 …"
+              class="mt-2 w-full rounded-xl border border-pergamen-300 bg-pergamen-50 px-4 py-3 text-base text-tinta placeholder:text-petrol-900/40" />
+          </div>
+        </div>
+
+        <h2 class="mt-10 text-2xl font-bold">Mire kér ajánlatot?</h2>
+        <p class="mt-2 text-sm text-petrol-900/60">Többet is bejelölhet — a mennyiség elég hozzávetőlegesen.</p>
+        <div class="mt-4 grid gap-4 sm:grid-cols-3">
+          <div class="group rounded-xl border border-pergamen-300 bg-pergamen-50 p-4 transition-colors has-[input:checked]:border-bronz-400 has-[input:checked]:bg-bronz-50">
+            <label class="flex cursor-pointer items-center gap-3">
+              <input type="checkbox" name="Bejgli" value="kérek" class="h-5 w-5 shrink-0 rounded border-pergamen-300 accent-paradicsom-600" />
+              <span class="font-semibold text-petrol-800">Bejgli</span>
+            </label>
+            <div class="mt-3 hidden items-center gap-2 group-has-[input:checked]:flex">
+              <label class="text-sm text-petrol-900/70" for="aj-bejgli-db">Darab:</label>
+              <input id="aj-bejgli-db" type="number" name="Bejgli (db)" min="1" inputmode="numeric"
+                class="w-24 rounded-lg border border-pergamen-300 bg-white px-3 py-2 text-base" />
+            </div>
+          </div>
+          <div class="group rounded-xl border border-pergamen-300 bg-pergamen-50 p-4 transition-colors has-[input:checked]:border-bronz-400 has-[input:checked]:bg-bronz-50">
+            <label class="flex cursor-pointer items-center gap-3">
+              <input type="checkbox" name="Hidegtál" value="kérek" class="h-5 w-5 shrink-0 rounded border-pergamen-300 accent-paradicsom-600" />
+              <span class="font-semibold text-petrol-800">Hidegtál</span>
+            </label>
+            <div class="mt-3 hidden items-center gap-2 group-has-[input:checked]:flex">
+              <label class="text-sm text-petrol-900/70" for="aj-hidegtal-fo">Hány főre:</label>
+              <input id="aj-hidegtal-fo" type="number" name="Hidegtál (fő)" min="1" inputmode="numeric"
+                class="w-24 rounded-lg border border-pergamen-300 bg-white px-3 py-2 text-base" />
+            </div>
+          </div>
+          <div class="group rounded-xl border border-pergamen-300 bg-pergamen-50 p-4 transition-colors has-[input:checked]:border-bronz-400 has-[input:checked]:bg-bronz-50">
+            <label class="flex cursor-pointer items-center gap-3">
+              <input type="checkbox" name="Menü (meleg étel)" value="kérek" class="h-5 w-5 shrink-0 rounded border-pergamen-300 accent-paradicsom-600" />
+              <span class="font-semibold text-petrol-800">Menü</span>
+            </label>
+            <div class="mt-3 hidden items-center gap-2 group-has-[input:checked]:flex">
+              <label class="text-sm text-petrol-900/70" for="aj-menu-adag">Adag:</label>
+              <input id="aj-menu-adag" type="number" name="Menü (adag)" min="1" inputmode="numeric"
+                class="w-24 rounded-lg border border-pergamen-300 bg-white px-3 py-2 text-base" />
+            </div>
+          </div>
+        </div>
+
+        <h2 class="mt-10 text-2xl font-bold">Az alkalomról</h2>
+        <div class="mt-5 grid gap-5 sm:grid-cols-3">
+          <div>
+            <label class="block text-sm font-semibold uppercase tracking-widest text-petrol-900/60" for="aj-esemeny">Milyen alkalomra?</label>
+            <select id="aj-esemeny" name="Esemény"
+              class="mt-2 w-full rounded-xl border border-pergamen-300 bg-pergamen-50 px-4 py-3 text-base text-tinta">
+              <option value="">Válasszon…</option>
+              <option>Céges ebéd, irodai rendelés</option>
+              <option>Céges rendezvény</option>
+              <option>Családi esemény, összejövetel</option>
+              <option>Születésnap, évforduló</option>
+              <option>Ünnepi rendelés (karácsony, húsvét)</option>
+              <option>Egyéb</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold uppercase tracking-widest text-petrol-900/60" for="aj-datum">Mikorra?</label>
+            <input id="aj-datum" type="date" name="Dátum"
+              class="mt-2 w-full rounded-xl border border-pergamen-300 bg-pergamen-50 px-4 py-3 text-base text-tinta" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold uppercase tracking-widest text-petrol-900/60" for="aj-letszam">Hány főre?</label>
+            <input id="aj-letszam" type="number" name="Létszám (fő)" min="1" inputmode="numeric"
+              class="mt-2 w-full rounded-xl border border-pergamen-300 bg-pergamen-50 px-4 py-3 text-base text-tinta" />
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <label class="block text-sm font-semibold uppercase tracking-widest text-petrol-900/60" for="aj-uzenet">Üzenet</label>
+          <textarea id="aj-uzenet" name="Üzenet" rows="5"
+            placeholder="Írja le röviden, mire gondolt — pl. milyen ételeket szeretne, van-e ételérzékenység, elvitel vagy kiszállítás…"
+            class="mt-2 w-full rounded-xl border border-pergamen-300 bg-pergamen-50 px-4 py-3 text-base text-tinta placeholder:text-petrol-900/40"></textarea>
+        </div>
+
+        <button type="submit" class="gomb gomb-elsodleges mt-8 w-full sm:w-auto">Ajánlatkérés elküldése</button>
+
+        <p class="mt-4 text-sm text-petrol-900/60">
+          A megadott adatokat kizárólag az ajánlat elkészítéséhez és a
+          kapcsolatfelvételhez használjuk.{% if beallitasok.ceg.adoszam %}
+            Részletek az
+            <a class="underline hover:text-paradicsom-600" href="/adatkezeles/">adatkezelési tájékoztatóban</a>.
+          {% endif %}
+        </p>
+      </form>
+    {% endif %}
+
+    <div>
+      <div class="kartya">
+        <h2 class="text-2xl font-bold">Hogyan működik?</h2>
+        <ol class="mt-5 space-y-4">
+          <li class="flex gap-4">
+            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-petrol-700 font-display font-bold text-bronz-300">1</span>
+            <p class="text-petrol-900/75">Elküldi az ajánlatkérést az űrlapon.</p>
+          </li>
+          <li class="flex gap-4">
+            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-petrol-700 font-display font-bold text-bronz-300">2</span>
+            <p class="text-petrol-900/75">Egy munkanapon belül jelentkezünk e-mailben vagy telefonon.</p>
+          </li>
+          <li class="flex gap-4">
+            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-petrol-700 font-display font-bold text-bronz-300">3</span>
+            <p class="text-petrol-900/75">Egyeztetjük a részleteket, és időre elkészítjük a rendelést.</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="kartya mt-6">
+        <h2 class="text-2xl font-bold">Inkább telefonálna?</h2>
+        <p class="mt-3 text-petrol-900/75">
+          Hívjon minket nyitvatartási időben ({{ beallitasok.nyitvatartas[0].nap | lower }}
+          {{ beallitasok.nyitvatartas[0].ido }}), és rögtön megbeszéljük.
+        </p>
+        <a class="gomb gomb-elsodleges mt-5 w-full" href="tel:{{ beallitasok.telefon_link }}">{{ beallitasok.telefon }}</a>
+      </div>
+    </div>
+  </div>
+</section>

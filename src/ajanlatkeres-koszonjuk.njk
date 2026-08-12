@@ -1,0 +1,26 @@
+---
+layout: base.njk
+permalink: /ajanlatkeres/koszonjuk/
+cim: Köszönjük az ajánlatkérést
+noindex: true
+eleventyExcludeFromCollections: true
+---
+
+<section class="szakasz py-20 md:py-28">
+  <div class="mx-auto max-w-xl rounded-3xl border border-pergamen-300 bg-pergamen-100 p-8 text-center md:p-12">
+    <span class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-petrol-700 text-bronz-300">
+      <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+      </svg>
+    </span>
+    <h1 class="mt-6 text-3xl font-bold sm:text-4xl">Köszönjük az ajánlatkérést!</h1>
+    <p class="mx-auto mt-4 max-w-md text-lg text-petrol-900/75">
+      Megkaptuk az üzenetét, és egy munkanapon belül jelentkezünk a megadott
+      elérhetőségen. Ha sürgős, hívjon minket bátran.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a class="gomb gomb-elsodleges" href="tel:{{ beallitasok.telefon_link }}">{{ beallitasok.telefon }}</a>
+      <a class="gomb gomb-masodlagos" href="/">Vissza a főoldalra</a>
+    </div>
+  </div>
+</section>

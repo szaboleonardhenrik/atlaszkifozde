@@ -7,6 +7,7 @@
     <title>{% if cim %}{{ cim }} – {{ beallitasok.nev }}{% else %}{{ beallitasok.nev }} – házias napi menü Óbudán{% endif %}</title>
     <meta name="description" content="{{ leiras | default('Napi friss alapanyagokból főzött házias menü a Szentendrei úton. Heti menü elvitelre és helyben fogyasztásra.') }}" />
     <link rel="canonical" href="{{ page.url | abszolutUrl(beallitasok.url) }}" />
+    {% if noindex %}<meta name="robots" content="noindex" />{% endif %}
 
     <meta property="og:type" content="{{ ogTipus | default('website') }}" />
     <meta property="og:site_name" content="{{ beallitasok.nev }}" />
