@@ -10,9 +10,11 @@
  *
  * VÉDŐKORLÁTOK — ezek incidensek megelőzésére vannak, ne vedd ki őket:
  *   1. Kulcs nélkül nem küld, csak kilép.
- *   2. Csak a LEGÚJABB hetet küldi ki, és csak egyszer: a kiküldött hét
+ *   2. Csak az AKTUÁLIS (mai) hetet küldi ki, és csak egyszer: a kiküldött hét
  *      dátumát a .hirlevel-allapot.json tárolja. Ugyanannak a hétnek a
- *      javítgatása NEM indít újabb levelet.
+ *      javítgatása NEM indít újabb levelet. Ha előre felvisznek egy későbbi
+ *      hetet, az NEM előzi meg a mostani hét levelét — arra a saját hetének
+ *      hétfőjén kerül sor (lásd .github/workflows/hirlevel.yml ütemezését).
  *   3. Üres vagy hiányos hét esetén nem küld.
  *   4. A --proba kapcsolóval minden lefut, csak a tényleges küldés marad el.
  */
@@ -75,8 +77,18 @@ async function hivas(ut, opciok = {}) {
   return szoveg ? JSON.parse(szoveg) : {};
 }
 
+/** Egész héten zárva? (Zárva nap = nincs ár – lásd src/_data/menu.json) */
+const csakZarva = (het) => (het.napok || []).every((n) => !n.ar);
+
+/** A levél tárgya – zárva hétre ne „Heti menü” menjen ki. */
+const targyaHetnek = (het) =>
+  csakZarva(het)
+    ? `Ezen a héten zárva tartunk – ${idoszak(het.kezdes)}`
+    : `Heti menü – ${idoszak(het.kezdes)}`;
+
 /** A levél HTML-je. Táblázatos, mert a levelezőkliensek a flexboxot nem ismerik. */
 function levelHtml(het, arak, be) {
+  const zarvaHet = csakZarva(het);
   const sorok = het.napok.map((n) => `
     <tr>
       <td style="padding:12px 0;border-bottom:1px solid #e6d4ae;">
@@ -85,7 +97,7 @@ function levelHtml(het, arak, be) {
         <div style="font-size:16px;color:#14201f;margin-top:2px;"><strong>${esc(n.foetel)}</strong></div>
       </td>
       <td style="padding:12px 0;border-bottom:1px solid #e6d4ae;text-align:right;vertical-align:top;white-space:nowrap;">
-        <span style="font-family:Georgia,serif;font-size:16px;font-weight:bold;color:#8c6f3c;">${forint(n.ar)}</span>
+        ${n.ar ? `<span style="font-family:Georgia,serif;font-size:16px;font-weight:bold;color:#8c6f3c;">${forint(n.ar)}</span>` : ""}
       </td>
     </tr>`).join("");
 
@@ -99,16 +111,16 @@ function levelHtml(het, arak, be) {
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;background-color:#ffffff;border:1px solid #ddd5b4;border-radius:12px;">
       <tr><td style="padding:28px 28px 8px 28px;text-align:center;">
         <div style="font-family:Georgia,serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#8c6f3c;">${esc(be.nev)}</div>
-        <h1 style="font-family:Georgia,serif;font-size:26px;color:#1e4245;margin:12px 0 4px 0;">Heti menü</h1>
+        <h1 style="font-family:Georgia,serif;font-size:26px;color:#1e4245;margin:12px 0 4px 0;">${zarvaHet ? "Ezen a héten zárva tartunk" : "Heti menü"}</h1>
         <div style="font-size:15px;color:#4c7f82;">${idoszak(het.kezdes)}</div>
       </td></tr>
       <tr><td style="padding:8px 28px 0 28px;">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${sorok}</table>
       </td></tr>
-      <tr><td style="padding:20px 28px;text-align:center;font-size:15px;color:#4c7f82;">
+      ${zarvaHet ? "" : `<tr><td style="padding:20px 28px;text-align:center;font-size:15px;color:#4c7f82;">
         Napi menü <strong style="color:#1e4245;">${forint(arak.napi_menu)}</strong> ·
         egész hetes befizetéssel <strong style="color:#8c6f3c;">${forint(arak.heti_befizetes)}/nap</strong>
-      </td></tr>
+      </td></tr>`}
       <tr><td style="padding:0 28px 28px 28px;text-align:center;">
         <a href="${be.url}/heti-menu/" style="display:inline-block;background-color:#f4ecd9;border:1px solid #bf9f5e;color:#1e4245;text-decoration:none;font-weight:bold;padding:12px 24px;border-radius:999px;">Teljes heti menü</a>
       </td></tr>
@@ -134,11 +146,25 @@ const be = JSON.parse(fs.readFileSync(BEALLITAS_UT, "utf8"));
 
 const hetek = (menu.hetek || [])
   .filter((h) => datumbol(h.kezdes) && (h.napok || []).length)
-  .sort((a, b) => datumbol(b.kezdes) - datumbol(a.kezdes));
+  .sort((a, b) => datumbol(a.kezdes) - datumbol(b.kezdes));
 
 if (!hetek.length) kilep("Nincs kiküldhető hét a menüben – nem küldök levelet.");
 
-const het = hetek[0]; // a legfrissebben felvett hét
+// A MAI hét megy ki, nem a legutóbb felvett: ha több hetet visznek fel előre,
+// a mostani levél attól még a mostani hétről szóljon. Ha ma egyik hétbe sem
+// esik bele (hétvége, és a jövő hét már fent van), a legközelebbi jövőbeli.
+const ma = new Date();
+ma.setHours(0, 0, 0, 0);
+const hetVege = (h) => {
+  const v = datumbol(h.kezdes);
+  v.setDate(v.getDate() + 6);
+  return v;
+};
+const het =
+  hetek.find((h) => ma >= datumbol(h.kezdes) && ma <= hetVege(h)) ||
+  hetek.find((h) => datumbol(h.kezdes) > ma);
+
+if (!het) kilep("A menüben nincs aktuális vagy közelgő hét – nem küldök levelet.");
 if (het.napok.some((n) => !n.foetel)) {
   kilep(`A(z) ${het.kezdes} hét hiányos (van főétel nélküli nap) – nem küldök levelet.`);
 }
@@ -151,7 +177,7 @@ if (allapot.utolso_kikuldott_het === het.kezdes) {
 }
 
 const html = levelHtml(het, menu.arak, be);
-const targy = `Heti menü – ${idoszak(het.kezdes)}`;
+const targy = targyaHetnek(het);
 console.log(`Hét: ${het.kezdes} | tárgy: ${targy} | levél: ${html.length} bájt`);
 
 if (proba) kilep("PRÓBA mód – a levél NEM megy ki.");

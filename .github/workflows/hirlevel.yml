@@ -9,6 +9,10 @@ on:
     branches: [main]
     paths:
       - "src/_data/menu.json"
+  # Hétfő reggel akkor is fut, ha a hetet előre felvitték és azóta nem volt
+  # push a menüre — enélkül az előre felvitt hetekről soha nem menne levél.
+  schedule:
+    - cron: "12 5 * * 1" # hétfő 05:12 UTC (nyáron 07:12, télen 06:12 magyar idő)
   workflow_dispatch:
     inputs:
       proba:
