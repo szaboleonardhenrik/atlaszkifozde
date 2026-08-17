@@ -8,51 +8,170 @@
     {
       "kezdes": "2026-08-31",
       "napok": [
-        { "nap": "Hétfő", "leves": "Tárkonyos raguleves", "foetel": "Túróstészta", "ar": 2290 },
-        { "nap": "Kedd", "leves": "Zellerkrémleves", "foetel": "Csirkepaprikás, galuska", "ar": 2290 },
-        { "nap": "Szerda", "leves": "Hideg gyümölcsleves", "foetel": "Milánói spagetti", "ar": 2290 },
-        { "nap": "Csütörtök", "leves": "Burgonyaleves", "foetel": "Tejszínes-zöldséges csirkemell, rizs", "ar": 2290 },
-        { "nap": "Péntek", "leves": "Frankfurti leves", "foetel": "Lencsefőzelék, sült kolbász", "ar": 2290 }
+        {
+          "nap": "Hétfő",
+          "leves": "Tárkonyos raguleves",
+          "foetel": "Túróstészta",
+          "ar": 2290
+        },
+        {
+          "nap": "Kedd",
+          "leves": "Zellerkrémleves",
+          "foetel": "Csirkepaprikás, galuska",
+          "ar": 2290
+        },
+        {
+          "nap": "Szerda",
+          "leves": "Hideg gyümölcsleves",
+          "foetel": "Milánói spagetti",
+          "ar": 2290
+        },
+        {
+          "nap": "Csütörtök",
+          "leves": "Burgonyaleves",
+          "foetel": "Tejszínes-zöldséges csirkemell, rizs",
+          "ar": 2290
+        },
+        {
+          "nap": "Péntek",
+          "leves": "Frankfurti leves",
+          "foetel": "Lencsefőzelék, sült kolbász",
+          "ar": 2290
+        }
       ]
     },
     {
       "kezdes": "2026-08-24",
       "napok": [
-        { "nap": "Hétfő", "foetel": "Zárva" },
-        { "nap": "Kedd", "foetel": "Zárva" },
-        { "nap": "Szerda", "foetel": "Zárva" },
-        { "nap": "Csütörtök", "foetel": "Zárva" },
-        { "nap": "Péntek", "foetel": "Zárva" }
+        {
+          "nap": "Hétfő",
+          "leves": "",
+          "foetel": "Zárva",
+          "ar": null
+        },
+        {
+          "nap": "Kedd",
+          "leves": "",
+          "foetel": "Zárva",
+          "ar": null
+        },
+        {
+          "nap": "Szerda",
+          "leves": "",
+          "foetel": "Zárva",
+          "ar": null
+        },
+        {
+          "nap": "Csütörtök",
+          "leves": "",
+          "foetel": "Zárva",
+          "ar": null
+        },
+        {
+          "nap": "Péntek",
+          "foetel": "Zárva"
+        }
       ]
     },
     {
       "kezdes": "2026-08-17",
       "napok": [
-        { "nap": "Hétfő", "leves": "Húsgombócos csorba", "foetel": "Gránátos kocka", "ar": 2290 },
-        { "nap": "Kedd", "leves": "Karfiolleves", "foetel": "Stroganoff csirkemell, rizs", "ar": 2290 },
-        { "nap": "Szerda", "leves": "Zöldségleves", "foetel": "Bolognai spagetti", "ar": 2290 },
-        { "nap": "Csütörtök", "foetel": "Zárva" },
-        { "nap": "Péntek", "foetel": "Zárva" }
+        {
+          "nap": "Hétfő",
+          "leves": "Húsgombócos csorba",
+          "foetel": "Gránátos kocka",
+          "ar": 2290
+        },
+        {
+          "nap": "Kedd",
+          "leves": "Karfiolleves",
+          "foetel": "Stroganoff csirkemell, rizs",
+          "ar": 2290
+        },
+        {
+          "nap": "Szerda",
+          "leves": "Zöldségleves",
+          "foetel": "Bolognai spagetti",
+          "ar": 2290
+        },
+        {
+          "nap": "Csütörtök",
+          "foetel": "Zárva"
+        },
+        {
+          "nap": "Péntek",
+          "foetel": "Zárva"
+        }
       ]
     },
     {
       "kezdes": "2026-08-10",
       "napok": [
-        { "nap": "Hétfő", "leves": "Gulyásleves", "foetel": "Túrógombóc", "ar": 2290 },
-        { "nap": "Kedd", "leves": "Zöldborsóleves", "foetel": "Csirkemell sajtmártással, rizs", "ar": 2290 },
-        { "nap": "Szerda", "leves": "Hideg gyümölcsleves", "foetel": "Pásztortarhonya", "ar": 2290 },
-        { "nap": "Csütörtök", "leves": "Korhelyleves", "foetel": "Rakott zöldbab", "ar": 2290 },
-        { "nap": "Péntek", "leves": "Marhahúsleves", "foetel": "Burgonyafőzelék, fasírt", "ar": 2290 }
+        {
+          "nap": "Hétfő",
+          "leves": "Gulyásleves",
+          "foetel": "Túrógombóc",
+          "ar": 2290
+        },
+        {
+          "nap": "Kedd",
+          "leves": "Zöldborsóleves",
+          "foetel": "Csirkemell sajtmártással, rizs",
+          "ar": 2290
+        },
+        {
+          "nap": "Szerda",
+          "leves": "Hideg gyümölcsleves",
+          "foetel": "Pásztortarhonya",
+          "ar": 2290
+        },
+        {
+          "nap": "Csütörtök",
+          "leves": "Korhelyleves",
+          "foetel": "Rakott zöldbab",
+          "ar": 2290
+        },
+        {
+          "nap": "Péntek",
+          "leves": "Marhahúsleves",
+          "foetel": "Burgonyafőzelék, fasírt",
+          "ar": 2290
+        }
       ]
     },
     {
       "kezdes": "2026-08-03",
       "napok": [
-        { "nap": "Hétfő", "leves": "Tárkonyos raguleves", "foetel": "Grízestészta", "ar": 2290 },
-        { "nap": "Kedd", "leves": "Zöldbableves", "foetel": "Mexikói csirkecomb, rizs, polenta", "ar": 2290 },
-        { "nap": "Szerda", "leves": "Zöldségleves", "foetel": "Paradicsomos húsgombóc, petrezselymes burgonya", "ar": 2290 },
-        { "nap": "Csütörtök", "leves": "Sárgaborsó krémleves", "foetel": "Csirkemell Budapest módra, rizs", "ar": 2290 },
-        { "nap": "Péntek", "leves": "Gombaleves", "foetel": "Sertéspaprikás, galuska", "ar": 2290 }
+        {
+          "nap": "Hétfő",
+          "leves": "Tárkonyos raguleves",
+          "foetel": "Grízestészta",
+          "ar": 2290
+        },
+        {
+          "nap": "Kedd",
+          "leves": "Zöldbableves",
+          "foetel": "Mexikói csirkecomb, rizs, polenta",
+          "ar": 2290
+        },
+        {
+          "nap": "Szerda",
+          "leves": "Zöldségleves",
+          "foetel": "Paradicsomos húsgombóc, petrezselymes burgonya",
+          "ar": 2290
+        },
+        {
+          "nap": "Csütörtök",
+          "leves": "Sárgaborsó krémleves",
+          "foetel": "Csirkemell Budapest módra, rizs",
+          "ar": 2290
+        },
+        {
+          "nap": "Péntek",
+          "leves": "Gombaleves",
+          "foetel": "Sertéspaprikás, galuska",
+          "ar": 2290
+        }
       ]
     }
   ]
