@@ -17,9 +17,11 @@
           <span class="text-sm text-petrol-900/50">{{ het.kezdes | napDatuma(loop.index0) }}</span>
           {% if mai %}<span class="cimke ml-auto sm:ml-0">Ma</span>{% endif %}
         </div>
+        {# Zárva nap = nincs ár (lásd menu.json); ilyenkor halványabb a szöveg,
+           hogy ránézésre elváljon a fogásoktól. #}
         <div class="min-w-0 flex-1">
           {% if nap.leves %}<p class="text-petrol-900/70">{{ nap.leves }}</p>{% endif %}
-          <p class="font-semibold text-petrol-900">{{ nap.foetel }}</p>
+          <p class="font-semibold {% if nap.ar %}text-petrol-900{% else %}text-petrol-900/50{% endif %}">{{ nap.foetel }}</p>
         </div>
         {% if nap.ar %}
           <div class="shrink-0 font-display text-lg font-bold text-paradicsom-600">{{ nap.ar | forint }}</div>

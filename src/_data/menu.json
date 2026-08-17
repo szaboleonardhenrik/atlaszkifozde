@@ -2,9 +2,39 @@
   "arak": {
     "napi_menu": 2290,
     "heti_befizetes": 2100,
-    "megjegyzes": "Az árak forintban értendők, elvitelre és helyben fogyasztásra egyaránt."
+    "megjegyzes": "Az árak forintban értendők, elvitelre és helyben fogyasztásra egyaránt. Elvitelnél a doboz ára 100 Ft/db."
   },
   "hetek": [
+    {
+      "kezdes": "2026-08-31",
+      "napok": [
+        { "nap": "Hétfő", "leves": "Tárkonyos raguleves", "foetel": "Túróstészta", "ar": 2290 },
+        { "nap": "Kedd", "leves": "Zellerkrémleves", "foetel": "Csirkepaprikás, galuska", "ar": 2290 },
+        { "nap": "Szerda", "leves": "Hideg gyümölcsleves", "foetel": "Milánói spagetti", "ar": 2290 },
+        { "nap": "Csütörtök", "leves": "Burgonyaleves", "foetel": "Tejszínes-zöldséges csirkemell, rizs", "ar": 2290 },
+        { "nap": "Péntek", "leves": "Frankfurti leves", "foetel": "Lencsefőzelék, sült kolbász", "ar": 2290 }
+      ]
+    },
+    {
+      "kezdes": "2026-08-24",
+      "napok": [
+        { "nap": "Hétfő", "foetel": "Zárva" },
+        { "nap": "Kedd", "foetel": "Zárva" },
+        { "nap": "Szerda", "foetel": "Zárva" },
+        { "nap": "Csütörtök", "foetel": "Zárva" },
+        { "nap": "Péntek", "foetel": "Zárva" }
+      ]
+    },
+    {
+      "kezdes": "2026-08-17",
+      "napok": [
+        { "nap": "Hétfő", "leves": "Húsgombócos csorba", "foetel": "Gránátos kocka", "ar": 2290 },
+        { "nap": "Kedd", "leves": "Karfiolleves", "foetel": "Stroganoff csirkemell, rizs", "ar": 2290 },
+        { "nap": "Szerda", "leves": "Zöldségleves", "foetel": "Bolognai spagetti", "ar": 2290 },
+        { "nap": "Csütörtök", "foetel": "Zárva" },
+        { "nap": "Péntek", "foetel": "Zárva" }
+      ]
+    },
     {
       "kezdes": "2026-08-10",
       "napok": [

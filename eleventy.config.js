@@ -160,6 +160,14 @@ export default function (eleventyConfig) {
     return (sz >= 10000 ? sz.toLocaleString("hu-HU") : String(sz)) + " Ft";
   });
 
+  /** "https://www.facebook.com/Atlaszkifozde/" -> "facebook.com/Atlaszkifozde" */
+  eleventyConfig.addFilter("olvashatoCim", (url) =>
+    String(url || "")
+      .replace(/^https?:\/\//i, "")
+      .replace(/^www\./i, "")
+      .replace(/\/+$/, ""),
+  );
+
   /** ISO dátum a <time datetime="…">-hoz */
   eleventyConfig.addFilter("isoDatum", (ertek) => {
     const d = datumbol(ertek);
@@ -248,6 +256,11 @@ export default function (eleventyConfig) {
     });
     return megElo.length ? megElo : lista.slice(-1);
   });
+
+  /** Csak azok a hetek, ahol van nyitva tartó nap (van ár) – a keresőnek szóló étlaphoz. */
+  eleventyConfig.addFilter("nyitottHetek", (hetek) =>
+    (hetek || []).filter((h) => (h.napok || []).some((n) => n.ar)),
+  );
 
   /** A hét adott napjához tartozó dátum (0 = hétfő). */
   eleventyConfig.addFilter("napDatuma", (kezdes, eltolas) => {

@@ -26,7 +26,15 @@ borito: pult.webp
   {% for h in lathatoHetek %}
     <div class="{% if not loop.first %}mt-8{% endif %}">
       {% set het = h %}
-      {% set cimke = "E heti menü" if h.kezdes == aktualis.kezdes else "Következő hét" %}
+      {# Kettőnél több hét is fent lehet (pl. egy közbeeső zárva hét miatt),
+         ilyenkor a harmadiktól „Későbbi hét” – a pontos dátum a kártya fejlécében van. #}
+      {% if h.kezdes == aktualis.kezdes %}
+        {% set cimke = "E heti menü" %}
+      {% elif loop.index0 == 1 %}
+        {% set cimke = "Következő hét" %}
+      {% else %}
+        {% set cimke = "Későbbi hét" %}
+      {% endif %}
       {% include "reszek/hetkartya.njk" %}
     </div>
   {% else %}
@@ -114,7 +122,9 @@ borito: pult.webp
 
 {# A heti menü étlapként a keresőknek. Egy tétel = egy nap teljes menüje
    (leves + főétel), mert az az ár, amit a vendég fizet — a leves külön nem
-   kapható, így külön MenuItem-ként félrevezető ár kerülne rá. #}
+   kapható, így külön MenuItem-ként félrevezető ár kerülne rá.
+   A zárva napok (nincs `ar` a menu.json-ben) kimaradnak: „Zárva” néven,
+   2290 Ft-os ajánlattal félrevezető étel-tétel kerülne a keresőbe. #}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -123,12 +133,12 @@ borito: pult.webp
   "url": "{{ '/heti-menu/' | abszolutUrl(beallitasok.url) }}",
   "inLanguage": "hu-HU",
   "hasMenuSection": [
-    {%- for h in lathatoHetek %}
+    {%- for h in lathatoHetek | nyitottHetek %}
     {
       "@type": "MenuSection",
       "name": {{ (h.kezdes | hetIdoszak) | dump | safe }},
       "hasMenuItem": [
-        {%- for n in h.napok %}
+        {%- for n in h.napok | selectattr("ar") %}
         {
           "@type": "MenuItem",
           "name": {{ (n.nap + ": " + n.foetel) | dump | safe }},

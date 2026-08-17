@@ -61,8 +61,17 @@ collections:
                     widget: select
                     options: ['Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat', 'Vasárnap']
                   - { name: leves, label: Leves, widget: string, required: false }
-                  - { name: foetel, label: Főétel, widget: string }
-                  - { name: ar, label: Ár (Ft), widget: number, value_type: int, min: 0, default: 2290 }
+                  - { name: foetel, label: Főétel, widget: string, hint: 'Zárva tartó napon írd ide: Zárva – és hagyd üresen a levest meg az árat.' }
+                  - name: ar
+                    label: Ár (Ft)
+                    widget: number
+                    value_type: int
+                    min: 0
+                    default: 2290
+                    required: false
+                    hint: >-
+                      Ha üresen hagyod, nem jelenik meg ár annál a napnál (zárva
+                      tartó napokhoz kell így).
 
   # ------------------------------------------------------------------ blog ---
   - name: blog
