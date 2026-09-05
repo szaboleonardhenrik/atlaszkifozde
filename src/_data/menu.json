@@ -6,6 +6,76 @@
   },
   "hetek": [
     {
+      "kezdes": "2026-09-14",
+      "napok": [
+        {
+          "nap": "Hétfő",
+          "leves": "Palócleves",
+          "foetel": "Túrógombóc",
+          "ar": 2290
+        },
+        {
+          "nap": "Kedd",
+          "leves": "Paradicsomleves",
+          "foetel": "Bakonyi csirkemell, galuska",
+          "ar": 2290
+        },
+        {
+          "nap": "Szerda",
+          "leves": "Zellerkrémleves",
+          "foetel": "Hentestokány, tarhonya",
+          "ar": 2290
+        },
+        {
+          "nap": "Csütörtök",
+          "leves": "Zöldségleves",
+          "foetel": "Rakott kel",
+          "ar": 2290
+        },
+        {
+          "nap": "Péntek",
+          "leves": "Orjaleves",
+          "foetel": "Zöldborsófőzelék, fasírt",
+          "ar": 2290
+        }
+      ]
+    },
+    {
+      "kezdes": "2026-09-07",
+      "napok": [
+        {
+          "nap": "Hétfő",
+          "leves": "Jókai bableves",
+          "foetel": "Mákostészta",
+          "ar": 2290
+        },
+        {
+          "nap": "Kedd",
+          "leves": "Hagymaleves",
+          "foetel": "Sült csirkecomb, rizi-bizi",
+          "ar": 2290
+        },
+        {
+          "nap": "Szerda",
+          "leves": "Hideg gyümölcsleves",
+          "foetel": "Rakott bolognai",
+          "ar": 2290
+        },
+        {
+          "nap": "Csütörtök",
+          "leves": "Brokkoli krémleves",
+          "foetel": "Indiai csirkecurry",
+          "ar": 2290
+        },
+        {
+          "nap": "Péntek",
+          "leves": "Tyúkhúsleves, cérnametélt",
+          "foetel": "Pincepörkölt, petrezselymes burgonya",
+          "ar": 2290
+        }
+      ]
+    },
+    {
       "kezdes": "2026-08-31",
       "napok": [
         {

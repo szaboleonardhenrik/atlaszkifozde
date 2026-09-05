@@ -75,6 +75,10 @@
         <a class="hover:text-bronz-300" href="/adatkezeles/">Adatkezelés</a>
       </p>
     {% endif %}
-    <p>Térkép: OpenStreetMap közreműködők</p>
+    <p class="flex flex-wrap gap-4">
+      <span>Térkép: OpenStreetMap közreműködők</span>
+      {# A tulajdonos belépője a szerkesztőbe (/belepes/ → /admin/). Szándékosan halvány: vendégnek nem szól. #}
+      <a class="hover:text-bronz-300" href="/belepes/" rel="nofollow">Belépés</a>
+    </p>
   </div>
 </footer>

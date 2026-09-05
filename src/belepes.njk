@@ -1,0 +1,77 @@
+---
+layout: base.njk
+permalink: /belepes/
+cim: Belépés a szerkesztőbe
+noindex: true
+eleventyExcludeFromCollections: true
+---
+
+{#
+  Belépő oldal a tulajdonosnak: innen nyílik a /admin/ (Sveltia CMS), ahol a
+  heti menü, a blog, a galéria és a beállítások szerkeszthetők. A CMS maga
+  angol és GitHub-tokent kér — ez az oldal magyarul végigvezet rajta.
+  A token a böngészőben marad (localStorage), ezért csak egyszer kell megadni.
+#}
+{% set tokenUrl = "https://github.com/settings/personal-access-tokens/new?name=Atlasz+men%C3%BC-szerkeszt%C5%91&description=atlaszkifozde.hu+%2Fadmin%2F+bel%C3%A9p%C3%A9s&target_name=szaboleonardhenrik&repositories=atlaszkifozde&contents=write&expires_in=365" %}
+
+<section class="szakasz py-16 md:py-24">
+  <div class="mx-auto max-w-2xl">
+    <div class="rounded-3xl border border-pergamen-300 bg-pergamen-100 p-8 md:p-12">
+      <p class="cimke">Csak a kifőzde munkatársainak</p>
+      <h1 class="cim-disz mt-4 font-display text-3xl font-bold sm:text-4xl">Étlap szerkesztése</h1>
+      <p class="mt-5 text-lg text-petrol-900/75">
+        A szerkesztőben a heti menü, a blog, a galéria és az elérhetőségek
+        módosíthatók. Mentés után 1–2 perccel a honlap magától frissül.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a class="gomb gomb-elsodleges" href="/admin/">Tovább a szerkesztőbe</a>
+      </div>
+
+      <h2 class="mt-12 font-display text-xl font-bold text-petrol-800">Első belépés – csak egyszer kell</h2>
+      <p class="mt-2 text-petrol-900/75">
+        A szerkesztő a GitHub-fiókkal működik, és egy belépőkulcsot kér. A
+        böngésző megjegyzi, ezért ugyanazon a gépen legközelebb már kérdés
+        nélkül beenged.
+      </p>
+      <ol class="mt-5 space-y-4 text-petrol-900/85">
+        <li class="flex gap-4">
+          <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-petrol-700 font-bold text-bronz-300">1</span>
+          <div>
+            <a class="font-semibold text-paradicsom-600 underline decoration-bronz-400 underline-offset-4 hover:text-paradicsom-700" href="{{ tokenUrl }}" target="_blank" rel="noopener">Belépőkulcs készítése a GitHubon</a>
+            <span class="text-petrol-900/60">(új lapon nyílik)</span>.
+            Ha a mezők nem töltődnek ki maguktól: <em>Only select repositories</em> →
+            <strong>atlaszkifozde</strong>; <em>Repository permissions</em> →
+            <strong>Contents: Read and write</strong>. Lejárat: 1 év. Alul a
+            <em>Generate token</em> gomb, majd a kulcsot másolja ki.
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-petrol-700 font-bold text-bronz-300">2</span>
+          <div>
+            Itt kattintson a <strong>Tovább a szerkesztőbe</strong> gombra. A
+            megjelenő angol oldalon <strong>ne</strong> a nagy „Sign in with
+            GitHub” gombot válassza, hanem alatta az apró
+            <strong>„Sign In Using Access Token”</strong> feliratot, és illessze be a
+            kulcsot.
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-petrol-700 font-bold text-bronz-300">3</span>
+          <div>
+            Bent a bal oldali <strong>Heti menü</strong> menüpont → <strong>Hetek</strong>
+            → <em>Add hét</em>. A hét hétfői dátumát adja meg, majd az öt napot
+            (leves, főétel, ár). Zárva tartó napnál a főételhez írja: <em>Zárva</em>,
+            a levest és az árat hagyja üresen. Jobb felül <strong>Save</strong>.
+          </div>
+        </li>
+      </ol>
+
+      <p class="mt-8 text-sm text-petrol-900/60">
+        A honlap mindig azt a hetet emeli ki, amelyikbe a mai nap esik; a
+        jövő heti menüt nyugodtan fel lehet vinni előre. Hétfő reggel a heti
+        menü magától kimegy a hírlevél-feliratkozóknak.
+      </p>
+    </div>
+  </div>
+</section>
