@@ -6,6 +6,74 @@
   },
   "hetek": [
     {
+      "kezdes": "2026-10-26",
+      "napok": [
+        {
+          "nap": "Hétfő",
+          "leves": "Gulyásleves",
+          "foetel": "Túrógombóc",
+          "ar": 2290
+        },
+        {
+          "nap": "Kedd",
+          "leves": "Zöldborsóleves",
+          "foetel": "Csirkemell sajtmártással",
+          "ar": 2290
+        },
+        {
+          "nap": "Szerda",
+          "leves": "Sütőtökkrémleves",
+          "foetel": "Pásztortarhonya",
+          "ar": 2290
+        },
+        {
+          "nap": "Csütörtök",
+          "leves": "Korhelyleves",
+          "foetel": "Rakott zöldbab",
+          "ar": 2290
+        },
+        {
+          "nap": "Péntek",
+          "leves": "Marhahúsleves",
+          "foetel": "Burgonyafőzelék, vagdalt",
+          "ar": 2290
+        }
+      ]
+    },
+    {
+      "kezdes": "2026-10-19",
+      "napok": [
+        {
+          "nap": "Hétfő",
+          "leves": "Tárkonyos raguleves",
+          "foetel": "Grízes tészta",
+          "ar": 2290
+        },
+        {
+          "nap": "Kedd",
+          "leves": "Zöldbableves",
+          "foetel": "Mexikói csirkecomb, rizs",
+          "ar": 2290
+        },
+        {
+          "nap": "Szerda",
+          "leves": "Zöldségleves",
+          "foetel": "Paradicsomos húsgombóc",
+          "ar": 2290
+        },
+        {
+          "nap": "Csütörtök",
+          "leves": "Gombaleves",
+          "foetel": "Sertéspaprikás, galuska",
+          "ar": 2290
+        },
+        {
+          "nap": "Péntek",
+          "foetel": "Zárva"
+        }
+      ]
+    },
+    {
       "kezdes": "2026-10-12",
       "napok": [
         {
