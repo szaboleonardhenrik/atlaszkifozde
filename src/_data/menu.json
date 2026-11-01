@@ -6,6 +6,74 @@
   },
   "hetek": [
     {
+      "kezdes": "2026-11-09",
+      "napok": [
+        {
+          "nap": "Hétfő",
+          "foetel": "Zárva"
+        },
+        {
+          "nap": "Kedd",
+          "leves": "Tárkonyos raguleves",
+          "foetel": "Túróstészta",
+          "ar": 2290
+        },
+        {
+          "nap": "Szerda",
+          "leves": "Zellerkrémleves",
+          "foetel": "Csirkepaprikás, galuska",
+          "ar": 2290
+        },
+        {
+          "nap": "Csütörtök",
+          "leves": "Burgonyaleves",
+          "foetel": "Tejszínes-zöldséges csirkemell",
+          "ar": 2290
+        },
+        {
+          "nap": "Péntek",
+          "leves": "Frankfurti leves",
+          "foetel": "Lencsefőzelék, sült kolbász",
+          "ar": 2290
+        }
+      ]
+    },
+    {
+      "kezdes": "2026-11-02",
+      "napok": [
+        {
+          "nap": "Hétfő",
+          "leves": "Húsgombócos csorba",
+          "foetel": "Gránátos kocka",
+          "ar": 2290
+        },
+        {
+          "nap": "Kedd",
+          "leves": "Karfiolleves",
+          "foetel": "Stroganoff csirkemell, rizs",
+          "ar": 2290
+        },
+        {
+          "nap": "Szerda",
+          "leves": "Zöldségleves",
+          "foetel": "Húsgombóc kapormártással",
+          "ar": 2290
+        },
+        {
+          "nap": "Csütörtök",
+          "leves": "Lencseleves",
+          "foetel": "Bolognai spagetti",
+          "ar": 2290
+        },
+        {
+          "nap": "Péntek",
+          "leves": "Orjaleves",
+          "foetel": "Zöldbabfőzelék, fasírt",
+          "ar": 2290
+        }
+      ]
+    },
+    {
       "kezdes": "2026-10-26",
       "napok": [
         {
